@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { Mail, Calendar, Clock } from "lucide-react";
+import LogoMark from "@/components/LogoMark";
 
 export default function Footer() {
   return (
@@ -12,17 +13,14 @@ export default function Footer() {
           
           {/* Brand & Mission */}
           <div className="space-y-4 col-span-1 md:col-span-1">
-            <span className="font-bold text-lg tracking-wider bg-gradient-to-r from-white via-slate-200 to-cyan-400 bg-clip-text text-transparent">
-              AMMAYU.W
-            </span>
+            <LogoMark compact />
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-cyan-300">ConnectForge Technologies Ltd</p>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Helping in modernize technology through automation and excellence.
+              Secure networks, modern digital products, and practical automation built for growing organisations.
             </p>
             <div className="flex space-x-4 pt-2">
               <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/contact"
                 className="text-slate-400 hover:text-cyan-400 transition-colors"
                 aria-label="GitHub"
               >
@@ -41,9 +39,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/contact"
                 className="text-slate-400 hover:text-cyan-400 transition-colors"
                 aria-label="LinkedIn"
               >
@@ -63,7 +59,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="mailto:contact@ammayu.com"
+                href="/contact"
                 className="text-slate-400 hover:text-cyan-400 transition-colors"
                 aria-label="Email"
               >
@@ -78,22 +74,22 @@ export default function Footer() {
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
                 <Link href="/services" className="hover:text-cyan-400 transition-colors">
-                  Infrastructure Engineering
+                  Network Engineering
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="hover:text-cyan-400 transition-colors">
-                  DevOps & Automation
+                  Web Development
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="hover:text-cyan-400 transition-colors">
-                  Cloud Solutions
+                  Automation Consulting
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="hover:text-cyan-400 transition-colors">
-                  Power Platform Solutions
+                  App Development
                 </Link>
               </li>
             </ul>
@@ -113,7 +109,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-cyan-400" />
-                <span>contact@ammayu.com</span>
+                <span>Use our secure contact form</span>
               </div>
             </div>
           </div>
@@ -143,7 +139,7 @@ export default function Footer() {
         </div>
         
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500">
-          <p>&copy; {new Date().getFullYear()} Ammayu Waktole Consulting. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} ConnectForge Technologies Ltd. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/contact" className="hover:text-slate-300">Privacy Policy</Link>
             <Link href="/contact" className="hover:text-slate-300">Terms of Service</Link>

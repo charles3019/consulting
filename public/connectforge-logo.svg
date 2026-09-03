@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title id="title">ConnectForge IT Services</title>
+  <desc id="desc">ConnectForge CF logo with a network cable mark</desc>
+  <rect width="640" height="640" fill="#fff"/>
+  <g fill="none" stroke="#092452" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="15" d="M203 275c-28-15-45-45-45-79 0-49 40-89 89-89 27 0 51 12 67 31"/>
+    <path stroke-width="15" d="M196 292c-33-13-57-45-57-83 0-49 40-89 89-89 29 0 55 14 71 36"/>
+    <path stroke-width="15" d="M190 306c-39-12-67-49-67-92 0-52 42-94 94-94 33 0 62 17 79 42"/>
+    <path stroke-width="15" d="M201 302c31 13 63 10 91-6l53-30"/>
+    <path stroke-width="15" d="M356 174h102l-14 25h-88v49h67l-14 25h-53v62"/>
+    <circle cx="347" cy="240" r="23" fill="#fff" stroke-width="10"/>
+    <path stroke-width="8" d="M327 255l-30 49M338 260l-24 51M350 262l-17 48M361 258l-11 43"/>
+    <path stroke-width="5" d="M286 293l-36 21 25 13 39-17 22-31M250 314l-34 17 28 12 34-15M216 331l-29 12 26 10 29-10"/>
+    <path stroke-width="7" d="M298 272l-21-17-24 15 22 18M277 255l-7-20 26-13 8 22M296 222l18 10-2 24"/>
+    <path stroke-width="5" d="M278 254l25-18M270 235l24 14M290 223l15 11"/>
+    <g fill="#092452" stroke="none">
+      <circle cx="286" cy="293" r="5"/><circle cx="250" cy="314" r="5"/><circle cx="216" cy="331" r="5"/><circle cx="187" cy="343" r="5"/>
+      <circle cx="316" cy="304" r="5"/><circle cx="333" cy="287" r="5"/><circle cx="350" cy="270" r="5"/>
+    </g>
+  </g>
+  <text x="320" y="421" fill="#092452" font-family="Arial, Helvetica, sans-serif" font-size="61" font-weight="800" letter-spacing="1" text-anchor="middle">CONNECTFORGE</text>
+  <g fill="#092452">
+    <circle cx="74" cy="474" r="5"/><circle cx="566" cy="474" r="5"/>
+    <rect x="79" y="472" width="115" height="4" rx="2"/><rect x="446" y="472" width="115" height="4" rx="2"/>
+  </g>
+  <text x="320" y="484" fill="#6f737a" font-family="Arial, Helvetica, sans-serif" font-size="25" letter-spacing="7" text-anchor="middle">IT SERVICES</text>
+</svg>

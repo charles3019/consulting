@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import page_content_json from "../data/db_fallback.json";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -17,11 +16,14 @@ import {
   Globe,
   Database,
   BarChart,
-  Download,
-  Calendar
+  Calendar,
+  MessageCircle,
+  Sparkles,
+  Share2
 } from "lucide-react";
 import InteractiveNetwork from "@/components/InteractiveNetwork";
 import InsideMyLab from "@/components/InsideMyLab";
+import LogoMark from "@/components/LogoMark";
 
 
 
@@ -42,7 +44,7 @@ export default function Home() {
     <div className="relative w-full overflow-hidden">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[calc(100vh-4rem)] flex items-center py-12 md:py-20 border-b border-white/5 bg-gradient-to-b from-slate-950 via-slate-900 to-brand-bg">
+      <section className="relative min-h-[calc(100vh-4rem)] flex items-center py-16 md:py-24 border-b border-white/5 bg-[radial-gradient(circle_at_top_left,rgba(6,182,212,0.12),transparent_35%),radial-gradient(circle_at_80%_20%,rgba(168,85,247,0.10),transparent_30%),linear-gradient(to_bottom,#020617,#0f172a,#030712)]">
         {/* Animated Network canvas */}
         <InteractiveNetwork />
 
@@ -52,29 +54,17 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Hero Left: Caricature and Name info */}
+          {/* Hero Left: Company and founder information */}
           <div className="lg:col-span-7 text-left space-y-6">
             
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
-              {/* Caricature Image with animated pulse borders */}
-              <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-2 border-cyan-500/30 p-1 bg-slate-900 shrink-0 shadow-[0_0_30px_rgba(6,182,212,0.2)]">
-                <div className="w-full h-full rounded-full overflow-hidden relative">
-                  <Image
-                    src="/ammayu_avatar.png"
-                    alt="Ammayu Waktole avatar"
-                    fill
-                    sizes="(max-w-720px) 128px, 160px"
-                    priority
-                    className="object-cover"
-                  />
-                </div>
-              </div>
+              <LogoMark />
 
               <div className="text-center sm:text-left space-y-2">
                 <span className="px-3 py-1 text-xs font-mono font-semibold tracking-wider text-cyan-400 bg-cyan-950/40 border border-cyan-500/20 rounded-full">
                   {page_content_json.page_content_home.home.tagline}
                 </span>
-                <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                <h1 className="text-4xl sm:text-6xl font-extrabold tracking-[-0.04em] text-white leading-[1.03] text-balance">
                   {page_content_json.page_content_home.home.hero_title}
                 </h1>
                 <p className="text-sm sm:text-base text-slate-400 font-mono font-semibold">
@@ -94,7 +84,7 @@ export default function Home() {
                 href="/portfolio"
                 className="px-6 py-3 rounded-lg bg-cyan-500 text-black font-bold text-sm text-center tracking-wider hover:bg-cyan-400 transition-all shadow-[0_0_20px_rgba(6,182,212,0.25)] flex items-center justify-center space-x-2"
               >
-                <span>View Portfolio</span>
+                <span>Explore Our Work</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
@@ -105,11 +95,11 @@ export default function Home() {
                 <span>Book Consultation</span>
               </Link>
               <a
-                href="/resources"
+                href="#social"
                 className="px-6 py-3 rounded-lg border border-slate-700 bg-slate-900/60 hover:border-emerald-500/50 hover:bg-emerald-950/20 text-white font-semibold text-sm text-center tracking-wider transition-all flex items-center justify-center space-x-2"
               >
-                <Download className="w-4 h-4 text-emerald-400" />
-                <span>Download CV</span>
+                <Share2 className="w-4 h-4 text-emerald-400" />
+                <span>Follow Our Journey</span>
               </a>
             </div>
 
@@ -117,13 +107,13 @@ export default function Home() {
 
           {/* Hero Right: Rotating Tech/Role Card */}
           <div className="lg:col-span-5 flex justify-center items-center">
-            <div className="w-full max-w-sm glass-panel p-6 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden">
+            <div className="w-full max-w-sm glass-panel p-7 rounded-3xl border border-white/10 shadow-[0_30px_100px_rgba(6,182,212,0.15)] relative overflow-hidden">
               <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-cyan-500/10 to-transparent rounded-bl-full" />
               
               <div className="flex items-center space-x-2 pb-4 border-b border-white/5 mb-6">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
                 <span className="font-mono text-xs text-slate-400 uppercase tracking-widest">
-                  Live Operations Deck
+                  What we build
                 </span>
               </div>
 
@@ -151,12 +141,67 @@ export default function Home() {
               </div>
 
               <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-slate-500">
-                <span>VER: 4.1.0-STABLE</span>
-                <span>STATUS: ONLINE</span>
+                <span>UK-BASED • GLOBAL DELIVERY</span>
+                <span>LET&apos;S CONNECT</span>
               </div>
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* SOCIAL AWARENESS & COMMUNITY */}
+      <section id="social" className="relative py-24 border-y border-white/5 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/25 via-slate-950 to-purple-950/20" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-cyan-400 uppercase">
+                <Sparkles className="w-4 h-4" /> Connect. Learn. Build.
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white text-balance">
+                Follow the ideas behind the technology.
+              </h2>
+              <p className="text-slate-300 leading-relaxed max-w-xl">
+                We share practical engineering insights, project stories, automation tips, and honest lessons from building digital systems for real organisations.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {[Globe, Share2, MessageCircle, MessageCircle].map((Icon, index) => (
+                  <Link
+                    key={index}
+                    href="/contact"
+                    aria-label="Ask for our social media profile"
+                    className="w-12 h-12 rounded-2xl border border-white/10 bg-white/5 flex items-center justify-center text-slate-300 hover:text-cyan-300 hover:border-cyan-400/50 hover:-translate-y-1 transition-all"
+                  >
+                    <Icon className="w-5 h-5" />
+                  </Link>
+                ))}
+              </div>
+              <p className="text-xs text-slate-500">Official social handles launching soon. Contact us to receive the announcement.</p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-4">
+              {[
+                ["Build in public", "Behind-the-scenes updates from networks, websites, automations, and apps."],
+                ["Practical insights", "Short, useful guidance that business owners and technical teams can apply."],
+                ["Founder stories", "The people, decisions, and lessons shaping ConnectForge Technologies."],
+                ["Community first", "Conversations, questions, and collaborations—not one-way corporate broadcasts."],
+              ].map(([title, description], index) => (
+                <motion.div
+                  key={title}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08 }}
+                  className="rounded-3xl border border-white/10 bg-slate-900/60 p-6 hover:border-cyan-500/30 transition-colors"
+                >
+                  <span className="text-xs font-mono text-cyan-400">0{index + 1}</span>
+                  <h3 className="mt-4 text-lg font-bold text-white">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-400">{description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -187,7 +232,52 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. SERVICES SNAPSHOT: 6 CARDS */}
+      {/* 3. BROCHURE-INSPIRED SERVICE MAP */}
+      <section className="relative overflow-hidden bg-[#f5f8fc] py-20 text-[#071b43]">
+        <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-[#071b43] via-sky-500 to-[#071b43]" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl">
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-sky-600">Connect. Build. Secure. Grow.</p>
+              <h2 className="text-3xl font-black tracking-tight sm:text-5xl">Reliable IT solutions for stronger businesses.</h2>
+              <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600">From the first cable to the final dashboard, we connect the systems your team depends on every day.</p>
+            </div>
+            <Link href="/services" className="inline-flex w-fit items-center gap-2 border-b-2 border-sky-500 pb-2 text-sm font-bold uppercase tracking-wider text-[#071b43] transition-colors hover:text-sky-600">
+              Explore all services <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              ["01", "Website Solutions", "Websites, e-commerce, CMS, SEO, and ongoing maintenance."],
+              ["02", "Application Development", "Custom web, mobile, API, and business application delivery."],
+              ["03", "Network Engineering", "LAN, Wi-Fi, VPN, firewall, and secure connectivity."],
+              ["04", "CCTV & Surveillance", "Site surveys, camera installation, remote viewing, and monitoring."],
+              ["05", "Network Installations", "Structured cabling, cabinets, patch panels, and office setups."],
+              ["06", "Field Engineering", "On-site installation, configuration, troubleshooting, and support."],
+            ].map(([number, title, description]) => (
+              <Link key={number} href="/services" className="group flex min-h-48 flex-col justify-between border border-[#c9d5e5] bg-white p-6 transition-all hover:-translate-y-1 hover:border-sky-500 hover:shadow-[0_18px_35px_rgba(7,27,67,0.12)]">
+                <div>
+                  <span className="font-mono text-xs font-bold text-sky-600">{number} / SERVICE</span>
+                  <h3 className="mt-7 text-xl font-black text-[#071b43] group-hover:text-sky-700">{title}</h3>
+                </div>
+                <p className="mt-4 text-sm leading-6 text-slate-600">{description}</p>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-4 grid gap-4 bg-[#071b43] p-6 text-white sm:grid-cols-3 sm:p-8">
+            {[["SECURE", "Security-first systems built to protect your business."], ["RELIABLE", "Dependable support and infrastructure you can count on."], ["CLIENT FOCUSED", "Clear advice, practical delivery, and care after launch."]].map(([title, description]) => (
+              <div key={title} className="border-l-2 border-sky-400 pl-4">
+                <p className="text-xs font-bold tracking-[0.2em] text-sky-300">{title}</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. SERVICES SNAPSHOT: 6 CARDS */}
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         
         <div className="max-w-3xl mx-auto mb-16 space-y-3">
@@ -249,7 +339,7 @@ export default function Home() {
               Business Value
             </h2>
             <p className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Why Clients Trust Me
+            Why Clients Trust Us
             </p>
             <p className="text-sm text-slate-400">
               Technical capability is only half the battle. Delivering clear business results, speed, and reliability is what counts.
@@ -282,7 +372,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. SPECIAL CREATIVE FEATURE: INSIDE MY LAB */}
+      {/* 5. SPECIAL CREATIVE FEATURE */}
       <InsideMyLab />
 
     </div>
