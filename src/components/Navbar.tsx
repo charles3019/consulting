@@ -16,6 +16,7 @@ const navItems = [
   { name: "Testimonials", path: "/testimonials" },
   { name: "Blog", path: "/blog" },
   { name: "Resources", path: "/resources" },
+  { name: "Contact", path: "/contact" },
 ];
 
 export default function Navbar() {
@@ -29,9 +30,6 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
             <LogoMark compact />
-            <span className="font-bold text-lg tracking-wider bg-gradient-to-r from-white via-slate-200 to-cyan-400 bg-clip-text text-transparent">
-              CONNECT<span className="text-cyan-400">FORGE</span>
-            </span>
           </Link>
 
           {/* Desktop Menu */}

@@ -165,7 +165,7 @@ export default function InsideMyLab() {
             Special Feature
           </h2>
           <p className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-            Inside My Lab
+            Inside Our Studio
           </p>
           <p className="mt-4 text-sm text-slate-400">
             A look behind the scenes. Click on any lab module to run system diagnostics, check configurations, and view real-world delivery details.
@@ -190,7 +190,7 @@ export default function InsideMyLab() {
             
             <div className="bg-black/60 p-4 rounded-lg font-mono text-xs text-emerald-400 min-h-64 flex flex-col justify-between space-y-2">
               <div className="space-y-1">
-                <p className="text-slate-500"># ammayu-lab-diagnostics --verbose</p>
+                <p className="text-slate-500"># connectforge-studio --capabilities</p>
                 {terminalLog.map((log, idx) => (
                   <p key={idx} className={log.includes("loading") ? "text-cyan-400" : "text-emerald-400"}>
                     <span className="text-slate-600">&gt;</span> {log}

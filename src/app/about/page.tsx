@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import {
   Award,
   ChevronRight,
+  ExternalLink,
   GitCommit,
   Milestone,
   ShieldCheck,
@@ -95,7 +96,7 @@ export default function About() {
           <div className="w-full h-full relative rounded-xl overflow-hidden bg-slate-950">
             <Image
               src="/ammayu_workstation.png"
-              alt="Ammayu sitting at tech workstation"
+              alt="ConnectForge Technologies engineering workstation"
               fill
               sizes="(max-w-720px) 100vw, 400px"
               priority
@@ -107,7 +108,7 @@ export default function About() {
         {/* Right Side: Text Narrative */}
         <div className="lg:col-span-7 space-y-6">
           <span className="text-xs font-mono font-semibold tracking-wider text-cyan-400 uppercase bg-cyan-950/40 border border-cyan-500/20 px-3 py-1 rounded-full">
-            ABOUT ME
+            ABOUT OUR COMPANY
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             {pageContent.hero_title}
@@ -143,13 +144,57 @@ export default function About() {
         </div>
       </section>
 
-      {/* 2. MISSION STATEMENT */}
+      {/* 2. OUR PEOPLE */}
+      <section className="space-y-10">
+        <div className="max-w-3xl space-y-3">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-400">The team behind the work</p>
+          <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Two specialists. One dependable partner.</h2>
+          <p className="text-sm leading-7 text-slate-400">ConnectForge brings infrastructure discipline and product thinking together, so clients get technology that works from the rack to the browser.</p>
+        </div>
+
+        <div className="grid gap-5 lg:grid-cols-2">
+          <article className="glass-panel rounded-2xl border border-cyan-500/25 p-7 shadow-[0_18px_50px_rgba(9,36,82,0.2)]">
+            <div className="flex items-start justify-between gap-5">
+              <div>
+                <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-cyan-400">Infrastructure & operations</p>
+                <h3 className="mt-3 text-2xl font-bold text-white">Ammayu Waktole</h3>
+                <p className="mt-1 text-sm text-slate-400">IT Support & Network Engineer</p>
+              </div>
+              <Award className="h-7 w-7 shrink-0 text-cyan-400" />
+            </div>
+            <p className="mt-6 text-sm leading-7 text-slate-300">Enterprise support, banking technology, payment systems, Microsoft 365, Azure, and dependable network operations for organisations that cannot afford avoidable downtime.</p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {["Network operations", "Cloud platforms", "Banking technology", "Technical support"].map((skill) => <span key={skill} className="rounded-full border border-cyan-500/20 bg-cyan-950/30 px-3 py-1 text-xs text-cyan-200">{skill}</span>)}
+            </div>
+          </article>
+
+          <article className="glass-panel rounded-2xl border border-cyan-500/25 p-7 shadow-[0_18px_50px_rgba(9,36,82,0.2)]">
+            <div className="flex items-start justify-between gap-5">
+              <div>
+                <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-cyan-400">Software & network engineering</p>
+                <h3 className="mt-3 text-2xl font-bold text-white">Charles Agyemang</h3>
+                <p className="mt-1 text-sm text-slate-400">Software Engineer & Network Engineer</p>
+              </div>
+              <GitCommit className="h-7 w-7 shrink-0 text-cyan-400" />
+            </div>
+            <p className="mt-6 text-sm leading-7 text-slate-300">Enterprise infrastructure delivery at BT, with hands-on experience configuring Cisco and Meraki devices, deploying operating systems, troubleshooting connectivity, and building React, Node.js, and Python solutions.</p>
+            <div className="mt-6 flex flex-wrap items-center gap-2">
+              {["BT enterprise delivery", "React & Node.js", "Python automation", "Cisco & Meraki"].map((skill) => <span key={skill} className="rounded-full border border-cyan-500/20 bg-cyan-950/30 px-3 py-1 text-xs text-cyan-200">{skill}</span>)}
+            </div>
+            <a href="https://charlesportofolio.netlify.app/" target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-cyan-400 transition-colors hover:text-cyan-300">
+              View Charles&apos;s portfolio <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+          </article>
+        </div>
+      </section>
+
+      {/* 3. MISSION STATEMENT */}
       <section className="glass-panel p-8 sm:p-12 rounded-2xl border border-white/10 text-center relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
         <div className="max-w-2xl mx-auto space-y-4">
           <Zap className="w-8 h-8 text-cyan-400 mx-auto animate-bounce" />
           <h2 className="text-xs font-mono text-cyan-400 uppercase tracking-widest">
-            My Mission
+            Our Mission
           </h2>
           <p className="text-xl sm:text-2xl font-bold text-white tracking-wide leading-relaxed">
             &ldquo;{pageContent.hero_subtitle}&rdquo;
@@ -167,7 +212,7 @@ export default function About() {
             Career Timeline
           </p>
           <p className="text-sm text-slate-400">
-            Select a milestone point to run system check logs and read my detailed project inputs.
+            Explore the experience and technical foundations behind our company.
           </p>
         </div>
 

@@ -11,28 +11,28 @@ export interface PageContent {
 export const staticDefaults: Record<string, PageContent> = {
   home: {
     page_key: "home",
-    title: "Ammayu Waktole | Infrastructure Engineer & DevOps Consultant",
+    title: "ConnectForge Technologies Ltd | Networks, Web, Automation & Apps",
     meta_description:
-      "Professional IT infrastructure engineering, cloud architecture, CI/CD DevOps automation, and Power Platform consulting services. Architecting reliable enterprise systems.",
+      "Secure network engineering, modern web development, business automation, and custom applications.",
     keywords:
-      "Ammayu Waktole, Infrastructure Engineer, DevOps Specialist, Automation Consultant, Cloud Architecture, Linux Systems Administrator, Power Apps, Terraform, Ansible, AWS, Azure",
-    hero_title: "Ammayu Waktole",
+      "ConnectForge Technologies Ltd, Network Engineer, Web Developer, Automation Consultant, App Developer",
+    hero_title: "Technology that moves your business forward.",
     hero_subtitle:
-      "Infrastructure Engineer | DevOps Specialist | Automation Consultant",
+      "Connected technology for growing businesses",
     body_text:
-      "I architect self-healing cloud networks, engineer reliable server environments, and build custom business automations. Let's eliminate manual labor and secure your digital core.",
+      "We design secure networks, build modern websites and applications, and automate work so organisations can operate and grow with confidence.",
   },
   about: {
     page_key: "about",
-    title: "About Ammayu | Systems & Automation Journey",
+    title: "About ConnectForge Technologies Ltd | Our Founders & Mission",
     meta_description:
-      "Learn about Ammayu Waktole's systems engineering journey, background, core values, and verified IT certifications.",
+      "Meet Charles Agyemang and Ammayu Waktole, the founders of a practical, multidisciplinary technology company.",
     keywords:
       "Ammayu Waktole history, DevOps timeline, IT certifications, AWS architect, RHCSA Linux",
-    hero_title: "Engineering Systems That Work",
-    hero_subtitle: "About Ammayu Waktole",
+    hero_title: "Two specialists. One technology partner.",
+    hero_subtitle: "We combine network engineering, software development, automation, and business thinking to create technology that works in the real world.",
     body_text:
-      "Hi, I'm Ammayu Waktole. My technology journey began in local IT support, working directly with copper ethernet cables and core server hardware. Troubleshooting physical routers taught me to value simple, robust structures over complex, fragile ones.",
+      "Charles Agyemang and Ammayu Waktole founded ConnectForge Technologies Ltd to give organisations one trusted team for infrastructure and digital product delivery.",
   },
   services: {
     page_key: "services",
@@ -64,13 +64,13 @@ export function getDefaultPageContent(pageKey: string): PageContent {
   return (
     staticDefaults[pageKey] || {
       page_key: pageKey,
-      title: "Ammayu Waktole Consulting",
+      title: "ConnectForge Technologies Ltd",
       meta_description:
         "IT Infrastructure, DevOps Automation, and Cloud Consulting.",
-      keywords: "Ammayu Waktole, DevOps, Infrastructure",
-      hero_title: "Ammayu Waktole",
-      hero_subtitle: "IT Consultant",
-      body_text: "Systems engineering and automation solutions.",
+      keywords: "ConnectForge Technologies, networks, web development, automation, apps",
+      hero_title: "ConnectForge Technologies Ltd",
+      hero_subtitle: "Your technology delivery partner",
+      body_text: "Network, web, automation, and application solutions.",
     }
   );
 }

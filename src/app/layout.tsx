@@ -15,23 +15,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ammayu Waktole | Infrastructure Engineer & DevOps Consultant",
+  title: "ConnectForge Technologies Ltd | Networks, Web, Automation & Apps",
   description:
-    "Professional IT infrastructure engineering, cloud architecture, CI/CD DevOps automation, and Power Platform consulting services. Architecting reliable enterprise systems.",
+    "ConnectForge Technologies Ltd helps organisations build secure networks, modern websites, business automations, and custom applications.",
   keywords: [
-    "Ammayu Waktole",
-    "Infrastructure Engineer",
-    "DevOps Specialist",
+    "ConnectForge Technologies Ltd",
+    "Network Engineering",
+    "Web Development",
     "Automation Consultant",
-    "Cloud Architecture",
-    "Linux Systems Administrator",
-    "Power Apps",
-    "Terraform",
-    "Ansible",
-    "AWS",
-    "Azure",
+    "App Development",
+    "Charles Agyemang",
+    "Ammayu Waktole",
   ],
-  authors: [{ name: "Ammayu Waktole" }],
+  authors: [{ name: "Charles Agyemang" }, { name: "Ammayu Waktole" }],
+  openGraph: {
+    type: "website",
+    locale: "en_GB",
+    siteName: "ConnectForge Technologies Ltd",
+    title: "ConnectForge Technologies Ltd | Technology built for growth",
+    description:
+      "Secure networks, modern websites, intelligent automation, and custom apps for ambitious organisations.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ConnectForge Technologies Ltd",
+    description:
+      "Networks, web, automation, and apps—connected into one dependable technology partner.",
+  },
 };
 
 export default function RootLayout({

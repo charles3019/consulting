@@ -24,6 +24,7 @@ import {
 import InteractiveNetwork from "@/components/InteractiveNetwork";
 import InsideMyLab from "@/components/InsideMyLab";
 import LogoMark from "@/components/LogoMark";
+import SocialLinks from "@/components/SocialLinks";
 
 
 
@@ -44,7 +45,7 @@ export default function Home() {
     <div className="relative w-full overflow-hidden">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[calc(100vh-4rem)] flex items-center py-16 md:py-24 border-b border-white/5 bg-[radial-gradient(circle_at_top_left,rgba(6,182,212,0.12),transparent_35%),radial-gradient(circle_at_80%_20%,rgba(168,85,247,0.10),transparent_30%),linear-gradient(to_bottom,#020617,#0f172a,#030712)]">
+      <section className="relative min-h-[calc(100vh-4rem)] flex items-center py-16 md:py-24 border-b border-white/5 bg-[radial-gradient(circle_at_top_left,rgba(22,139,224,0.16),transparent_35%),radial-gradient(circle_at_80%_20%,rgba(9,36,82,0.32),transparent_30%),linear-gradient(to_bottom,#061735,#092452,#030f26)]">
         {/* Animated Network canvas */}
         <InteractiveNetwork />
 
@@ -54,7 +55,7 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Hero Left: Company and founder information */}
+          {/* Hero Left: Company information */}
           <div className="lg:col-span-7 text-left space-y-6">
             
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
@@ -165,19 +166,8 @@ export default function Home() {
               <p className="text-slate-300 leading-relaxed max-w-xl">
                 We share practical engineering insights, project stories, automation tips, and honest lessons from building digital systems for real organisations.
               </p>
-              <div className="flex flex-wrap gap-3">
-                {[Globe, Share2, MessageCircle, MessageCircle].map((Icon, index) => (
-                  <Link
-                    key={index}
-                    href="/contact"
-                    aria-label="Ask for our social media profile"
-                    className="w-12 h-12 rounded-2xl border border-white/10 bg-white/5 flex items-center justify-center text-slate-300 hover:text-cyan-300 hover:border-cyan-400/50 hover:-translate-y-1 transition-all"
-                  >
-                    <Icon className="w-5 h-5" />
-                  </Link>
-                ))}
-              </div>
-              <p className="text-xs text-slate-500">Official social handles launching soon. Contact us to receive the announcement.</p>
+              <SocialLinks />
+              <p className="text-xs text-slate-500">Follow our latest projects, practical tips, and service updates.</p>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">

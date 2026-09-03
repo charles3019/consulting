@@ -66,7 +66,7 @@ export default function Contact() {
                 <p><span className="text-slate-600">&gt;</span> connection established</p>
                 <p><span className="text-slate-600">&gt;</span> packaging message parameters...</p>
                 <p><span className="text-slate-600">&gt;</span> payload size: {JSON.stringify(formData).length} bytes</p>
-                <p><span className="text-slate-600">&gt;</span> dispatching to: contact@ammayu.com</p>
+                <p><span className="text-slate-600">&gt;</span> dispatching to: ConnectForge contact desk</p>
                 <p className="text-cyan-400"><span className="text-slate-600">&gt;</span> message queued in outbound buffer</p>
               </div>
 
@@ -194,13 +194,13 @@ export default function Contact() {
             
             <div className="space-y-3 pt-2">
               <a
-                href="mailto:contact@ammayu.com"
+                href="#contact-form"
                 className="flex items-center space-x-3 text-xs text-slate-300 hover:text-cyan-400 transition-colors"
               >
                 <div className="p-2 rounded bg-slate-900 border border-white/5">
                   <Mail className="w-4 h-4 text-cyan-400" />
                 </div>
-                <span>contact@ammayu.com</span>
+                <span>Send a secure enquiry</span>
               </a>
               <a
                 href="https://linkedin.com"
@@ -225,7 +225,7 @@ export default function Contact() {
                     <circle cx="4" cy="4" r="2" />
                   </svg>
                 </div>
-                <span>linkedin.com/in/ammayu-waktole</span>
+                <span>Official LinkedIn launching soon</span>
               </a>
               <a
                 href="https://github.com"
@@ -249,7 +249,7 @@ export default function Contact() {
                     <path d="M9 18c-4.51 2-5-2-7-2" />
                   </svg>
                 </div>
-                <span>github.com/ammayu-waktole</span>
+                <span>Official GitHub launching soon</span>
               </a>
             </div>
           </div>

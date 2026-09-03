@@ -29,19 +29,19 @@ export default function InteractiveNetwork() {
 
     // Node labels & configurations
     const labels = [
-      { text: "System Administration", color: "#10b981" },
-      { text: "Web Development", color: "#0ea5e9" },
-      { text: "Cisco  and Juniepr", color: "#38bdf8" },
-      { text: "Network Engineering", color: "#a855f7" },
-      { text: "Platforms", color: "#0ea5e9" },
-      { text: "Ansible", color: "#ef4444" },
-      { text: "Automation", color: "#10b981" },
-      { text: "Power Apps", color: "#ec4899" },
-      { text: "Database", color: "#06b6d4" },
-      { text: "CI/CD Pipeline", color: "#f59e0b" },
-      { text: "Dashboards", color: "#a855f7" },
-      { text: "API Gateway", color: "#38bdf8" },
-      { text: "Security", color: "#10b981" },
+      { text: "System Administration", color: "#168be0" },
+      { text: "Web Development", color: "#4ab7ee" },
+      { text: "Cisco  and Juniper", color: "#62c4f2" },
+      { text: "Network Engineering", color: "#0c5ca8" },
+      { text: "Platforms", color: "#168be0" },
+      { text: "Ansible", color: "#4ab7ee" },
+      { text: "Automation", color: "#168be0" },
+      { text: "Power Apps", color: "#62c4f2" },
+      { text: "Database", color: "#168be0" },
+      { text: "CI/CD Pipeline", color: "#4ab7ee" },
+      { text: "Dashboards", color: "#0c5ca8" },
+      { text: "API Gateway", color: "#62c4f2" },
+      { text: "Security", color: "#168be0" },
     ];
 
     const nodes: Node[] = [];
@@ -167,7 +167,7 @@ export default function InteractiveNetwork() {
             ctx.beginPath();
             ctx.moveTo(node.x, node.y);
             ctx.lineTo(mouseRef.current.x, mouseRef.current.y);
-            ctx.strokeStyle = `rgba(6, 182, 212, ${alpha})`;
+            ctx.strokeStyle = `rgba(22, 139, 224, ${alpha})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

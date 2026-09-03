@@ -2,13 +2,13 @@
   "page_content_home": {
     "home": {
       "page_key": "home",
-      "title": "Ammayu Waktole | Infrastructure Engineer & DevOps Consultant",
-      "meta_description": "Professional IT infrastructure engineering, cloud architecture, CI/CD DevOps automation, and Power Platform consulting services. Architecting reliable enterprise systems.",
-      "keywords": "Ammayu Waktole, Infrastructure Engineer, DevOps Specialist, Automation Consultant, Cloud Architecture, Linux Systems Administrator, Power Apps, Terraform, Ansible, AWS, Azure",
-      "hero_title": "Ammayu Waktole",
-      "hero_subtitle": "Network Engineer | Web Developer | Automation Consultant",
-      "body_text": "I architect self-healing cloud networks, engineer reliable server environments, and build custom business automations. Let's eliminate manual labor and secure your digital core.",
-      "tagline": "INFRASTRUCTURE & AUTOMATION CONSULTANCY."
+      "title": "ConnectForge Technologies Ltd | Networks, Web, Automation & Apps",
+      "meta_description": "ConnectForge Technologies Ltd delivers secure networks, modern websites, business automation, and custom application development.",
+      "keywords": "ConnectForge Technologies Ltd, Network Engineer, Web Developer, Automation Consultant, App Developer, Charles Agyemang, Ammayu Waktole",
+      "hero_title": "Technology that moves your business forward.",
+      "hero_subtitle": "Connected technology for growing businesses",
+      "body_text": "We design secure networks, build high-performing websites and applications, and automate the repetitive work that slows teams down—from strategy and architecture through delivery and ongoing support.",
+      "tagline": "NETWORKS • WEB • AUTOMATION • APPS"
     },
     
     "services": {
@@ -16,9 +16,9 @@
       "title": "Consulting Services | Cloud & Infrastructure Audits",
       "meta_description": "Explore professional consulting services spanning Linux administration, DevOps, AWS/Azure hybrid networks, and custom Power Platform applications.",
       "keywords": "DevOps retainer, cloud cost audit, Linux web cluster, custom Power Apps developer",
-      "hero_title": "How We Optimize Your Infrastructure",
-      "hero_subtitle": "Consulting Services",
-      "body_text": "I provide structured, high-value consulting services designed to solve concrete IT bottlenecks. Select a services pillar below to learn more about deliverables and schedule a diagnostic review."
+      "hero_title": "One partner for your digital foundation",
+      "hero_subtitle": "Technology Services",
+      "body_text": "We provide focused, practical services that solve real technology bottlenecks. Engage us for a defined project, an expert review, or ongoing technical support."
     },
     "skills": {
       "page_key": "skills",
@@ -27,7 +27,7 @@
       "keywords": "Linux expertise rating, Terraform competency, PowerShell scripts, SQL queries database",
       "hero_title": "Technologies & Capabilities",
       "hero_subtitle": "Skill Matrix",
-      "body_text": "An interactive catalog of my operating stacks. Select a category below to filter the skill bars, inspect tool libraries, and read operation descriptions."
+      "body_text": "Explore the platforms, languages, and engineering tools our team uses to deliver reliable client solutions."
     },
     "technologies" : [  "Linux",
                         "AWS",
@@ -35,19 +35,19 @@
                         "Docker",
                         "Kubernetes",
                         "Terraform",
-                        "Ansibleeeeeeeeeee",
+                        "Ansible",
                         "Power Apps",
                         "GitHub",
                         "Power BI",
                         "Python"
                         ],
   "rotatingSkills" : [
-        { "text": "Linux Expert", "desc": "RedHat & Ubuntu OS tuning" },
-        { "text": "Cloud Solutions", "desc": "AWS & Azure architectures" },
-        { "text": "Infrastructure Automation", "desc": "Terraform & Ansible IaC" },
-        { "text": "Power Platform", "desc": "Low-code canvas & flow apps" },
-        { "text": "Data Analytics", "desc": "Power BI & Excel reporting" },
-        { "text": "Network Engineering", "desc": "Secure hybrid VPNs & subnets" }
+        { "text": "Network Engineering", "desc": "Secure, resilient business connectivity" },
+        { "text": "Web Development", "desc": "Fast, accessible, conversion-led websites" },
+        { "text": "Business Automation", "desc": "Workflows that save time and reduce errors" },
+        { "text": "App Development", "desc": "Custom web, mobile, and low-code applications" },
+        { "text": "Cloud Solutions", "desc": "Scalable AWS, Azure, and Microsoft platforms" },
+        { "text": "Technical Support", "desc": "Responsive expertise for critical systems" }
 ]
 
 
@@ -57,35 +57,35 @@
     {
     "H1":"Services Catalog",
 		"H2":"Tailored Technical Solutions",
-		"H3":"From design to full implementation, I provide premium, battle-tested services designed to simplify complexity.",
+		"H3":"From discovery to delivery, we build dependable solutions that simplify complexity and support growth.",
     "icon": "Server",
-    "title": "Infrastructure Engineering",
-    "desc": "Bare-metal & VM server deployment, performance tuning, and 24/7 monitoring configurations."
+    "title": "Network Engineering",
+    "desc": "Secure LAN, Wi-Fi, VPN, firewall, cloud connectivity, monitoring, and network troubleshooting."
   },
   {
     "icon": "Workflow ",
-    "title": "DevOps Automation",
-    "desc": "Declarative CI/CD pipelines, repeatable GitOps workflows, and automated system compliance."
+    "title": "Web Development",
+    "desc": "Responsive company websites, portals, e-commerce experiences, and maintainable web platforms."
   },
   {
     "icon": "Cloud",
-    "title": "Cloud Consulting",
-    "desc": "Legacy server migrations, cost optimization audits, and multi-tenant security architecture."
+    "title": "Automation Consulting",
+    "desc": "Workflow discovery, Power Automate, scripts, integrations, and operational process improvement."
   },
   {
     "icon": "Globe",
-    "title": "Network Engineering",
-    "desc": "Designing secure corporate subnets, routing protocols, firewalls, and hybrid-cloud VPN tunnels."
+    "title": "App Development",
+    "desc": "Purpose-built web, mobile, and low-code applications that fit your people and processes."
   },
   {
     "icon": "Database",
-    "title": "Power Platform Development",
-    "desc": "Custom low-code business apps (Power Apps) and automated background workflows (Power Automate)."
+    "title": "Cloud & Infrastructure",
+    "desc": "Cloud migrations, Microsoft 365, servers, identity, security, and reliable hybrid environments."
   },
   {
     "icon": "BarChart ",
-    "title": "Reporting Solutions",
-    "desc": "Aggregating complex telemetry and sales data into interactive Power BI and Excel dashboards."
+    "title": "Data & Reporting",
+    "desc": "Clear dashboards and connected data that help teams understand performance and act faster."
   }
 ],
 
@@ -129,13 +129,13 @@
 
 "about": {
       "page_key": "about",
-      "title": "About Ammayu | Systems & Automation Journey",
-      "meta_description": "Learn about Ammayu Waktole's systems engineering journey, background, core values, and verified IT certifications.",
-      "keywords": "Ammayu Waktole history, DevOps timeline, IT certifications, AWS architect, RHCSA Linux",
-      "hero_title": "Engineering Systems That Work",
-      "hero_subtitle": "About Ammayu Waktole",
+      "title": "About ConnectForge Technologies Ltd | Our Founders & Mission",
+      "meta_description": "Meet Charles Agyemang and Ammayu Waktole, co-founders of ConnectForge Technologies Ltd.",
+      "keywords": "Charles Agyemang, Ammayu Waktole, ConnectForge Technologies Ltd, technology company",
+      "hero_title": "Two specialists. One technology partner.",
+      "hero_subtitle": "We make powerful technology practical, dependable, and valuable.",
       "body_text": "Hi, I'm Ammayu — an IT Support and Network Engineer with experience across banking technology, payment systems, enterprise infrastructure, and digital transformation. From Mastercard implementations and ATM networks to Microsoft 365, Azure, and network operations, I enjoy solving complex technical challenges and building reliable systems that keep businesses connected.",
-      "body_text_2":"Today, as an independent consultant, I partner with companies to review infrastructure security, streamline deployments, and write automation tools. I bridge the gap between technical complexity and business growth."
+      "body_text_2":"Charles Agyemang and Ammayu Waktole combine network engineering, web development, automation consulting, and application development to deliver clear business outcomes."
     
     },
 
