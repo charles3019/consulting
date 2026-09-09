@@ -1,7 +1,7 @@
 import mysql from "mysql2/promise";
 import fs from "fs";
 import path from "path";
-import { getDefaultPageContent, staticDefaults } from "./contentDefaults";
+import { getDefaultPageContent, staticDefaults, type PageContent } from "./contentDefaults";
 
 // MySQL configuration from environment variables
 const mysqlConfig = {
@@ -16,7 +16,7 @@ let pool: mysql.Pool | null = null;
 const isMySQLConfigured = !!(mysqlConfig.host && mysqlConfig.user && mysqlConfig.database);
 
 // Paths for JSON fallback
-const FALLBACK_DIR = path.join(process.cwd(), "src", "data");
+const FALLBACK_DIR = process.env.DATA_DIR || path.join(process.cwd(), "src", "data");
 const FALLBACK_FILE = path.join(FALLBACK_DIR, "db_fallback.json");
 
 export interface ConsultationRecord {
@@ -43,29 +43,71 @@ export interface ContactRecord {
   created_at: string;
 }
 
+interface AdminUser { username: string; password_hash: string; salt: string }
+interface FallbackDatabase {
+  [key: string]: unknown;
+  page_content: Record<string, Partial<PageContent>>;
+  consultations: ConsultationRecord[];
+  contacts: ContactRecord[];
+  admin_users: AdminUser[];
+}
+
+function assertWritableFallback() {
+  if (process.env.NODE_ENV === "production" && !process.env.DATA_DIR) {
+    throw new Error("Configure MySQL or DATA_DIR on a persistent disk before saving production data.");
+  }
+}
+
 // Helper to read fallback JSON
-function readFallbackJSON() {
+function readFallbackJSON(): FallbackDatabase {
   try {
     if (!fs.existsSync(FALLBACK_FILE)) {
       return { page_content: {}, consultations: [], contacts: [], admin_users: [] };
     }
     const data = fs.readFileSync(FALLBACK_FILE, "utf8");
-    return JSON.parse(data);
+    const parsed = JSON.parse(data);
+    const fallback = parsed && typeof parsed === "object" && !Array.isArray(parsed)
+      ? parsed
+      : {};
+    const isRecord = (value: unknown) =>
+      value !== null && typeof value === "object" && !Array.isArray(value);
+
+    // Older files split page maps across page_content_* sections alongside
+    // other site data. Recover page records without treating those arrays as pages.
+    const legacyPages = Object.fromEntries(
+      Object.entries(fallback)
+        .filter(([key, value]) => key.startsWith("page_content_") && isRecord(value))
+        .flatMap(([, value]) => Object.entries(value as Record<string, unknown>))
+        .filter(([key, value]) => isRecord(value) &&
+          (value as Record<string, unknown>).page_key === key),
+    );
+    return {
+      ...fallback,
+      page_content: {
+        ...legacyPages,
+        ...(isRecord(fallback.page_content) ? fallback.page_content : {}),
+      },
+      consultations: Array.isArray(fallback.consultations) ? fallback.consultations : [],
+      contacts: Array.isArray(fallback.contacts) ? fallback.contacts : [],
+      admin_users: Array.isArray(fallback.admin_users) ? fallback.admin_users : [],
+    };
   } catch (err) {
     console.error("Failed to read fallback JSON db:", err);
-    return { page_content: {}, consultations: [], contacts: [], admin_users: [] };
+    throw new Error("Unable to read stored data. Restore the database before making changes.");
   }
 }
 
 // Helper to write fallback JSON
-function writeFallbackJSON(data: any) {
+function writeFallbackJSON(data: FallbackDatabase) {
+  assertWritableFallback();
   try {
-    if (!fs.existsSync(FALLBACK_DIR)) {
-      fs.mkdirSync(FALLBACK_DIR, { recursive: true });
-    }
-    fs.writeFileSync(FALLBACK_FILE, JSON.stringify(data, null, 2), "utf8");
+    fs.mkdirSync(FALLBACK_DIR, { recursive: true });
+    const temporaryFile = `${FALLBACK_FILE}.tmp`;
+    fs.writeFileSync(temporaryFile, JSON.stringify(data, null, 2), { encoding: "utf8", mode: 0o600 });
+    fs.renameSync(temporaryFile, FALLBACK_FILE);
   } catch (err) {
     console.error("Failed to write fallback JSON db:", err);
+    throw new Error("Unable to save data. Please try again later.");
   }
 }
 
@@ -80,17 +122,23 @@ function ensureFallbackPageContentShape() {
     };
   }
 
-  writeFallbackJSON(fallback);
   return fallback;
 }
 
 // Initialize MySQL Database Tables
+let initialization: Promise<void> | null = null;
 async function initMySQL() {
+  if (!initialization) initialization = initializeMySQL().finally(() => { initialization = null; });
+  await initialization;
+}
+
+async function initializeMySQL() {
   if (!isMySQLConfigured || pool) return;
 
+  const candidate = mysql.createPool({ ...mysqlConfig, connectionLimit: 10, connectTimeout: 10000 });
+  let conn: mysql.PoolConnection | undefined;
   try {
-    pool = mysql.createPool(mysqlConfig);
-    const conn = await pool.getConnection();
+    conn = await candidate.getConnection();
 
     // 1. Create tables
     await conn.query(`
@@ -144,8 +192,8 @@ async function initMySQL() {
     `);
 
     // 2. Check and populate default admin and content if empty
-    const [users] = await conn.query<any[]>("SELECT * FROM admin_users");
-    if (users.length === 0) {
+    const [users] = await conn.query<(mysql.RowDataPacket & AdminUser)[]>("SELECT * FROM admin_users");
+    if (users.length === 0 && process.env.NODE_ENV !== "production") {
       const fallback = readFallbackJSON();
       const defaultAdmin = fallback.admin_users[0] || {
         username: "admin",
@@ -158,11 +206,11 @@ async function initMySQL() {
       );
     }
 
-    const [content] = await conn.query<any[]>("SELECT * FROM page_content");
+    const [content] = await conn.query<(mysql.RowDataPacket & PageContent)[]>("SELECT * FROM page_content");
     if (content.length === 0) {
       const fallback = readFallbackJSON();
       for (const key of Object.keys(fallback.page_content)) {
-        const pg = fallback.page_content[key];
+        const pg = { ...getDefaultPageContent(key), ...fallback.page_content[key] };
         await conn.query(
           "INSERT INTO page_content (page_key, title, meta_description, keywords, hero_title, hero_subtitle, body_text) VALUES (?, ?, ?, ?, ?, ?, ?)",
           [pg.page_key, pg.title, pg.meta_description, pg.keywords, pg.hero_title, pg.hero_subtitle, pg.body_text]
@@ -170,11 +218,16 @@ async function initMySQL() {
       }
     }
 
-    conn.release();
+    pool = candidate;
     console.log("MySQL Database structures initialized successfully.");
   } catch (err) {
-    console.error("MySQL Connection/Init failed, falling back to local file database:", err);
-    pool = null; // force fallback
+    console.error("MySQL connection or initialization failed:", err);
+    conn?.release();
+    conn = undefined;
+    await candidate.end();
+    pool = null;
+  } finally {
+    conn?.release();
   }
 }
 
@@ -184,6 +237,7 @@ export async function getDbStatus(): Promise<"MYSQL LIVE" | "LOCAL FALLBACK"> {
   if (!pool) {
     await initMySQL();
   }
+  if (!pool && process.env.NODE_ENV === "production") throw new Error("The configured database is unavailable.");
   return pool ? "MYSQL LIVE" : "LOCAL FALLBACK";
 }
 
@@ -192,7 +246,7 @@ export async function getPageContent(pageKey: string) {
   const status = await getDbStatus();
   if (status === "MYSQL LIVE" && pool) {
     try {
-      const [rows] = await pool.query<any[]>("SELECT * FROM page_content WHERE page_key = ?", [pageKey]);
+      const [rows] = await pool.query<(mysql.RowDataPacket & PageContent)[]>("SELECT * FROM page_content WHERE page_key = ?", [pageKey]);
       if (rows.length > 0) return rows[0];
     } catch (err) {
       console.error(`MySQL getPageContent fail for ${pageKey}, returning fallback:`, err);
@@ -207,7 +261,7 @@ export async function listPageContent() {
 
   if (status === "MYSQL LIVE" && pool) {
     try {
-      const [rows] = await pool.query<any[]>(
+      const [rows] = await pool.query<(mysql.RowDataPacket & PageContent)[]>(
         "SELECT * FROM page_content ORDER BY page_key ASC",
       );
 
@@ -258,6 +312,7 @@ export async function savePageContent(pageKey: string, data: {
       return true;
     } catch (err) {
       console.error(`MySQL savePageContent fail for ${pageKey}:`, err);
+      throw new Error("Unable to save data. Please try again later.");
     }
   }
 
@@ -301,12 +356,13 @@ export async function addConsultation(data: {
       return true;
     } catch (err) {
       console.error("MySQL addConsultation fail:", err);
+      throw new Error("Unable to save data. Please try again later.");
     }
   }
 
   // Fallback write
   const fallback = readFallbackJSON();
-  const newId = fallback.consultations.length > 0 ? Math.max(...fallback.consultations.map((c: any) => c.id)) + 1 : 1;
+  const newId = fallback.consultations.length > 0 ? Math.max(...fallback.consultations.map((c) => c.id)) + 1 : 1;
   fallback.consultations.unshift({
     id: newId,
     ...data,
@@ -325,11 +381,12 @@ export async function updateConsultationStatus(id: number, newStatus: string) {
       return true;
     } catch (err) {
       console.error("MySQL updateConsultationStatus fail:", err);
+      throw new Error("Unable to save data. Please try again later.");
     }
   }
 
   const fallback = readFallbackJSON();
-  const idx = fallback.consultations.findIndex((c: any) => c.id === id);
+  const idx = fallback.consultations.findIndex((c) => c.id === id);
   if (idx !== -1) {
     fallback.consultations[idx].status = newStatus;
     writeFallbackJSON(fallback);
@@ -346,11 +403,12 @@ export async function deleteConsultation(id: number) {
       return true;
     } catch (err) {
       console.error("MySQL deleteConsultation fail:", err);
+      throw new Error("Unable to save data. Please try again later.");
     }
   }
 
   const fallback = readFallbackJSON();
-  fallback.consultations = fallback.consultations.filter((c: any) => c.id !== id);
+  fallback.consultations = fallback.consultations.filter((c) => c.id !== id);
   writeFallbackJSON(fallback);
   return true;
 }
@@ -377,11 +435,12 @@ export async function updateContactStatus(id: number, newStatus: string) {
       return true;
     } catch (err) {
       console.error("MySQL updateContactStatus fail:", err);
+      throw new Error("Unable to save data. Please try again later.");
     }
   }
 
   const fallback = readFallbackJSON();
-  const idx = fallback.contacts.findIndex((c: any) => c.id === id);
+  const idx = fallback.contacts.findIndex((c) => c.id === id);
   if (idx !== -1) {
     fallback.contacts[idx].status = newStatus;
     writeFallbackJSON(fallback);
@@ -407,11 +466,12 @@ export async function addContact(data: {
       return true;
     } catch (err) {
       console.error("MySQL addContact fail:", err);
+      throw new Error("Unable to save data. Please try again later.");
     }
   }
 
   const fallback = readFallbackJSON();
-  const newId = fallback.contacts.length > 0 ? Math.max(...fallback.contacts.map((c: any) => c.id)) + 1 : 1;
+  const newId = fallback.contacts.length > 0 ? Math.max(...fallback.contacts.map((c) => c.id)) + 1 : 1;
   fallback.contacts.unshift({
     id: newId,
     ...data,
@@ -430,11 +490,12 @@ export async function deleteContact(id: number) {
       return true;
     } catch (err) {
       console.error("MySQL deleteContact fail:", err);
+      throw new Error("Unable to save data. Please try again later.");
     }
   }
 
   const fallback = readFallbackJSON();
-  fallback.contacts = fallback.contacts.filter((c: any) => c.id !== id);
+  fallback.contacts = fallback.contacts.filter((c) => c.id !== id);
   writeFallbackJSON(fallback);
   return true;
 }
@@ -444,12 +505,12 @@ export async function getAdminUser(username: string) {
   const status = await getDbStatus();
   if (status === "MYSQL LIVE" && pool) {
     try {
-      const [rows] = await pool.query<any[]>("SELECT * FROM admin_users WHERE username = ?", [username]);
+      const [rows] = await pool.query<(mysql.RowDataPacket & AdminUser)[]>("SELECT * FROM admin_users WHERE username = ?", [username]);
       if (rows.length > 0) return rows[0];
     } catch (err) {
       console.error("MySQL getAdminUser fail:", err);
     }
   }
   const fallback = readFallbackJSON();
-  return fallback.admin_users.find((u: any) => u.username === username) || null;
+  return fallback.admin_users.find((u) => u.username === username) || null;
 }

@@ -10,7 +10,6 @@
       "body_text": "We design secure networks, build high-performing websites and applications, and automate the repetitive work that slows teams down—from strategy and architecture through delivery and ongoing support.",
       "tagline": "NETWORKS • WEB • AUTOMATION • APPS"
     },
-    
     "services": {
       "page_key": "services",
       "title": "Consulting Services | Cloud & Infrastructure Audits",
@@ -29,89 +28,117 @@
       "hero_subtitle": "Skill Matrix",
       "body_text": "Explore the platforms, languages, and engineering tools our team uses to deliver reliable client solutions."
     },
-    "technologies" : [  "Linux",
-                        "AWS",
-                        "Azure",
-                        "Docker",
-                        "Kubernetes",
-                        "Terraform",
-                        "Ansible",
-                        "Power Apps",
-                        "GitHub",
-                        "Power BI",
-                        "Python"
-                        ],
-  "rotatingSkills" : [
-        { "text": "Network Engineering", "desc": "Secure, resilient business connectivity" },
-        { "text": "Web Development", "desc": "Fast, accessible, conversion-led websites" },
-        { "text": "Business Automation", "desc": "Workflows that save time and reduce errors" },
-        { "text": "App Development", "desc": "Custom web, mobile, and low-code applications" },
-        { "text": "Cloud Solutions", "desc": "Scalable AWS, Azure, and Microsoft platforms" },
-        { "text": "Technical Support", "desc": "Responsive expertise for critical systems" }
-]
-
-
-
+    "technologies": [
+      "Linux",
+      "AWS",
+      "Azure",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "Ansible",
+      "Power Apps",
+      "GitHub",
+      "CCTV",
+      "Python"
+    ],
+    "rotatingSkills": [
+      {
+        "text": "Network Engineering",
+        "desc": "Secure, resilient business connectivity"
+      },
+      {
+        "text": "Web Development",
+        "desc": "Fast, accessible, conversion-led websites"
+      },
+      {
+        "text": "Business Automation",
+        "desc": "Workflows that save time and reduce errors"
+      },
+      {
+        "text": "App Development",
+        "desc": "Custom web, mobile, and low-code applications"
+      },
+      {
+        "text": "Cloud Solutions",
+        "desc": "Scalable AWS, Azure, and Microsoft platforms"
+      },
+      {
+        "text": "Technical Support",
+        "desc": "Responsive expertise for critical systems"
+      }
+    ]
   },
-  "services_catalog" : [
+  "services_catalog": [
     {
-    "H1":"Services Catalog",
-		"H2":"Tailored Technical Solutions",
-		"H3":"From discovery to delivery, we build dependable solutions that simplify complexity and support growth.",
-    "icon": "Server",
-    "title": "Network Engineering",
-    "desc": "Secure LAN, Wi-Fi, VPN, firewall, cloud connectivity, monitoring, and network troubleshooting."
-  },
-  {
-    "icon": "Workflow ",
-    "title": "Web Development",
-    "desc": "Responsive company websites, portals, e-commerce experiences, and maintainable web platforms."
-  },
-  {
-    "icon": "Cloud",
-    "title": "Automation Consulting",
-    "desc": "Workflow discovery, Power Automate, scripts, integrations, and operational process improvement."
-  },
-  {
-    "icon": "Globe",
-    "title": "App Development",
-    "desc": "Purpose-built web, mobile, and low-code applications that fit your people and processes."
-  },
-  {
-    "icon": "Database",
-    "title": "Cloud & Infrastructure",
-    "desc": "Cloud migrations, Microsoft 365, servers, identity, security, and reliable hybrid environments."
-  },
-  {
-    "icon": "BarChart ",
-    "title": "Data & Reporting",
-    "desc": "Clear dashboards and connected data that help teams understand performance and act faster."
-  }
-],
-
-"valueProps" : [
-  {
-    "icon": "Zap",
-    "title": "Save Time",
-    "desc": "Remove human error. Automate repetitive sysadmin and billing workflows with code."
-  },
-  {
-    "icon": "DollarSign",
-    "title": "Reduce Costs",
-    "desc": "Size systems accurately. Identify and decommission idle cloud instances to cut bills."
-  },
-  {
-    "icon": "<Shield",
-    "title": "Improve Reliability",
-    "desc": "Zero-drift environments. Implement immutable configurations that bounce back instantly."
-  },
-  {
-    "icon": "TrendingUp",
-    "title": "Scale Faster",
-    "desc": "Ready-to-grow blueprints. Deploy standard server nodes instantly across any continent."
-  }
-],
-  "consultations": [],
+      "H1": "Services Catalog",
+      "H2": "Tailored Technical Solutions",
+      "H3": "From discovery to delivery, we build dependable solutions that simplify complexity and support growth.",
+      "icon": "Server",
+      "title": "Network Engineering",
+      "desc": "Secure LAN, Wi-Fi, VPN, firewall, cloud connectivity, monitoring, and network troubleshooting."
+    },
+    {
+      "icon": "Workflow ",
+      "title": "Web Development",
+      "desc": "Responsive company websites, portals, e-commerce experiences, and maintainable web platforms."
+    },
+    {
+      "icon": "Cloud",
+      "title": "Automation Consulting",
+      "desc": "Workflow discovery, Power Automate, scripts, integrations, and operational process improvement."
+    },
+    {
+      "icon": "Globe",
+      "title": "App Development",
+      "desc": "Purpose-built web, mobile, and low-code applications that fit your people and processes."
+    },
+    {
+      "icon": "Database",
+      "title": "Cloud & Infrastructure",
+      "desc": "Cloud migrations, Microsoft 365, servers, identity, security, and reliable hybrid environments."
+    },
+    {
+      "icon": "BarChart ",
+      "title": "Data & Reporting",
+      "desc": "Clear dashboards and connected data that help teams understand performance and act faster."
+    }
+  ],
+  "valueProps": [
+    {
+      "icon": "Zap",
+      "title": "Save Time",
+      "desc": "Remove human error. Automate repetitive sysadmin and billing workflows with code."
+    },
+    {
+      "icon": "DollarSign",
+      "title": "Reduce Costs",
+      "desc": "Size systems accurately. Identify and decommission idle cloud instances to cut bills."
+    },
+    {
+      "icon": "<Shield",
+      "title": "Improve Reliability",
+      "desc": "Zero-drift environments. Implement immutable configurations that bounce back instantly."
+    },
+    {
+      "icon": "TrendingUp",
+      "title": "Scale Faster",
+      "desc": "Ready-to-grow blueprints. Deploy standard server nodes instantly across any continent."
+    }
+  ],
+  "consultations": [
+    {
+      "id": 1,
+      "type": "infra",
+      "date": 20260909,
+      "time": "09:00",
+      "name": "full name",
+      "email": "contact@connectforge.co.uk",
+      "company": "company",
+      "details": "test description",
+      "status": "Pending",
+      "created_at": "2026-09-08T13:49:59.791Z"
+    }
+  ],
   "contacts": [],
   "admin_users": [
     {
@@ -121,676 +148,752 @@
       "salt": "a8f3b2c1d0e9f8a7",
       "created_at": "2026-06-15T12:00:00.000Z"
     }
-  ]
-
-,
-
-"page_content_about": {
-
-"about": {
+  ],
+  "page_content_about": {
+    "about": {
       "page_key": "about",
       "title": "About ConnectForge Technologies Ltd | Our Founders & Mission",
       "meta_description": "Meet Charles Agyemang and Ammayu Waktole, co-founders of ConnectForge Technologies Ltd.",
       "keywords": "Charles Agyemang, Ammayu Waktole, ConnectForge Technologies Ltd, technology company",
       "hero_title": "Two specialists. One technology partner.",
       "hero_subtitle": "We make powerful technology practical, dependable, and valuable.",
-      "body_text": "Hi, I'm Ammayu — an IT Support and Network Engineer with experience across banking technology, payment systems, enterprise infrastructure, and digital transformation. From Mastercard implementations and ATM networks to Microsoft 365, Azure, and network operations, I enjoy solving complex technical challenges and building reliable systems that keep businesses connected.",
-      "body_text_2":"Charles Agyemang and Ammayu Waktole combine network engineering, web development, automation consulting, and application development to deliver clear business outcomes."
+      "body_text": "a UK-based technology company providing software development, network engineering, IT infrastructure, CCTV, field engineering and technical support services to businesses and organisations. We bring digital and physical technology services together under one roof, helping customers with website and application development, business systems, API integrations and automation, network design and configuration, Wi-Fi, LAN/WAN, routers, switches, VLANs and VPNs, structured Cat5e, Cat6 and Cat6a cabling, network cabinets and data points, CCTV and surveillance systems, remote and on-site IT support, and field engineering services. What makes ConnectForge different is our ability to bridge software, networking and physical IT infrastructure, giving customers one trusted technology partner throughout their technology journey. We take time to understand each customer's requirements and focus on delivering reliable, professional, secure and practical solutions that provide long-term value.",
+      "body_text_2": "Charles Agyemang and Ammayu Waktole combine network engineering, web development, automation consulting, and application development to deliver clear business outcomes."
+    },
     
-    },
-
-"timelineData":  
- [
-  {
-    "year": "Sep 2025 - Present",
-    "role": "Network Engineer",
-    "company": "BT Group",
-    "desc": "Supporting enterprise network infrastructure, connectivity services, and operational delivery across business-critical environments while ensuring service availability and SLA compliance.",
-    "actions": [
-      "Provide 1st and 2nd line network support for enterprise services",
-      "Troubleshoot routing, switching, VPN, and connectivity incidents",
-      "Support infrastructure upgrades, firmware updates, and network expansions",
-      "Collaborate with engineering teams to maintain secure and reliable services",
-      "Monitor network performance and support operational improvements"
-    ]
-  }
-,
-
- 
-  {
-    "year": "May 2025 - Present",
-    "role": "Network Engineer",
-    "company": "Net-Worx Ltd",
-    "desc": "Delivered network support and infrastructure services for business clients, assisting with deployments, troubleshooting, and operational support activities.",
-    "actions":[
-      "Supported router, switch, and firewall configurations",
-      "Assisted with network installations and infrastructure deployments",
-      "Performed incident investigation and technical troubleshooting",
-      "Provided customer-facing technical support",
-      "Contributed to service delivery and project implementation"
-    ]
-  },
-
-  {
-    "year": "May 2023 - Jan 2025",
-    "role": "Senior Card Banking Officer",
-    "company": "Cooperative Bank of Oromia",
-    "desc": "Led technical operations for card banking systems, payment infrastructure, ATM networks, and digital banking platforms while supporting Mastercard implementation initiatives.",
-    "actions": [
-      "Managed ATM, POS, CRM, and card banking technologies",
-      "Supported Mastercard, Visa, and payment scheme integrations",
-      "Administered HSM and payment security infrastructure",
-      "Provided operational support for nationwide banking channels",
-      "Coordinated vendors, telecom providers, and technology partners"
-    ]
-  },
-
- {
-    "year": "May 2020 - May 2023",
-    "role": "Digital Banking Technology Officer",
-    "company": "Cooperative Bank of Oromia",
-    "desc": "Supported digital banking systems, payment services, ATM operations, and enterprise technology platforms within a fast-growing banking environment.",
-    "actions": [
-      "Maintained digital banking and payment processing systems",
-      "Supported ATM and POS infrastructure across multiple locations",
-      "Performed system upgrades and troubleshooting activities",
-      "Provided technical support to branches and operational teams",
-      "Contributed to service availability and customer experience improvements"
-    ]
-  },
-
- {
-    "year": "May 2019 - May 2020",
-    "role": "Graduate Trainee IT Officer",
-    "company": "Cooperative Bank of Oromia",
-    "desc": "Developed foundational expertise in banking technology, IT infrastructure, networking, and enterprise support services.",
-    "actions": [
-      "Supported enterprise applications and IT operations",
-      "Maintained hardware and network equipment",
-      "Assisted with system administration tasks",
-      "Participated in infrastructure projects and deployments",
-      "Provided technical support across departments"
-    ]
-  },
-
-  {
-    "year": "Sep 2018 - May 2019",
-    "role": "Assistant Lecturer",
-    "company": "Samara University",
-    "desc": "Delivered practical and theoretical instruction in networking, operating systems, databases, and information technology while mentoring undergraduate students.",
-    "actions": [
-      "Taught Computer Networks and Operating Systems",
-      "Facilitated hands-on laboratory sessions",
-      "Supervised student projects and coursework",
-      "Prepared technical learning materials",
-      "Supported academic research and departmental initiatives"
-    ]
-  }
-
-],
-"achievementsData" : [
-  {
-    "year": "2025",
-    "role": "Network Engineering",
-    "company": "BT Group",
-    "desc": "Supporting enterprise-scale network infrastructure and business-critical services."
-  },
-  {
-    "year": "2024",
-    "role": "Mastercard Implementation Project",
-    "company": "Cooperative Bank of Oromia",
-    "desc": "Participated in payment infrastructure modernization and card scheme integration initiatives."
-  },
-  {
-    "year": "2023",
-    "role": "International ATM Operations",
-    "company": "Banking Technology",
-    "desc": "Managed ATM, CRM, POS, and digital banking technologies across multiple regions."
-  },
-  {
-    "year": "2018",
-    "role": "BSc Information Technology",
-    "company": "Samara University",
-    "desc": "Graduated with Great Distinction."
-  }
-]
-,
-"certifications": [
-  { "name": "Agile Scrum Master", "issuer": "Professional Certification", "date": "2024" },
-  { "name": "Introduction to ITIL", "issuer": "ITIL Foundation Training", "date": "2024" },
-  { "name": "ChatGPT for Cybersecurity", "issuer": "Professional Development Training", "date": "2024" },
-  { "name": "International ATM Operations Certification", "issuer": "NCR / Banking Technology Training", "date": "2023" },
-  { "name": "EMV Chip Card Training Certification", "issuer": "EMV Training Program", "date": "2022" },
-  { "name": "Bitcoin and Cryptocurrencies", "issuer": "edX", "date": "2022" },
-  { "name": "Web Development Certification", "issuer": "Eduonix", "date": "2022" },
-  { "name": "Cross Platform Mobile Application Developer & AI Associate", "issuer": "Gebeya Academy", "date": "2021" },
-  { "name": "The Threat Landscape", "issuer": "Fortinet NSE Institute", "date": "2019" },
-  { "name": "Think in English", "issuer": "Professional Development Training", "date": "2023" }
-]
-,
-"Careerpath":{
-  "c1":"IT Support",
-  "c2":"SysAdmin and web development",
-  "c3":"Network Engineer",
-  "c4":"Infra Engineer",
-  "c5":"Automation Specialist",
-  "c6":"Consultant"
-
-  
-
-
-
-}
-}
-,
-"page_content_service" :{
- 
-  "ServiceBlock": [
-    {
-      "id": 8,
-      "title": "Technical Consulting",
-      "icon": "Lightbulb",
-      "subtitle": "Technology Strategy & Digital Transformation",
-      "problemSolved": "Need guidance on choosing the right technology, improving existing systems, or planning your next IT project? I provide practical solutions that align technology with business objectives and long-term growth.",
-      "deliverables": [
-        "IT Strategy & Technology Consulting",
-        "Digital Transformation Planning",
-        "Infrastructure Assessment & Recommendations",
-        "Business Process Optimisation",
-        "Technical Documentation & Knowledge Transfer"
-      ],
-      "duration": "Consultation or Project-Based",
-      "link": "/book-consultation?type=consulting"
-    },
-    {
-      "id": 7,
-      "title": "Computer Repair & Maintenance",
-      "icon": "Cpu",
-      "subtitle": "Desktop, Laptop & Hardware Support",
-      "problemSolved": "Computers running slowly, hardware failures, or operating system issues affecting productivity? I diagnose, repair, upgrade, and optimise systems to keep your business running efficiently.",
-      "deliverables": [
-        "Desktop & Laptop Diagnostics",
-        "Hardware Installation & Replacement",
-        "Windows Installation & Recovery",
-        "Performance Optimisation",
-        "Preventive Maintenance"
-      ],
-      "duration": "Same Day or Scheduled Service",
-      "link": "/book-consultation?type=repair"
-    },
-    {
-      "id": 6,
-      "title": "Software Installation & Administration",
-      "icon": "MonitorCog",
-      "subtitle": "Secure Software Deployment & System Administration",
-      "problemSolved": "Managing software across multiple devices can become time-consuming and inconsistent. I install, configure, update, and maintain business applications while ensuring secure and reliable system operation.",
-      "deliverables": [
-        "Software Installation & Configuration",
-        "Windows Administration",
-        "Operating System Deployment",
-        "Application Troubleshooting",
-        "System Configuration & Maintenance"
-      ],
-      "duration": "Hourly or Fixed Project",
-      "link": "/book-consultation?type=software"
-    },
-    {
-      "id": 5,
-      "title": "Web Development & Business Applications",
-      "icon": "Globe",
-      "subtitle": "Modern Websites & Workflow Automation",
-      "problemSolved": "Looking for a responsive website or a business application that improves productivity? I build modern web applications and automate business processes using industry-standard technologies.",
-      "deliverables": [
-        "Next.js Development",
-        "React Applications",
-        "Tailwind CSS UI Development",
-        "Power Apps Solutions",
-        "Power Platform Automation"
-      ],
-      "duration": "Project-Based",
-      "link": "/book-consultation?type=development"
-    },
-    {
-      "id": 4,
-      "title": "Microsoft 365 & Cloud Administration",
-      "icon": "Cloud",
-      "subtitle": "Cloud Productivity & Identity Management",
-      "problemSolved": "Managing users, devices, and cloud services becomes increasingly challenging as organisations grow. I help businesses securely manage Microsoft cloud services and workplace collaboration.",
-      "deliverables": [
-        "Microsoft 365 Administration",
-        "Azure Active Directory Administration",
-        "Exchange Online Support",
-        "User & Group Management",
-        "Endpoint Administration"
-      ],
-      "duration": "Support Contract or Project",
-      "link": "/book-consultation?type=m365"
-    },
-    {
-      "id": 3,
-      "title": "IT Support & Service Desk",
-      "icon": "Headphones",
-      "subtitle": "Reliable Technical Support for Business Users",
-      "problemSolved": "Technology problems shouldn't stop people from working. I provide responsive IT support, troubleshoot technical issues, and ensure users receive professional assistance when they need it most.",
-      "deliverables": [
-        "1st & 2nd Line IT Support",
-        "Remote & Onsite Support",
-        "Windows Administration",
-        "Microsoft 365 Support",
-        "Incident & Service Request Management"
-      ],
-      "duration": "Hourly or Monthly Support",
-      "link": "/book-consultation?type=support"
-    },
-    {
-      "id": 2,
-      "title": "Network Engineering",
-      "icon": "Network",
-      "subtitle": "Enterprise Networking & Infrastructure",
-      "problemSolved": "Slow networks, unreliable Wi-Fi, VPN issues, or infrastructure outages can disrupt business operations. I design, support, troubleshoot, and optimise secure enterprise network environments.",
-      "deliverables": [
-        "Router & Switch Configuration",
-        "LAN, WAN & Wi-Fi Support",
-        "VPN Configuration & Troubleshooting",
-        "Network Monitoring & Optimisation",
-        "Infrastructure Documentation"
-      ],
-      "duration": "Project or Ongoing Support",
-      "link": "/book-consultation?type=network"
-    },
-    {
-      "id": 1,
-      "title": "Payment & Banking Technology",
-      "icon": "CreditCard",
-      "subtitle": "Enterprise Financial Systems & Payment Infrastructure",
-      "problemSolved": "Banking and payment systems require high availability, security, and operational excellence. I support mission-critical payment platforms and digital banking infrastructure that organisations rely on every day.",
-      "deliverables": [
-        "ATM & POS System Administration",
-        "Card Banking Systems (Visa, Mastercard & UPI)",
-        "Digital Banking Platform Support",
-        "Payment Infrastructure & HSM Support",
-        "Technical Operations & Banking Technology Consulting"
-      ],
-      "duration": "Contract, Consultancy or Project-Based",
-      "link": "/book-consultation?type=banking"
+    "achievementsData": [
+      {
+        "year": "2025",
+        "role": "Network Engineering",
+        "company": "BT Group",
+        "desc": "Supporting enterprise-scale network infrastructure and business-critical services."
+      },
+      {
+        "year": "2024",
+        "role": "Mastercard Implementation Project",
+        "company": "Cooperative Bank of Oromia",
+        "desc": "Participated in payment infrastructure modernization and card scheme integration initiatives."
+      },
+      {
+        "year": "2023",
+        "role": "International ATM Operations",
+        "company": "Banking Technology",
+        "desc": "Managed ATM, CRM, POS, and digital banking technologies across multiple regions."
+      },
+      {
+        "year": "2018",
+        "role": "BSc Information Technology",
+        "company": "Samara University",
+        "desc": "Graduated with Great Distinction."
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Agile Scrum Master",
+        "issuer": "Professional Certification",
+        "date": "2024"
+      },
+      {
+        "name": "Introduction to ITIL",
+        "issuer": "ITIL Foundation Training",
+        "date": "2024"
+      },
+      {
+        "name": "ChatGPT for Cybersecurity",
+        "issuer": "Professional Development Training",
+        "date": "2024"
+      },
+      {
+        "name": "International ATM Operations Certification",
+        "issuer": "NCR / Banking Technology Training",
+        "date": "2023"
+      },
+      {
+        "name": "EMV Chip Card Training Certification",
+        "issuer": "EMV Training Program",
+        "date": "2022"
+      },
+      {
+        "name": "Bitcoin and Cryptocurrencies",
+        "issuer": "edX",
+        "date": "2022"
+      },
+      {
+        "name": "Web Development Certification",
+        "issuer": "Eduonix",
+        "date": "2022"
+      },
+      {
+        "name": "Cross Platform Mobile Application Developer & AI Associate",
+        "issuer": "Gebeya Academy",
+        "date": "2021"
+      },
+      {
+        "name": "The Threat Landscape",
+        "issuer": "Fortinet NSE Institute",
+        "date": "2019"
+      },
+      {
+        "name": "Think in English",
+        "issuer": "Professional Development Training",
+        "date": "2023"
+      }
+    ],
+    "Careerpath": {
+      "c1": "IT Support",
+      "c2": "SysAdmin and web development",
+      "c3": "Network Engineer",
+      "c4": "Infra Engineer",
+      "c5": "Automation Specialist",
+      "c6": "Consultant"
     }
-  ]
-},
-
-
-"page_content_Skill": {
-  "skillCategories": [
-    {
-      "title": "IT Support & System Administration",
-      "icon": "MonitorCog",
-      "skills": [
-        {
-          "name": "IT Support & Service Desk",
-          "rating": 10,
-          "details": "Providing 1st & 2nd line technical support, incident management, troubleshooting and end-user assistance.",
-          "tools": ["Windows 10/11", "ServiceNow", "Jira", "Remote Support"]
-        },
-        {
-          "name": "Windows Administration",
-          "rating": 9,
-          "details": "Installing, configuring and maintaining Windows desktops and enterprise devices.",
-          "tools": ["Windows", "Group Policy", "PowerShell"]
-        },
-        {
-          "name": "Computer Maintenance",
-          "rating": 10,
-          "details": "Hardware diagnostics, upgrades, operating system deployment and preventative maintenance.",
-          "tools": ["Desktop PCs", "Laptops", "BIOS", "UEFI"]
-        },
-        {
-          "name": "Software Installation & Deployment",
-          "rating": 10,
-          "details": "Installing, configuring and supporting business applications and operating systems.",
-          "tools": ["Microsoft Office", "SCCM", "Windows Installer"]
-        }
-      ]
+  },
+  "page_content_service": {
+    "ServiceBlock": [
+      {
+        "id": 8,
+        "title": "Technical Consulting",
+        "icon": "Lightbulb",
+        "subtitle": "Technology Strategy & Digital Transformation",
+        "problemSolved": "Need guidance on choosing the right technology, improving existing systems, or planning your next IT project? I provide practical solutions that align technology with business objectives and long-term growth.",
+        "deliverables": [
+          "IT Strategy & Technology Consulting",
+          "Digital Transformation Planning",
+          "Infrastructure Assessment & Recommendations",
+          "Business Process Optimisation",
+          "Technical Documentation & Knowledge Transfer"
+        ],
+        "duration": "Consultation or Project-Based",
+        "link": "/book-consultation?type=consulting"
+      },
+      {
+        "id": 7,
+        "title": "Computer Repair & Maintenance",
+        "icon": "Cpu",
+        "subtitle": "Desktop, Laptop & Hardware Support",
+        "problemSolved": "Computers running slowly, hardware failures, or operating system issues affecting productivity? I diagnose, repair, upgrade, and optimise systems to keep your business running efficiently.",
+        "deliverables": [
+          "Desktop & Laptop Diagnostics",
+          "Hardware Installation & Replacement",
+          "Windows Installation & Recovery",
+          "Performance Optimisation",
+          "Preventive Maintenance"
+        ],
+        "duration": "Same Day or Scheduled Service",
+        "link": "/book-consultation?type=repair"
+      },
+      {
+        "id": 6,
+        "title": "Software Installation & Administration",
+        "icon": "MonitorCog",
+        "subtitle": "Secure Software Deployment & System Administration",
+        "problemSolved": "Managing software across multiple devices can become time-consuming and inconsistent. I install, configure, update, and maintain business applications while ensuring secure and reliable system operation.",
+        "deliverables": [
+          "Software Installation & Configuration",
+          "Windows Administration",
+          "Operating System Deployment",
+          "Application Troubleshooting",
+          "System Configuration & Maintenance"
+        ],
+        "duration": "Hourly or Fixed Project",
+        "link": "/book-consultation?type=software"
+      },
+      {
+        "id": 5,
+        "title": "Web Development & Business Applications",
+        "icon": "Globe",
+        "subtitle": "Modern Websites & Workflow Automation",
+        "problemSolved": "Looking for a responsive website or a business application that improves productivity? I build modern web applications and automate business processes using industry-standard technologies.",
+        "deliverables": [
+          "Next.js Development",
+          "React Applications",
+          "Tailwind CSS UI Development",
+          "Power Apps Solutions",
+          "Power Platform Automation"
+        ],
+        "duration": "Project-Based",
+        "link": "/book-consultation?type=development"
+      },
+      {
+        "id": 4,
+        "title": "Microsoft 365 & Cloud Administration",
+        "icon": "Cloud",
+        "subtitle": "Cloud Productivity & Identity Management",
+        "problemSolved": "Managing users, devices, and cloud services becomes increasingly challenging as organisations grow. I help businesses securely manage Microsoft cloud services and workplace collaboration.",
+        "deliverables": [
+          "Microsoft 365 Administration",
+          "Azure Active Directory Administration",
+          "Exchange Online Support",
+          "User & Group Management",
+          "Endpoint Administration"
+        ],
+        "duration": "Support Contract or Project",
+        "link": "/book-consultation?type=m365"
+      },
+      {
+        "id": 3,
+        "title": "IT Support & Service Desk",
+        "icon": "Headphones",
+        "subtitle": "Reliable Technical Support for Business Users",
+        "problemSolved": "Technology problems shouldn't stop people from working. I provide responsive IT support, troubleshoot technical issues, and ensure users receive professional assistance when they need it most.",
+        "deliverables": [
+          "1st & 2nd Line IT Support",
+          "Remote & Onsite Support",
+          "Windows Administration",
+          "Microsoft 365 Support",
+          "Incident & Service Request Management"
+        ],
+        "duration": "Hourly or Monthly Support",
+        "link": "/book-consultation?type=support"
+      },
+      {
+        "id": 2,
+        "title": "Network Engineering",
+        "icon": "Network",
+        "subtitle": "Enterprise Networking & Infrastructure",
+        "problemSolved": "Slow networks, unreliable Wi-Fi, VPN issues, or infrastructure outages can disrupt business operations. I design, support, troubleshoot, and optimise secure enterprise network environments.",
+        "deliverables": [
+          "Router & Switch Configuration",
+          "LAN, WAN & Wi-Fi Support",
+          "VPN Configuration & Troubleshooting",
+          "Network Monitoring & Optimisation",
+          "Infrastructure Documentation"
+        ],
+        "duration": "Project or Ongoing Support",
+        "link": "/book-consultation?type=network"
+      },
+      {
+        "id": 1,
+        "title": "Payment & Banking Technology",
+        "icon": "CreditCard",
+        "subtitle": "Enterprise Financial Systems & Payment Infrastructure",
+        "problemSolved": "Banking and payment systems require high availability, security, and operational excellence. I support mission-critical payment platforms and digital banking infrastructure that organisations rely on every day.",
+        "deliverables": [
+          "ATM & POS System Administration",
+          "Card Banking Systems (Visa, Mastercard & UPI)",
+          "Digital Banking Platform Support",
+          "Payment Infrastructure & HSM Support",
+          "Technical Operations & Banking Technology Consulting"
+        ],
+        "duration": "Contract, Consultancy or Project-Based",
+        "link": "/book-consultation?type=banking"
+      }
+    ]
+  },
+  "page_content_Skill": {
+    "skillCategories": [
+      {
+        "title": "IT Support & System Administration",
+        "icon": "MonitorCog",
+        "skills": [
+          {
+            "name": "IT Support & Service Desk",
+            "rating": 10,
+            "details": "Providing 1st & 2nd line technical support, incident management, troubleshooting and end-user assistance.",
+            "tools": [
+              "Windows 10/11",
+              "ServiceNow",
+              "Jira",
+              "Remote Support"
+            ]
+          },
+          {
+            "name": "Windows Administration",
+            "rating": 9,
+            "details": "Installing, configuring and maintaining Windows desktops and enterprise devices.",
+            "tools": [
+              "Windows",
+              "Group Policy",
+              "PowerShell"
+            ]
+          },
+          {
+            "name": "Computer Maintenance",
+            "rating": 10,
+            "details": "Hardware diagnostics, upgrades, operating system deployment and preventative maintenance.",
+            "tools": [
+              "Desktop PCs",
+              "Laptops",
+              "BIOS",
+              "UEFI"
+            ]
+          },
+          {
+            "name": "Software Installation & Deployment",
+            "rating": 10,
+            "details": "Installing, configuring and supporting business applications and operating systems.",
+            "tools": [
+              "Microsoft Office",
+              "SCCM",
+              "Windows Installer"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Network Engineering",
+        "icon": "Network",
+        "skills": [
+          {
+            "name": "Enterprise Networking",
+            "rating": 9,
+            "details": "Supporting enterprise LAN/WAN infrastructure, routing, switching and secure connectivity.",
+            "tools": [
+              "Cisco",
+              "Fortinet",
+              "VPN",
+              "Wi-Fi"
+            ]
+          },
+          {
+            "name": "Network Troubleshooting",
+            "rating": 10,
+            "details": "Diagnosing connectivity, routing and infrastructure issues while maintaining service availability.",
+            "tools": [
+              "TCP/IP",
+              "DNS",
+              "DHCP",
+              "SSH"
+            ]
+          },
+          {
+            "name": "Network Monitoring",
+            "rating": 9,
+            "details": "Monitoring infrastructure health and responding to operational incidents.",
+            "tools": [
+              "SolarWinds",
+              "PRTG",
+              "Zabbix"
+            ]
+          },
+          {
+            "name": "Infrastructure Support",
+            "rating": 9,
+            "details": "Supporting routers, switches, firewalls and enterprise network environments.",
+            "tools": [
+              "Cisco",
+              "Fortinet",
+              "Putty"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Microsoft 365 & Cloud",
+        "icon": "Cloud",
+        "skills": [
+          {
+            "name": "Microsoft 365",
+            "rating": 9,
+            "details": "Managing Microsoft productivity services, users and collaboration platforms.",
+            "tools": [
+              "Exchange Online",
+              "Teams",
+              "SharePoint",
+              "OneDrive"
+            ]
+          },
+          {
+            "name": "Azure & Entra ID",
+            "rating": 8,
+            "details": "Identity management, cloud administration and directory services.",
+            "tools": [
+              "Azure",
+              "Entra ID",
+              "Azure AD"
+            ]
+          },
+          {
+            "name": "Active Directory",
+            "rating": 9,
+            "details": "User administration, security groups and authentication management.",
+            "tools": [
+              "Active Directory",
+              "Group Policy"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Banking & Payment Systems",
+        "icon": "CreditCard",
+        "skills": [
+          {
+            "name": "Digital Banking Systems",
+            "rating": 10,
+            "details": "Supporting enterprise digital banking platforms and financial technology infrastructure.",
+            "tools": [
+              "Digital Banking",
+              "Core Banking"
+            ]
+          },
+          {
+            "name": "Card Payment Systems",
+            "rating": 10,
+            "details": "Working with international card schemes and payment technologies.",
+            "tools": [
+              "Mastercard",
+              "Visa",
+              "UPI"
+            ]
+          },
+          {
+            "name": "ATM & POS Technologies",
+            "rating": 10,
+            "details": "Administration, troubleshooting and operational support for self-service banking devices.",
+            "tools": [
+              "NCR",
+              "Hitachi",
+              "POS",
+              "CRM"
+            ]
+          },
+          {
+            "name": "Payment Security",
+            "rating": 9,
+            "details": "Supporting secure payment environments and cryptographic infrastructure.",
+            "tools": [
+              "HSM",
+              "EMV",
+              "PCI DSS"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Web Development & Business Applications",
+        "icon": "Globe",
+        "skills": [
+          {
+            "name": "React & Next.js",
+            "rating": 8,
+            "details": "Building responsive web applications using modern JavaScript frameworks.",
+            "tools": [
+              "React",
+              "Next.js",
+              "TypeScript"
+            ]
+          },
+          {
+            "name": "Power Platform",
+            "rating": 9,
+            "details": "Developing business applications and workflow automation solutions.",
+            "tools": [
+              "Power Apps",
+              "Power Automate",
+              "Dataverse"
+            ]
+          },
+          {
+            "name": "Frontend Development",
+            "rating": 9,
+            "details": "Creating responsive user interfaces and modern web experiences.",
+            "tools": [
+              "HTML5",
+              "CSS3",
+              "Tailwind CSS",
+              "JavaScript"
+            ]
+          },
+          {
+            "name": "Database Development",
+            "rating": 8,
+            "details": "Working with relational databases and data-driven applications.",
+            "tools": [
+              "SQL Server",
+              "MySQL",
+              "PostgreSQL"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Programming & Automation",
+        "icon": "Terminal",
+        "skills": [
+          {
+            "name": "PowerShell",
+            "rating": 8,
+            "details": "Automating administrative tasks and Windows management.",
+            "tools": [
+              "PowerShell",
+              "Windows Terminal"
+            ]
+          },
+          {
+            "name": "Python",
+            "rating": 7,
+            "details": "Developing scripts for automation, data processing and system utilities.",
+            "tools": [
+              "Python",
+              "Requests",
+              "Pandas"
+            ]
+          },
+          {
+            "name": "JavaScript",
+            "rating": 9,
+            "details": "Building interactive web applications and backend services.",
+            "tools": [
+              "JavaScript",
+              "Node.js",
+              "TypeScript"
+            ]
+          },
+          {
+            "name": "Version Control",
+            "rating": 8,
+            "details": "Managing source code and collaborative software development.",
+            "tools": [
+              "Git",
+              "GitHub"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Monitoring & Operations",
+        "icon": "Activity",
+        "skills": [
+          {
+            "name": "Operational Control Centre",
+            "rating": 9,
+            "details": "Supporting business-critical operations, incident response and service continuity.",
+            "tools": [
+              "NOC",
+              "Operational Support"
+            ]
+          },
+          {
+            "name": "Infrastructure Monitoring",
+            "rating": 9,
+            "details": "Proactive monitoring, alert management and service availability.",
+            "tools": [
+              "SolarWinds",
+              "PRTG",
+              "Zabbix"
+            ]
+          },
+          {
+            "name": "ITSM Processes",
+            "rating": 9,
+            "details": "Incident, change and problem management following IT service best practices.",
+            "tools": [
+              "ITIL",
+              "ServiceNow",
+              "Jira"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Professional Skills",
+        "icon": "Users",
+        "skills": [
+          {
+            "name": "Technical Leadership",
+            "rating": 9,
+            "details": "Leading technical initiatives, mentoring colleagues and coordinating cross-functional teams.",
+            "tools": [
+              "Project Delivery",
+              "Documentation"
+            ]
+          },
+          {
+            "name": "Problem Solving",
+            "rating": 10,
+            "details": "Analysing complex technical issues and delivering practical solutions.",
+            "tools": [
+              "Root Cause Analysis",
+              "Troubleshooting"
+            ]
+          },
+          {
+            "name": "Stakeholder Communication",
+            "rating": 10,
+            "details": "Communicating technical concepts clearly to both technical and non-technical audiences.",
+            "tools": [
+              "Customer Support",
+              "Vendor Management"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "page_content_portfolio": {
+    "projectsData": [
+      {
+        "id": 1,
+        "title": "Enterprise Network Operations & Infrastructure Support",
+        "category": "Networking",
+        "desc": "Provide enterprise network support across business-critical infrastructure, troubleshooting routing, switching, VPN connectivity and network incidents while maintaining high service availability and SLA compliance.",
+        "technologies": [
+          "Cisco",
+          "Fortinet",
+          "TCP/IP",
+          "VPN",
+          "Windows",
+          "SolarWinds",
+          "PRTG",
+          "Zabbix"
+        ],
+        "results": "Improved network reliability through proactive monitoring, rapid incident resolution, and infrastructure support.",
+        "caseStudyLink": "/case-studies?project=enterprise-network",
+        "icon": "Network"
+      },
+      {
+        "id": 2,
+        "title": "Digital Banking & Mastercard Payment Infrastructure",
+        "category": "Banking Technology",
+        "desc": "Supported enterprise card banking platforms including Mastercard implementation, ATM and POS infrastructure, HSM administration, payment technologies, and digital banking services while collaborating with vendors and operational teams.",
+        "technologies": [
+          "Mastercard",
+          "Visa",
+          "UPI",
+          "ATM",
+          "POS",
+          "HSM",
+          "NCR",
+          "Hitachi"
+        ],
+        "results": "Helped maintain secure, highly available payment services supporting nationwide banking operations.",
+        "caseStudyLink": "/case-studies?project=banking",
+        "icon": "CreditCard"
+      },
+      {
+        "id": 3,
+        "title": "Power Apps Timesheet & Project Management System",
+        "category": "Power Platform",
+        "desc": "Designed and developed a business management solution using Microsoft Power Apps, SharePoint and Power Automate to manage employees, projects, activities, overtime approval, kit tracking and reporting.",
+        "technologies": [
+          "Power Apps",
+          "Power Automate",
+          "SharePoint",
+          "SQL Server",
+          "Excel"
+        ],
+        "results": "Reduced manual spreadsheet processing by approximately 40 hours per month while improving reporting accuracy.",
+        "caseStudyLink": "/case-studies?project=timesheet",
+        "icon": "Layers"
+      },
+      {
+        "id": 4,
+        "title": "Portfolio Website & Personal Brand Platform",
+        "category": "Web Development",
+        "desc": "Designed and built a modern developer portfolio showcasing technical expertise, projects, certifications, career timeline and interactive UI with responsive design and animations.",
+        "technologies": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "Framer Motion"
+        ],
+        "results": "Created a recruiter-focused online portfolio that showcases technical skills and professional achievements.",
+        "caseStudyLink": "/case-studies?project=portfolio",
+        "icon": "Globe"
+      },
+      {
+        "id": 5,
+        "title": "Church Event Registration & Donation Platform",
+        "category": "Business Applications",
+        "desc": "Developed a digital platform for event registration, attendance management, donation tracking and automated communication to support community events and administration.",
+        "technologies": [
+          "Power Apps",
+          "Power Automate",
+          "SharePoint",
+          "Microsoft Forms"
+        ],
+        "results": "Digitised registration and donation management, reducing manual administration and improving event coordination.",
+        "caseStudyLink": "/case-studies?project=church",
+        "icon": "HeartHandshake"
+      },
+      {
+        "id": 6,
+        "title": "Operational Reporting & Management Dashboards",
+        "category": "Data & Reporting",
+        "desc": "Developed operational dashboards and reporting solutions for business performance, project tracking and management information using Microsoft technologies.",
+        "technologies": [
+          "Excel",
+          "Power BI",
+          "SQL",
+          "Power Query"
+        ],
+        "results": "Enabled management teams to make faster, data-driven decisions through consolidated reporting.",
+        "caseStudyLink": "/case-studies?project=reporting",
+        "icon": "BarChart3"
+      },
+      {
+        "id": 7,
+        "title": "Project & Activity Tracking Solution",
+        "category": "Business Automation",
+        "desc": "Designed a project and workforce management application supporting multiple activities, overtime approval, serial and kit tracking, productivity monitoring and management reporting.",
+        "technologies": [
+          "Power Apps",
+          "Dataverse",
+          "Power Automate",
+          "SharePoint",
+          "SQL Server"
+        ],
+        "results": "Simplified project administration by centralising operational workflows into a single application.",
+        "caseStudyLink": "/case-studies?project=project-management",
+        "icon": "ClipboardList"
+      },
+      {
+        "id": 8,
+        "title": "Unity Platform - Connecting Through Kindness",
+        "category": "Social Innovation",
+        "desc": "Designed the concept, branding, user experience and technical architecture for a global digital platform focused on encouraging kindness, collaboration and meaningful community engagement.",
+        "technologies": [
+          "Next.js",
+          "React",
+          "UI/UX Design",
+          "Figma",
+          "Brand Design"
+        ],
+        "results": "Created a scalable product vision combining technology with positive social impact.",
+        "caseStudyLink": "/case-studies?project=unity",
+        "icon": "Sparkles"
+      }
+    ]
+  },
+  "page_content": {
+    "home": {
+      "page_key": "home",
+      "title": "ConnectForge Technologies Ltd | Networks, Web, Automation & Apps",
+      "meta_description": "ConnectForge Technologies Ltd delivers secure networks, modern websites, business automation, and custom application development.",
+      "keywords": "ConnectForge Technologies Ltd, Network Engineer, Web Developer, Automation Consultant, App Developer, Charles Agyemang, Ammayu Waktole",
+      "hero_title": "Technology that moves your business forward.",
+      "hero_subtitle": "Connected technology for growing businesses",
+      "body_text": "We design secure networks, build high-performing websites and applications, and automate the repetitive work that slows teams down—from strategy and architecture through delivery and ongoing support.",
+      "tagline": "NETWORKS • WEB • AUTOMATION • APPS"
     },
-    {
-      "title": "Network Engineering",
-      "icon": "Network",
-      "skills": [
-        {
-          "name": "Enterprise Networking",
-          "rating": 9,
-          "details": "Supporting enterprise LAN/WAN infrastructure, routing, switching and secure connectivity.",
-          "tools": ["Cisco", "Fortinet", "VPN", "Wi-Fi"]
-        },
-        {
-          "name": "Network Troubleshooting",
-          "rating": 10,
-          "details": "Diagnosing connectivity, routing and infrastructure issues while maintaining service availability.",
-          "tools": ["TCP/IP", "DNS", "DHCP", "SSH"]
-        },
-        {
-          "name": "Network Monitoring",
-          "rating": 9,
-          "details": "Monitoring infrastructure health and responding to operational incidents.",
-          "tools": ["SolarWinds", "PRTG", "Zabbix"]
-        },
-        {
-          "name": "Infrastructure Support",
-          "rating": 9,
-          "details": "Supporting routers, switches, firewalls and enterprise network environments.",
-          "tools": ["Cisco", "Fortinet", "Putty"]
-        }
-      ]
+    "services": {
+      "page_key": "services",
+      "title": "Consulting Services | Cloud & Infrastructure Audits",
+      "meta_description": "Explore professional consulting services spanning Linux administration, DevOps, AWS/Azure hybrid networks, and custom Power Platform applications.",
+      "keywords": "DevOps retainer, cloud cost audit, Linux web cluster, custom Power Apps developer",
+      "hero_title": "One partner for your digital foundation",
+      "hero_subtitle": "Technology Services",
+      "body_text": "We provide focused, practical services that solve real technology bottlenecks. Engage us for a defined project, an expert review, or ongoing technical support."
     },
-    {
-      "title": "Microsoft 365 & Cloud",
-      "icon": "Cloud",
-      "skills": [
-        {
-          "name": "Microsoft 365",
-          "rating": 9,
-          "details": "Managing Microsoft productivity services, users and collaboration platforms.",
-          "tools": ["Exchange Online", "Teams", "SharePoint", "OneDrive"]
-        },
-        {
-          "name": "Azure & Entra ID",
-          "rating": 8,
-          "details": "Identity management, cloud administration and directory services.",
-          "tools": ["Azure", "Entra ID", "Azure AD"]
-        },
-        {
-          "name": "Active Directory",
-          "rating": 9,
-          "details": "User administration, security groups and authentication management.",
-          "tools": ["Active Directory", "Group Policy"]
-        }
-      ]
+    "skills": {
+      "page_key": "skills",
+      "title": "Core Technical Capabilities & Toolsets",
+      "meta_description": "Interactive proficiency metrics across Infrastructure, AWS/Azure Cloud, Terraform/Ansible automation, and Low-Code development.",
+      "keywords": "Linux expertise rating, Terraform competency, PowerShell scripts, SQL queries database",
+      "hero_title": "Technologies & Capabilities",
+      "hero_subtitle": "Skill Matrix",
+      "body_text": "Explore the platforms, languages, and engineering tools our team uses to deliver reliable client solutions."
     },
-    {
-      "title": "Banking & Payment Systems",
-      "icon": "CreditCard",
-      "skills": [
-        {
-          "name": "Digital Banking Systems",
-          "rating": 10,
-          "details": "Supporting enterprise digital banking platforms and financial technology infrastructure.",
-          "tools": ["Digital Banking", "Core Banking"]
-        },
-        {
-          "name": "Card Payment Systems",
-          "rating": 10,
-          "details": "Working with international card schemes and payment technologies.",
-          "tools": ["Mastercard", "Visa", "UPI"]
-        },
-        {
-          "name": "ATM & POS Technologies",
-          "rating": 10,
-          "details": "Administration, troubleshooting and operational support for self-service banking devices.",
-          "tools": ["NCR", "Hitachi", "POS", "CRM"]
-        },
-        {
-          "name": "Payment Security",
-          "rating": 9,
-          "details": "Supporting secure payment environments and cryptographic infrastructure.",
-          "tools": ["HSM", "EMV", "PCI DSS"]
-        }
-      ]
-    },
-    {
-      "title": "Web Development & Business Applications",
-      "icon": "Globe",
-      "skills": [
-        {
-          "name": "React & Next.js",
-          "rating": 8,
-          "details": "Building responsive web applications using modern JavaScript frameworks.",
-          "tools": ["React", "Next.js", "TypeScript"]
-        },
-        {
-          "name": "Power Platform",
-          "rating": 9,
-          "details": "Developing business applications and workflow automation solutions.",
-          "tools": ["Power Apps", "Power Automate", "Dataverse"]
-        },
-        {
-          "name": "Frontend Development",
-          "rating": 9,
-          "details": "Creating responsive user interfaces and modern web experiences.",
-          "tools": ["HTML5", "CSS3", "Tailwind CSS", "JavaScript"]
-        },
-        {
-          "name": "Database Development",
-          "rating": 8,
-          "details": "Working with relational databases and data-driven applications.",
-          "tools": ["SQL Server", "MySQL", "PostgreSQL"]
-        }
-      ]
-    },
-    {
-      "title": "Programming & Automation",
-      "icon": "Terminal",
-      "skills": [
-        {
-          "name": "PowerShell",
-          "rating": 8,
-          "details": "Automating administrative tasks and Windows management.",
-          "tools": ["PowerShell", "Windows Terminal"]
-        },
-        {
-          "name": "Python",
-          "rating": 7,
-          "details": "Developing scripts for automation, data processing and system utilities.",
-          "tools": ["Python", "Requests", "Pandas"]
-        },
-        {
-          "name": "JavaScript",
-          "rating": 9,
-          "details": "Building interactive web applications and backend services.",
-          "tools": ["JavaScript", "Node.js", "TypeScript"]
-        },
-        {
-          "name": "Version Control",
-          "rating": 8,
-          "details": "Managing source code and collaborative software development.",
-          "tools": ["Git", "GitHub"]
-        }
-      ]
-    },
-    {
-      "title": "Monitoring & Operations",
-      "icon": "Activity",
-      "skills": [
-        {
-          "name": "Operational Control Centre",
-          "rating": 9,
-          "details": "Supporting business-critical operations, incident response and service continuity.",
-          "tools": ["NOC", "Operational Support"]
-        },
-        {
-          "name": "Infrastructure Monitoring",
-          "rating": 9,
-          "details": "Proactive monitoring, alert management and service availability.",
-          "tools": ["SolarWinds", "PRTG", "Zabbix"]
-        },
-        {
-          "name": "ITSM Processes",
-          "rating": 9,
-          "details": "Incident, change and problem management following IT service best practices.",
-          "tools": ["ITIL", "ServiceNow", "Jira"]
-        }
-      ]
-    },
-    {
-      "title": "Professional Skills",
-      "icon": "Users",
-      "skills": [
-        {
-          "name": "Technical Leadership",
-          "rating": 9,
-          "details": "Leading technical initiatives, mentoring colleagues and coordinating cross-functional teams.",
-          "tools": ["Project Delivery", "Documentation"]
-        },
-        {
-          "name": "Problem Solving",
-          "rating": 10,
-          "details": "Analysing complex technical issues and delivering practical solutions.",
-          "tools": ["Root Cause Analysis", "Troubleshooting"]
-        },
-        {
-          "name": "Stakeholder Communication",
-          "rating": 10,
-          "details": "Communicating technical concepts clearly to both technical and non-technical audiences.",
-          "tools": ["Customer Support", "Vendor Management"]
-        }
-      ]
+    "about": {
+      "page_key": "about",
+      "title": "About ConnectForge Technologies Ltd | Our Founders & Mission",
+      "meta_description": "Meet Charles Agyemang and Ammayu Waktole, co-founders of ConnectForge Technologies Ltd.",
+      "keywords": "Charles Agyemang, Ammayu Waktole, ConnectForge Technologies Ltd, technology company",
+      "hero_title": "Many specialists. One technology partner.",
+      "hero_subtitle": "We make powerful technology practical, dependable, and valuable.",
+      "body_text": "a UK-based technology company providing software development, network engineering, IT infrastructure, CCTV, field engineering and technical support services to businesses and organisations. We bring digital and physical technology services together under one roof, helping customers with website and application development, business systems, API integrations and automation, network design and configuration, Wi-Fi, LAN/WAN, routers, switches, VLANs and VPNs, structured Cat5e, Cat6 and Cat6a cabling, network cabinets and data points, CCTV and surveillance systems, remote and on-site IT support, and field engineering services. What makes ConnectForge different is our ability to bridge software, networking and physical IT infrastructure, giving customers one trusted technology partner throughout their technology journey. We take time to understand each customer's requirements and focus on delivering reliable, professional, secure and practical solutions that provide long-term value."
     }
-  ]
-},
-
-"page_content_portfolio":{
-  "projectsData": [
-    {
-      "id": 1,
-      "title": "Enterprise Network Operations & Infrastructure Support",
-      "category": "Networking",
-      "desc": "Provide enterprise network support across business-critical infrastructure, troubleshooting routing, switching, VPN connectivity and network incidents while maintaining high service availability and SLA compliance.",
-      "technologies": [
-        "Cisco",
-        "Fortinet",
-        "TCP/IP",
-        "VPN",
-        "Windows",
-        "SolarWinds",
-        "PRTG",
-        "Zabbix"
-      ],
-      "results": "Improved network reliability through proactive monitoring, rapid incident resolution, and infrastructure support.",
-      "caseStudyLink": "/case-studies?project=enterprise-network",
-      "icon": "Network"
-    },
-    {
-      "id": 2,
-      "title": "Digital Banking & Mastercard Payment Infrastructure",
-      "category": "Banking Technology",
-      "desc": "Supported enterprise card banking platforms including Mastercard implementation, ATM and POS infrastructure, HSM administration, payment technologies, and digital banking services while collaborating with vendors and operational teams.",
-      "technologies": [
-        "Mastercard",
-        "Visa",
-        "UPI",
-        "ATM",
-        "POS",
-        "HSM",
-        "NCR",
-        "Hitachi"
-      ],
-      "results": "Helped maintain secure, highly available payment services supporting nationwide banking operations.",
-      "caseStudyLink": "/case-studies?project=banking",
-      "icon": "CreditCard"
-    },
-    {
-      "id": 3,
-      "title": "Power Apps Timesheet & Project Management System",
-      "category": "Power Platform",
-      "desc": "Designed and developed a business management solution using Microsoft Power Apps, SharePoint and Power Automate to manage employees, projects, activities, overtime approval, kit tracking and reporting.",
-      "technologies": [
-        "Power Apps",
-        "Power Automate",
-        "SharePoint",
-        "SQL Server",
-        "Excel"
-      ],
-      "results": "Reduced manual spreadsheet processing by approximately 40 hours per month while improving reporting accuracy.",
-      "caseStudyLink": "/case-studies?project=timesheet",
-      "icon": "Layers"
-    },
-    {
-      "id": 4,
-      "title": "Portfolio Website & Personal Brand Platform",
-      "category": "Web Development",
-      "desc": "Designed and built a modern developer portfolio showcasing technical expertise, projects, certifications, career timeline and interactive UI with responsive design and animations.",
-      "technologies": [
-        "Next.js",
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "Framer Motion"
-      ],
-      "results": "Created a recruiter-focused online portfolio that showcases technical skills and professional achievements.",
-      "caseStudyLink": "/case-studies?project=portfolio",
-      "icon": "Globe"
-    },
-    {
-      "id": 5,
-      "title": "Church Event Registration & Donation Platform",
-      "category": "Business Applications",
-      "desc": "Developed a digital platform for event registration, attendance management, donation tracking and automated communication to support community events and administration.",
-      "technologies": [
-        "Power Apps",
-        "Power Automate",
-        "SharePoint",
-        "Microsoft Forms"
-      ],
-      "results": "Digitised registration and donation management, reducing manual administration and improving event coordination.",
-      "caseStudyLink": "/case-studies?project=church",
-      "icon": "HeartHandshake"
-    },
-    {
-      "id": 6,
-      "title": "Operational Reporting & Management Dashboards",
-      "category": "Data & Reporting",
-      "desc": "Developed operational dashboards and reporting solutions for business performance, project tracking and management information using Microsoft technologies.",
-      "technologies": [
-        "Excel",
-        "Power BI",
-        "SQL",
-        "Power Query"
-      ],
-      "results": "Enabled management teams to make faster, data-driven decisions through consolidated reporting.",
-      "caseStudyLink": "/case-studies?project=reporting",
-      "icon": "BarChart3"
-    },
-
-    {
-      "id": 7,
-      "title": "Project & Activity Tracking Solution",
-      "category": "Business Automation",
-      "desc": "Designed a project and workforce management application supporting multiple activities, overtime approval, serial and kit tracking, productivity monitoring and management reporting.",
-      "technologies": [
-        "Power Apps",
-        "Dataverse",
-        "Power Automate",
-        "SharePoint",
-        "SQL Server"
-      ],
-      "results": "Simplified project administration by centralising operational workflows into a single application.",
-      "caseStudyLink": "/case-studies?project=project-management",
-      "icon": "ClipboardList"
-    },
-    {
-      "id": 8,
-      "title": "Unity Platform - Connecting Through Kindness",
-      "category": "Social Innovation",
-      "desc": "Designed the concept, branding, user experience and technical architecture for a global digital platform focused on encouraging kindness, collaboration and meaningful community engagement.",
-      "technologies": [
-        "Next.js",
-        "React",
-        "UI/UX Design",
-        "Figma",
-        "Brand Design"
-      ],
-      "results": "Created a scalable product vision combining technology with positive social impact.",
-      "caseStudyLink": "/case-studies?project=unity",
-      "icon": "Sparkles"
-    }
-  ]
+  }
 }
-
-
-
-
-
-}
-
-
-
-
-
-

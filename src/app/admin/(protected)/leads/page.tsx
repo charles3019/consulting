@@ -12,6 +12,8 @@ import {
   updateContactStatusAction,
 } from "@/app/admin/actions";
 import { getConsultations, getContacts } from "@/lib/db";
+import { requireAdminSession } from "@/lib/auth";
+import { formatBookingDate } from "@/lib/booking";
 
 const consultationStatuses = ["Pending", "Approved", "Completed", "Archived"];
 const contactStatuses = ["New", "In Review", "Responded", "Archived"];
@@ -21,6 +23,7 @@ export default async function AdminLeadsPage({
 }: {
   searchParams: Promise<{ updated?: string; deleted?: string }>;
 }) {
+  await requireAdminSession();
   const [{ updated, deleted }, consultations, contacts] = await Promise.all([
     searchParams,
     getConsultations(),
@@ -92,7 +95,7 @@ export default async function AdminLeadsPage({
                 </div>
 
                 <div className="mt-4 flex flex-wrap gap-3 text-xs text-slate-400">
-                  <span>Date: June {item.date}, 2026</span>
+                  <span>Date: {formatBookingDate(item.date)}</span>
                   <span>Time: {item.time}</span>
                   <span>Status: {item.status}</span>
                 </div>

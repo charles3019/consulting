@@ -1,4 +1,5 @@
 import { getPageContent } from "./db";
+import { cache } from "react";
 import {
   getDefaultPageContent,
   type PageContent,
@@ -6,7 +7,7 @@ import {
 
 export type { PageContent } from "./contentDefaults";
 
-export async function loadPageData(pageKey: string): Promise<PageContent> {
+export const loadPageData = cache(async (pageKey: string): Promise<PageContent> => {
   try {
     const data = await getPageContent(pageKey);
     if (data) {
@@ -24,4 +25,4 @@ export async function loadPageData(pageKey: string): Promise<PageContent> {
     console.error(`Error loading page content for ${pageKey}, returning static default:`, err);
   }
   return getDefaultPageContent(pageKey);
-}
+});

@@ -5,24 +5,35 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build",
+    "prestart": "node scripts/check-production-env.mjs",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "node --test tests/*.test.mjs",
+    "check:seo": "node scripts/check-seo.mjs",
+    "test:production": "node scripts/check-production.mjs",
+    "check:production": "node scripts/check-production-env.mjs",
+    "pm2:start": "pm2 startOrReload ecosystem.config.cjs --env production --update-env",
+    "pm2:stop": "pm2 stop connectforge",
+    "pm2:logs": "pm2 logs connectforge"
   },
   "dependencies": {
+    "@next/env": "16.3.4",
     "framer-motion": "^12.40.0",
     "lucide-react": "^1.18.0",
-    "mysql2": "^3.22.5",
-    "next": "16.2.9",
-    "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "mysql2": "3.24.4",
+    "next": "16.3.4",
+    "pm2": "7.0.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.2.9",
+    "eslint-config-next": "16.3.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   },

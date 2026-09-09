@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { staticDefaults } from "@/lib/contentDefaults";
 import {
   clearAdminSession,
   createAdminSession,
@@ -25,12 +26,19 @@ function readString(formData: FormData, key: string) {
   return typeof value === "string" ? value.trim() : "";
 }
 
+function readId(formData: FormData) {
+  const id = Number(readString(formData, "id"));
+  if (!Number.isSafeInteger(id) || id <= 0) throw new Error("Invalid record ID.");
+  return id;
+}
+
 export async function loginAdmin(
   _previousState: LoginActionState,
   formData: FormData,
 ): Promise<LoginActionState> {
   const username = readString(formData, "username");
-  const password = readString(formData, "password");
+  const passwordValue = formData.get("password");
+  const password = typeof passwordValue === "string" ? passwordValue : "";
 
   if (!username || !password) {
     return { error: "Enter both username and password." };
@@ -54,8 +62,8 @@ export async function updatePageContentAction(formData: FormData) {
   await requireAdminSession();
 
   const pageKey = readString(formData, "page_key");
-  if (!pageKey) {
-    throw new Error("Missing page key.");
+  if (!Object.hasOwn(staticDefaults, pageKey)) {
+    throw new Error("Unknown managed page.");
   }
 
   await savePageContent(pageKey, {
@@ -77,8 +85,9 @@ export async function updatePageContentAction(formData: FormData) {
 export async function updateConsultationStatusAction(formData: FormData) {
   await requireAdminSession();
 
-  const id = Number(readString(formData, "id"));
+  const id = readId(formData);
   const status = readString(formData, "status");
+  if (!["Pending", "Approved", "Completed", "Archived"].includes(status)) throw new Error("Invalid consultation status.");
   await updateConsultationStatus(id, status);
 
   revalidatePath("/admin");
@@ -89,7 +98,7 @@ export async function updateConsultationStatusAction(formData: FormData) {
 export async function deleteConsultationAction(formData: FormData) {
   await requireAdminSession();
 
-  const id = Number(readString(formData, "id"));
+  const id = readId(formData);
   await deleteConsultation(id);
 
   revalidatePath("/admin");
@@ -100,8 +109,9 @@ export async function deleteConsultationAction(formData: FormData) {
 export async function updateContactStatusAction(formData: FormData) {
   await requireAdminSession();
 
-  const id = Number(readString(formData, "id"));
+  const id = readId(formData);
   const status = readString(formData, "status");
+  if (!["New", "In Review", "Responded", "Archived"].includes(status)) throw new Error("Invalid contact status.");
   await updateContactStatus(id, status);
 
   revalidatePath("/admin");
@@ -112,7 +122,7 @@ export async function updateContactStatusAction(formData: FormData) {
 export async function deleteContactAction(formData: FormData) {
   await requireAdminSession();
 
-  const id = Number(readString(formData, "id"));
+  const id = readId(formData);
   await deleteContact(id);
 
   revalidatePath("/admin");

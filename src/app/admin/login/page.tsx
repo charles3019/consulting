@@ -1,6 +1,6 @@
 import { ShieldCheck } from "lucide-react";
 import AdminLoginForm from "@/components/admin/AdminLoginForm";
-import { DEFAULT_ADMIN_PASSWORD, getAdminSession } from "@/lib/auth";
+import { getAdminSession } from "@/lib/auth";
 import { redirect } from "next/navigation";
 
 export default async function AdminLoginPage() {
@@ -60,14 +60,6 @@ export default async function AdminLoginPage() {
 
           <AdminLoginForm />
 
-          <div className="mt-6 rounded-2xl border border-emerald-500/20 bg-emerald-950/20 p-4 text-sm text-emerald-100">
-            <p className="font-semibold">Default local login</p>
-            <p className="mt-1 text-emerald-200/80">
-              Username: <span className="font-mono">admin</span> and password:
-              {" "}
-              <span className="font-mono">{DEFAULT_ADMIN_PASSWORD}</span>
-            </p>
-          </div>
         </div>
       </div>
     </div>

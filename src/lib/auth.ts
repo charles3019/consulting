@@ -5,9 +5,15 @@ import { getAdminUser } from "./db";
 
 const SESSION_COOKIE = "ammayu_admin_session";
 const SESSION_TTL_SECONDS = 60 * 60 * 12;
-const DEFAULT_ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin123";
-const AUTH_SECRET =
-  process.env.AUTH_SECRET || "ammayu-local-dev-secret-change-me";
+const isProduction = process.env.NODE_ENV === "production";
+
+function authSecret() {
+  const secret = process.env.AUTH_SECRET;
+  if (isProduction && (!secret || secret.length < 32 || secret === "ammayu-local-dev-secret-change-me")) {
+    throw new Error("Set AUTH_SECRET to a random secret of at least 32 characters.");
+  }
+  return secret || "ammayu-local-dev-secret-change-me";
+}
 
 export interface AdminSession {
   username: string;
@@ -15,7 +21,7 @@ export interface AdminSession {
 }
 
 function sign(value: string) {
-  return crypto.createHmac("sha256", AUTH_SECRET).update(value).digest("hex");
+  return crypto.createHmac("sha256", authSecret()).update(value).digest("hex");
 }
 
 export function hashPassword(password: string, salt: string) {
@@ -30,8 +36,12 @@ function createSessionToken(username: string, expiresAt: number) {
 function parseSessionToken(token: string | undefined): AdminSession | null {
   if (!token) return null;
 
-  const [username, expiresRaw, signature] = token.split(":");
-  if (!username || !expiresRaw || !signature) return null;
+  const parts = token.split(":");
+  if (parts.length !== 3) return null;
+  const [username, expiresRaw, signature] = parts;
+  if (!username || !/^\d+$/.test(expiresRaw) || !/^[a-f0-9]{64}$/.test(signature)) {
+    return null;
+  }
 
   const payload = `${username}:${expiresRaw}`;
   const expectedSignature = sign(payload);
@@ -41,7 +51,7 @@ function parseSessionToken(token: string | undefined): AdminSession | null {
   }
 
   const expiresAt = Number(expiresRaw);
-  if (!Number.isFinite(expiresAt) || Date.now() > expiresAt) {
+  if (!Number.isSafeInteger(expiresAt) || Date.now() >= expiresAt) {
     return null;
   }
 
@@ -49,6 +59,20 @@ function parseSessionToken(token: string | undefined): AdminSession | null {
 }
 
 export async function verifyAdminCredentials(username: string, password: string) {
+  // A configured deployment credential is authoritative, so rotating it also
+  // disables the old seeded password. Development seeds never unlock production.
+  const configuredPassword = process.env.ADMIN_PASSWORD;
+  if (isProduction || configuredPassword) {
+    authSecret();
+    if (!configuredPassword || configuredPassword.length < 16 || configuredPassword === "admin123") {
+      throw new Error("Set ADMIN_PASSWORD to a unique password of at least 16 characters.");
+    }
+    const expected = crypto.createHash("sha256").update(configuredPassword).digest();
+    const supplied = crypto.createHash("sha256").update(password).digest();
+    return username === (process.env.ADMIN_USERNAME || "admin") && crypto.timingSafeEqual(expected, supplied)
+      ? { username }
+      : null;
+  }
   const adminUser = await getAdminUser(username);
   if (!adminUser) return null;
 
@@ -58,7 +82,7 @@ export async function verifyAdminCredentials(username: string, password: string)
   }
 
   // Smooth over older local seed data by allowing a configurable default admin password.
-  if (adminUser.username === "admin" && password === DEFAULT_ADMIN_PASSWORD) {
+  if (adminUser.username === "admin" && password === "admin123") {
     return { username: adminUser.username };
   }
 
@@ -96,5 +120,3 @@ export async function requireAdminSession() {
   }
   return session;
 }
-
-export { DEFAULT_ADMIN_PASSWORD };

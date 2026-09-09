@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { requireAdminSession } from "@/lib/auth";
 import {
   DatabaseZap,
   FileText,
@@ -15,6 +16,7 @@ import {
 } from "@/lib/db";
 
 export default async function AdminDashboardPage() {
+  await requireAdminSession();
   const [dbStatus, consultations, contacts, pages] = await Promise.all([
     getDbStatus(),
     getConsultations(),

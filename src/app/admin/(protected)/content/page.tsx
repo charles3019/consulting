@@ -1,5 +1,6 @@
 import { CircleCheckBig, PenSquare } from "lucide-react";
 import { listPageContent } from "@/lib/db";
+import { requireAdminSession } from "@/lib/auth";
 import { updatePageContentAction } from "@/app/admin/actions";
 
 export default async function AdminContentPage({
@@ -7,6 +8,7 @@ export default async function AdminContentPage({
 }: {
   searchParams: Promise<{ saved?: string }>;
 }) {
+  await requireAdminSession();
   const [{ saved }, pages] = await Promise.all([searchParams, listPageContent()]);
 
   return (
