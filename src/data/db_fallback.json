@@ -2,22 +2,22 @@
   "page_content_home": {
     "home": {
       "page_key": "home",
-      "title": "ConnectForge Technologies Ltd | Networks, Web, Automation & Apps",
-      "meta_description": "ConnectForge Technologies Ltd delivers secure networks, modern websites, business automation, and custom application development.",
-      "keywords": "ConnectForge Technologies Ltd, Network Engineer, Web Developer, Automation Consultant, App Developer, Charles Agyemang, Ammayu Waktole",
-      "hero_title": "Technology that moves your business forward.",
-      "hero_subtitle": "Connected technology for growing businesses",
-      "body_text": "We design secure networks, build high-performing websites and applications, and automate the repetitive work that slows teams down—from strategy and architecture through delivery and ongoing support.",
-      "tagline": "NETWORKS • WEB • AUTOMATION • APPS"
+      "title": "ConnectForge IT Services | IT Support, Networks, Websites & CCTV",
+      "meta_description": "ConnectForge IT Services provides website development, applications, network engineering, structured cabling, CCTV installation, IT support and field engineering services across the UK.",
+      "keywords": "Website Solutions, Application Development, Network Engineering, Network Installations, CCTV Installation & Surveillance, IT Support, Field Engineering Services",
+      "hero_title": "Reliable IT Solutions for Stronger Businesses",
+      "hero_subtitle": "Websites • Applications • Networks • Installations • CCTV • IT Support • Field Engineering",
+      "body_text": "ConnectForge IT Services helps businesses build reliable digital and physical technology infrastructure. From websites and applications to business networks, CCTV, IT support and on-site engineering, we provide practical technology solutions from one trusted team.",
+      "tagline": "Connect. Build. Secure. Grow."
     },
     "services": {
       "page_key": "services",
-      "title": "Consulting Services | Cloud & Infrastructure Audits",
-      "meta_description": "Explore professional consulting services spanning Linux administration, DevOps, AWS/Azure hybrid networks, and custom Power Platform applications.",
-      "keywords": "DevOps retainer, cloud cost audit, Linux web cluster, custom Power Apps developer",
-      "hero_title": "One partner for your digital foundation",
-      "hero_subtitle": "Technology Services",
-      "body_text": "We provide focused, practical services that solve real technology bottlenecks. Engage us for a defined project, an expert review, or ongoing technical support."
+      "title": "IT Services | Networks, Websites, CCTV & Support | ConnectForge",
+      "meta_description": "Explore websites, applications, network engineering, structured cabling, CCTV, IT support and field engineering for UK businesses.",
+      "keywords": "Website Solutions, Application Development, Network Engineering, Network Installations, CCTV Installation & Surveillance, IT Support, Field Engineering Services",
+      "hero_title": "Practical IT services. One trusted team.",
+      "hero_subtitle": "Our Services",
+      "body_text": "We help growing organisations connect their digital technology and physical IT infrastructure. Explore our seven core services and request a free, no-obligation quote tailored to your requirements."
     },
     "skills": {
       "page_key": "skills",
@@ -26,7 +26,7 @@
       "keywords": "Linux expertise rating, Terraform competency, PowerShell scripts, SQL queries database",
       "hero_title": "Technologies & Capabilities",
       "hero_subtitle": "Skill Matrix",
-      "body_text": "Explore the platforms, languages, and engineering tools our team uses to deliver reliable client solutions."
+      "body_text": "Explore our team’s tools and technical capabilities across software, networking and infrastructure."
     },
     "technologies": [
       "Linux",
@@ -43,124 +43,143 @@
     ],
     "rotatingSkills": [
       {
+        "text": "Website Solutions",
+        "desc": "Modern responsive business websites, e-commerce sites, CMS solutions, website maintenance, SEO and performance optimisation."
+      },
+      {
+        "text": "Application Development",
+        "desc": "Custom web applications, mobile applications, business systems, APIs, databases and workflow automation."
+      },
+      {
         "text": "Network Engineering",
-        "desc": "Secure, resilient business connectivity"
+        "desc": "Business network design, LAN/WAN, Wi-Fi, VLANs, VPNs, routers, switches, firewalls, troubleshooting and optimisation."
       },
       {
-        "text": "Web Development",
-        "desc": "Fast, accessible, conversion-led websites"
+        "text": "Network Installations",
+        "desc": "Structured Cat5e, Cat6 and Cat6a cabling, network cabinets, patch panels, data points, switches and office network infrastructure."
       },
       {
-        "text": "Business Automation",
-        "desc": "Workflows that save time and reduce errors"
+        "text": "CCTV Installation & Surveillance",
+        "desc": "CCTV site surveys, IP and analogue camera installation, NVR/DVR configuration, remote viewing and surveillance system maintenance."
       },
       {
-        "text": "App Development",
-        "desc": "Custom web, mobile, and low-code applications"
+        "text": "IT Support",
+        "desc": "Remote and onsite IT support, Windows support, Microsoft 365 assistance, hardware/software troubleshooting, device configuration and technical support."
       },
       {
-        "text": "Cloud Solutions",
-        "desc": "Scalable AWS, Azure, and Microsoft platforms"
-      },
-      {
-        "text": "Technical Support",
-        "desc": "Responsive expertise for critical systems"
+        "text": "Field Engineering Services",
+        "desc": "On-site installations, hardware configuration, network equipment deployment, system integration, break/fix, troubleshooting and technical field support."
       }
     ]
   },
   "services_catalog": [
     {
-      "H1": "Services Catalog",
-      "H2": "Tailored Technical Solutions",
-      "H3": "From discovery to delivery, we build dependable solutions that simplify complexity and support growth.",
-      "icon": "Server",
+      "id": 1,
+      "slug": "websites",
+      "title": "Website Solutions",
+      "desc": "Modern responsive business websites, e-commerce sites, CMS solutions, website maintenance, SEO and performance optimisation.",
+      "price": "From £199",
+      "icon": "Globe"
+    },
+    {
+      "id": 2,
+      "slug": "applications",
+      "title": "Application Development",
+      "desc": "Custom web applications, mobile applications, business systems, APIs, databases and workflow automation.",
+      "price": "From £399",
+      "icon": "Cpu"
+    },
+    {
+      "id": 3,
+      "slug": "network-engineering",
       "title": "Network Engineering",
-      "desc": "Secure LAN, Wi-Fi, VPN, firewall, cloud connectivity, monitoring, and network troubleshooting."
+      "desc": "Business network design, LAN/WAN, Wi-Fi, VLANs, VPNs, routers, switches, firewalls, troubleshooting and optimisation.",
+      "price": "From £149",
+      "icon": "Network"
     },
     {
-      "icon": "Workflow ",
-      "title": "Web Development",
-      "desc": "Responsive company websites, portals, e-commerce experiences, and maintainable web platforms."
+      "id": 4,
+      "slug": "network-installations",
+      "title": "Network Installations",
+      "desc": "Structured Cat5e, Cat6 and Cat6a cabling, network cabinets, patch panels, data points, switches and office network infrastructure.",
+      "price": "From £199",
+      "icon": "Cable"
     },
     {
-      "icon": "Cloud",
-      "title": "Automation Consulting",
-      "desc": "Workflow discovery, Power Automate, scripts, integrations, and operational process improvement."
+      "id": 5,
+      "slug": "cctv",
+      "title": "CCTV Installation & Surveillance",
+      "desc": "CCTV site surveys, IP and analogue camera installation, NVR/DVR configuration, remote viewing and surveillance system maintenance.",
+      "price": "From £199 + equipment",
+      "icon": "Camera"
     },
     {
-      "icon": "Globe",
-      "title": "App Development",
-      "desc": "Purpose-built web, mobile, and low-code applications that fit your people and processes."
+      "id": 6,
+      "slug": "it-support",
+      "title": "IT Support",
+      "desc": "Remote and onsite IT support, Windows support, Microsoft 365 assistance, hardware/software troubleshooting, device configuration and technical support.",
+      "price": "From £49/month or £35/hour",
+      "icon": "Headphones"
     },
     {
-      "icon": "Database",
-      "title": "Cloud & Infrastructure",
-      "desc": "Cloud migrations, Microsoft 365, servers, identity, security, and reliable hybrid environments."
-    },
-    {
-      "icon": "BarChart ",
-      "title": "Data & Reporting",
-      "desc": "Clear dashboards and connected data that help teams understand performance and act faster."
+      "id": 7,
+      "slug": "field-engineering",
+      "title": "Field Engineering Services",
+      "desc": "On-site installations, hardware configuration, network equipment deployment, system integration, break/fix, troubleshooting and technical field support.",
+      "price": "From £35/hour",
+      "icon": "Wrench"
     }
   ],
   "valueProps": [
     {
-      "icon": "Zap",
-      "title": "Save Time",
-      "desc": "Remove human error. Automate repetitive sysadmin and billing workflows with code."
+      "title": "One Technology Partner",
+      "desc": "Software, networks, infrastructure and support under one roof.",
+      "icon": "Zap"
     },
     {
-      "icon": "DollarSign",
-      "title": "Reduce Costs",
-      "desc": "Size systems accurately. Identify and decommission idle cloud instances to cut bills."
+      "title": "Practical Solutions",
+      "desc": "Technology designed around real business requirements rather than unnecessary complexity.",
+      "icon": "Shield"
     },
     {
-      "icon": "<Shield",
-      "title": "Improve Reliability",
-      "desc": "Zero-drift environments. Implement immutable configurations that bounce back instantly."
+      "title": "Flexible Support",
+      "desc": "Project work, on-site engineering and ongoing technical support.",
+      "icon": "DollarSign"
     },
     {
-      "icon": "TrendingUp",
-      "title": "Scale Faster",
-      "desc": "Ready-to-grow blueprints. Deploy standard server nodes instantly across any continent."
+      "title": "Built for Growth",
+      "desc": "Solutions designed to remain maintainable, secure and scalable as organisations grow.",
+      "icon": "TrendingUp"
     }
   ],
-  "consultations": [
+  "consultations": [],
+  "contacts": [
     {
       "id": 1,
-      "type": "infra",
-      "date": 20260909,
-      "time": "09:00",
-      "name": "full name",
-      "email": "contact@connectforge.co.uk",
-      "company": "company",
-      "details": "test description",
-      "status": "Pending",
-      "created_at": "2026-09-08T13:49:59.791Z"
+      "name": "Ammayu Miresa Waktole",
+      "email": "ammayumir@gmail.com",
+      "company": "",
+      "phone": "+447435913947",
+      "service": "IT Support",
+      "location": "S23NF",
+      "preferredContact": "",
+      "details": "detail",
+      "status": "New",
+      "created_at": "2026-09-09T12:02:20.899Z"
     }
   ],
-  "contacts": [],
-  "admin_users": [
-    {
-      "id": 1,
-      "username": "admin",
-      "password_hash": "8cc3feae0b0e2ce6c4a1e7ef17bb4f57b926d913663c0368658ce82867ca3742",
-      "salt": "a8f3b2c1d0e9f8a7",
-      "created_at": "2026-06-15T12:00:00.000Z"
-    }
-  ],
+  "admin_users": [],
   "page_content_about": {
     "about": {
       "page_key": "about",
-      "title": "About ConnectForge Technologies Ltd | Our Founders & Mission",
-      "meta_description": "Meet Charles Agyemang and Ammayu Waktole, co-founders of ConnectForge Technologies Ltd.",
-      "keywords": "Charles Agyemang, Ammayu Waktole, ConnectForge Technologies Ltd, technology company",
-      "hero_title": "Two specialists. One technology partner.",
+      "title": "About ConnectForge IT Services | UK Technology Team",
+      "meta_description": "Meet Charles Agyemang and Ammayu Waktole, co-founders of ConnectForge IT Services.",
+      "keywords": "Charles Agyemang, Ammayu Waktole, ConnectForge IT Services, technology company",
+      "hero_title": "Many specialists. One technology partner.",
       "hero_subtitle": "We make powerful technology practical, dependable, and valuable.",
-      "body_text": "a UK-based technology company providing software development, network engineering, IT infrastructure, CCTV, field engineering and technical support services to businesses and organisations. We bring digital and physical technology services together under one roof, helping customers with website and application development, business systems, API integrations and automation, network design and configuration, Wi-Fi, LAN/WAN, routers, switches, VLANs and VPNs, structured Cat5e, Cat6 and Cat6a cabling, network cabinets and data points, CCTV and surveillance systems, remote and on-site IT support, and field engineering services. What makes ConnectForge different is our ability to bridge software, networking and physical IT infrastructure, giving customers one trusted technology partner throughout their technology journey. We take time to understand each customer's requirements and focus on delivering reliable, professional, secure and practical solutions that provide long-term value.",
+      "body_text": "ConnectForge brings software, networks and physical IT infrastructure together for growing UK organisations. Founded by Charles Agyemang and Ammayu Waktole, our team focuses on clear advice, practical delivery and support as your business develops.",
       "body_text_2": "Charles Agyemang and Ammayu Waktole combine network engineering, web development, automation consulting, and application development to deliver clear business outcomes."
     },
-    
     "achievementsData": [
       {
         "year": "2025",
@@ -240,143 +259,153 @@
       }
     ],
     "Careerpath": {
-      "c1": "IT Support",
-      "c2": "SysAdmin and web development",
-      "c3": "Network Engineer",
-      "c4": "Infra Engineer",
-      "c5": "Automation Specialist",
-      "c6": "Consultant"
+      "c1": "Discover",
+      "c2": "Design",
+      "c3": "Build",
+      "c4": "Secure",
+      "c5": "Support",
+      "c6": "Grow"
     }
   },
   "page_content_service": {
     "ServiceBlock": [
       {
-        "id": 8,
-        "title": "Technical Consulting",
-        "icon": "Lightbulb",
-        "subtitle": "Technology Strategy & Digital Transformation",
-        "problemSolved": "Need guidance on choosing the right technology, improving existing systems, or planning your next IT project? I provide practical solutions that align technology with business objectives and long-term growth.",
-        "deliverables": [
-          "IT Strategy & Technology Consulting",
-          "Digital Transformation Planning",
-          "Infrastructure Assessment & Recommendations",
-          "Business Process Optimisation",
-          "Technical Documentation & Knowledge Transfer"
-        ],
-        "duration": "Consultation or Project-Based",
-        "link": "/book-consultation?type=consulting"
-      },
-      {
-        "id": 7,
-        "title": "Computer Repair & Maintenance",
-        "icon": "Cpu",
-        "subtitle": "Desktop, Laptop & Hardware Support",
-        "problemSolved": "Computers running slowly, hardware failures, or operating system issues affecting productivity? I diagnose, repair, upgrade, and optimise systems to keep your business running efficiently.",
-        "deliverables": [
-          "Desktop & Laptop Diagnostics",
-          "Hardware Installation & Replacement",
-          "Windows Installation & Recovery",
-          "Performance Optimisation",
-          "Preventive Maintenance"
-        ],
-        "duration": "Same Day or Scheduled Service",
-        "link": "/book-consultation?type=repair"
-      },
-      {
-        "id": 6,
-        "title": "Software Installation & Administration",
-        "icon": "MonitorCog",
-        "subtitle": "Secure Software Deployment & System Administration",
-        "problemSolved": "Managing software across multiple devices can become time-consuming and inconsistent. I install, configure, update, and maintain business applications while ensuring secure and reliable system operation.",
-        "deliverables": [
-          "Software Installation & Configuration",
-          "Windows Administration",
-          "Operating System Deployment",
-          "Application Troubleshooting",
-          "System Configuration & Maintenance"
-        ],
-        "duration": "Hourly or Fixed Project",
-        "link": "/book-consultation?type=software"
-      },
-      {
-        "id": 5,
-        "title": "Web Development & Business Applications",
+        "id": 1,
+        "slug": "websites",
+        "title": "Website Solutions",
+        "desc": "Modern responsive business websites, e-commerce sites, CMS solutions, website maintenance, SEO and performance optimisation.",
+        "price": "From £199",
         "icon": "Globe",
-        "subtitle": "Modern Websites & Workflow Automation",
-        "problemSolved": "Looking for a responsive website or a business application that improves productivity? I build modern web applications and automate business processes using industry-standard technologies.",
+        "subtitle": "Modern responsive business websites, e-commerce sites, CMS solutions, website maintenance, SEO and performance optimisation.",
+        "problemSolved": "A practical solution tailored to your business requirements.",
+        "duration": "Scope and schedule agreed in your quotation.",
         "deliverables": [
-          "Next.js Development",
-          "React Applications",
-          "Tailwind CSS UI Development",
-          "Power Apps Solutions",
-          "Power Platform Automation"
+          "Modern responsive business websites",
+          "e-commerce sites",
+          "CMS solutions",
+          "website maintenance",
+          "SEO and performance optimisation"
         ],
-        "duration": "Project-Based",
-        "link": "/book-consultation?type=development"
-      },
-      {
-        "id": 4,
-        "title": "Microsoft 365 & Cloud Administration",
-        "icon": "Cloud",
-        "subtitle": "Cloud Productivity & Identity Management",
-        "problemSolved": "Managing users, devices, and cloud services becomes increasingly challenging as organisations grow. I help businesses securely manage Microsoft cloud services and workplace collaboration.",
-        "deliverables": [
-          "Microsoft 365 Administration",
-          "Azure Active Directory Administration",
-          "Exchange Online Support",
-          "User & Group Management",
-          "Endpoint Administration"
-        ],
-        "duration": "Support Contract or Project",
-        "link": "/book-consultation?type=m365"
-      },
-      {
-        "id": 3,
-        "title": "IT Support & Service Desk",
-        "icon": "Headphones",
-        "subtitle": "Reliable Technical Support for Business Users",
-        "problemSolved": "Technology problems shouldn't stop people from working. I provide responsive IT support, troubleshoot technical issues, and ensure users receive professional assistance when they need it most.",
-        "deliverables": [
-          "1st & 2nd Line IT Support",
-          "Remote & Onsite Support",
-          "Windows Administration",
-          "Microsoft 365 Support",
-          "Incident & Service Request Management"
-        ],
-        "duration": "Hourly or Monthly Support",
-        "link": "/book-consultation?type=support"
+        "link": "/contact"
       },
       {
         "id": 2,
-        "title": "Network Engineering",
-        "icon": "Network",
-        "subtitle": "Enterprise Networking & Infrastructure",
-        "problemSolved": "Slow networks, unreliable Wi-Fi, VPN issues, or infrastructure outages can disrupt business operations. I design, support, troubleshoot, and optimise secure enterprise network environments.",
+        "slug": "applications",
+        "title": "Application Development",
+        "desc": "Custom web applications, mobile applications, business systems, APIs, databases and workflow automation.",
+        "price": "From £399",
+        "icon": "Cpu",
+        "subtitle": "Custom web applications, mobile applications, business systems, APIs, databases and workflow automation.",
+        "problemSolved": "A practical solution tailored to your business requirements.",
+        "duration": "Scope and schedule agreed in your quotation.",
         "deliverables": [
-          "Router & Switch Configuration",
-          "LAN, WAN & Wi-Fi Support",
-          "VPN Configuration & Troubleshooting",
-          "Network Monitoring & Optimisation",
-          "Infrastructure Documentation"
+          "Custom web applications",
+          "mobile applications",
+          "business systems",
+          "APIs",
+          "databases and workflow automation"
         ],
-        "duration": "Project or Ongoing Support",
-        "link": "/book-consultation?type=network"
+        "link": "/contact"
       },
       {
-        "id": 1,
-        "title": "Payment & Banking Technology",
-        "icon": "CreditCard",
-        "subtitle": "Enterprise Financial Systems & Payment Infrastructure",
-        "problemSolved": "Banking and payment systems require high availability, security, and operational excellence. I support mission-critical payment platforms and digital banking infrastructure that organisations rely on every day.",
+        "id": 3,
+        "slug": "network-engineering",
+        "title": "Network Engineering",
+        "desc": "Business network design, LAN/WAN, Wi-Fi, VLANs, VPNs, routers, switches, firewalls, troubleshooting and optimisation.",
+        "price": "From £149",
+        "icon": "Network",
+        "subtitle": "Business network design, LAN/WAN, Wi-Fi, VLANs, VPNs, routers, switches, firewalls, troubleshooting and optimisation.",
+        "problemSolved": "A practical solution tailored to your business requirements.",
+        "duration": "Scope and schedule agreed in your quotation.",
         "deliverables": [
-          "ATM & POS System Administration",
-          "Card Banking Systems (Visa, Mastercard & UPI)",
-          "Digital Banking Platform Support",
-          "Payment Infrastructure & HSM Support",
-          "Technical Operations & Banking Technology Consulting"
+          "Business network design",
+          "LAN/WAN",
+          "Wi-Fi",
+          "VLANs",
+          "VPNs",
+          "routers",
+          "switches",
+          "firewalls",
+          "troubleshooting and optimisation"
         ],
-        "duration": "Contract, Consultancy or Project-Based",
-        "link": "/book-consultation?type=banking"
+        "link": "/contact"
+      },
+      {
+        "id": 4,
+        "slug": "network-installations",
+        "title": "Network Installations",
+        "desc": "Structured Cat5e, Cat6 and Cat6a cabling, network cabinets, patch panels, data points, switches and office network infrastructure.",
+        "price": "From £199",
+        "icon": "Cable",
+        "subtitle": "Structured Cat5e, Cat6 and Cat6a cabling, network cabinets, patch panels, data points, switches and office network infrastructure.",
+        "problemSolved": "A practical solution tailored to your business requirements.",
+        "duration": "Scope and schedule agreed in your quotation.",
+        "deliverables": [
+          "Structured Cat5e",
+          "Cat6 and Cat6a cabling",
+          "network cabinets",
+          "patch panels",
+          "data points",
+          "switches and office network infrastructure"
+        ],
+        "link": "/contact"
+      },
+      {
+        "id": 5,
+        "slug": "cctv",
+        "title": "CCTV Installation & Surveillance",
+        "desc": "CCTV site surveys, IP and analogue camera installation, NVR/DVR configuration, remote viewing and surveillance system maintenance.",
+        "price": "From £199 + equipment",
+        "icon": "Camera",
+        "subtitle": "CCTV site surveys, IP and analogue camera installation, NVR/DVR configuration, remote viewing and surveillance system maintenance.",
+        "problemSolved": "A practical solution tailored to your business requirements.",
+        "duration": "Scope and schedule agreed in your quotation.",
+        "deliverables": [
+          "CCTV site surveys",
+          "IP and analogue camera installation",
+          "NVR/DVR configuration",
+          "remote viewing and surveillance system maintenance"
+        ],
+        "link": "/contact"
+      },
+      {
+        "id": 6,
+        "slug": "it-support",
+        "title": "IT Support",
+        "desc": "Remote and onsite IT support, Windows support, Microsoft 365 assistance, hardware/software troubleshooting, device configuration and technical support.",
+        "price": "From £49/month or £35/hour",
+        "icon": "Headphones",
+        "subtitle": "Remote and onsite IT support, Windows support, Microsoft 365 assistance, hardware/software troubleshooting, device configuration and technical support.",
+        "problemSolved": "A practical solution tailored to your business requirements.",
+        "duration": "Scope and schedule agreed in your quotation.",
+        "deliverables": [
+          "Remote and onsite IT support",
+          "Windows support",
+          "Microsoft 365 assistance",
+          "hardware/software troubleshooting",
+          "device configuration and technical support"
+        ],
+        "link": "/contact"
+      },
+      {
+        "id": 7,
+        "slug": "field-engineering",
+        "title": "Field Engineering Services",
+        "desc": "On-site installations, hardware configuration, network equipment deployment, system integration, break/fix, troubleshooting and technical field support.",
+        "price": "From £35/hour",
+        "icon": "Wrench",
+        "subtitle": "On-site installations, hardware configuration, network equipment deployment, system integration, break/fix, troubleshooting and technical field support.",
+        "problemSolved": "A practical solution tailored to your business requirements.",
+        "duration": "Scope and schedule agreed in your quotation.",
+        "deliverables": [
+          "On-site installations",
+          "hardware configuration",
+          "network equipment deployment",
+          "system integration",
+          "break/fix",
+          "troubleshooting and technical field support"
+        ],
+        "link": "/contact"
       }
     ]
   },
@@ -725,157 +754,69 @@
     "projectsData": [
       {
         "id": 1,
-        "title": "Enterprise Network Operations & Infrastructure Support",
-        "category": "Networking",
-        "desc": "Provide enterprise network support across business-critical infrastructure, troubleshooting routing, switching, VPN connectivity and network incidents while maintaining high service availability and SLA compliance.",
+        "title": "Infrastructure Automation",
+        "category": "Internal Lab",
+        "desc": "Demonstrates automated infrastructure provisioning and repeatable configuration.",
+        "results": "Demonstrates automated infrastructure provisioning and repeatable configuration.",
         "technologies": [
-          "Cisco",
-          "Fortinet",
-          "TCP/IP",
-          "VPN",
-          "Windows",
-          "SolarWinds",
-          "PRTG",
-          "Zabbix"
+          "Terraform",
+          "Ansible",
+          "Linux",
+          "GitHub Actions"
         ],
-        "results": "Improved network reliability through proactive monitoring, rapid incident resolution, and infrastructure support.",
-        "caseStudyLink": "/case-studies?project=enterprise-network",
+        "caseStudyLink": "/case-studies?project=infra-auto",
         "icon": "Network"
       },
       {
         "id": 2,
-        "title": "Digital Banking & Mastercard Payment Infrastructure",
-        "category": "Banking Technology",
-        "desc": "Supported enterprise card banking platforms including Mastercard implementation, ATM and POS infrastructure, HSM administration, payment technologies, and digital banking services while collaborating with vendors and operational teams.",
+        "title": "Timesheet & Approval Application",
+        "category": "Demonstration Project",
+        "desc": "Demonstrates workflow automation and approval handling.",
+        "results": "Demonstrates workflow automation and approval handling.",
         "technologies": [
-          "Mastercard",
-          "Visa",
-          "UPI",
-          "ATM",
-          "POS",
-          "HSM",
-          "NCR",
-          "Hitachi"
+          "Power Apps",
+          "Power Automate",
+          "SQL Server"
         ],
-        "results": "Helped maintain secure, highly available payment services supporting nationwide banking operations.",
-        "caseStudyLink": "/case-studies?project=banking",
-        "icon": "CreditCard"
+        "caseStudyLink": "/case-studies?project=timesheet",
+        "icon": "Workflow"
       },
       {
         "id": 3,
-        "title": "Power Apps Timesheet & Project Management System",
-        "category": "Power Platform",
-        "desc": "Designed and developed a business management solution using Microsoft Power Apps, SharePoint and Power Automate to manage employees, projects, activities, overtime approval, kit tracking and reporting.",
+        "title": "Operational Dashboard",
+        "category": "Engineering Example",
+        "desc": "Demonstrates dashboard integration across multiple data sources.",
+        "results": "Demonstrates dashboard integration across multiple data sources.",
         "technologies": [
-          "Power Apps",
-          "Power Automate",
-          "SharePoint",
-          "SQL Server",
-          "Excel"
-        ],
-        "results": "Reduced manual spreadsheet processing by approximately 40 hours per month while improving reporting accuracy.",
-        "caseStudyLink": "/case-studies?project=timesheet",
-        "icon": "Layers"
-      },
-      {
-        "id": 4,
-        "title": "Portfolio Website & Personal Brand Platform",
-        "category": "Web Development",
-        "desc": "Designed and built a modern developer portfolio showcasing technical expertise, projects, certifications, career timeline and interactive UI with responsive design and animations.",
-        "technologies": [
-          "Next.js",
-          "React",
-          "TypeScript",
-          "Tailwind CSS",
-          "Framer Motion"
-        ],
-        "results": "Created a recruiter-focused online portfolio that showcases technical skills and professional achievements.",
-        "caseStudyLink": "/case-studies?project=portfolio",
-        "icon": "Globe"
-      },
-      {
-        "id": 5,
-        "title": "Church Event Registration & Donation Platform",
-        "category": "Business Applications",
-        "desc": "Developed a digital platform for event registration, attendance management, donation tracking and automated communication to support community events and administration.",
-        "technologies": [
-          "Power Apps",
-          "Power Automate",
-          "SharePoint",
-          "Microsoft Forms"
-        ],
-        "results": "Digitised registration and donation management, reducing manual administration and improving event coordination.",
-        "caseStudyLink": "/case-studies?project=church",
-        "icon": "HeartHandshake"
-      },
-      {
-        "id": 6,
-        "title": "Operational Reporting & Management Dashboards",
-        "category": "Data & Reporting",
-        "desc": "Developed operational dashboards and reporting solutions for business performance, project tracking and management information using Microsoft technologies.",
-        "technologies": [
-          "Excel",
           "Power BI",
-          "SQL",
-          "Power Query"
+          "SQL Server",
+          "Grafana",
+          "Python"
         ],
-        "results": "Enabled management teams to make faster, data-driven decisions through consolidated reporting.",
-        "caseStudyLink": "/case-studies?project=reporting",
-        "icon": "BarChart3"
-      },
-      {
-        "id": 7,
-        "title": "Project & Activity Tracking Solution",
-        "category": "Business Automation",
-        "desc": "Designed a project and workforce management application supporting multiple activities, overtime approval, serial and kit tracking, productivity monitoring and management reporting.",
-        "technologies": [
-          "Power Apps",
-          "Dataverse",
-          "Power Automate",
-          "SharePoint",
-          "SQL Server"
-        ],
-        "results": "Simplified project administration by centralising operational workflows into a single application.",
-        "caseStudyLink": "/case-studies?project=project-management",
-        "icon": "ClipboardList"
-      },
-      {
-        "id": 8,
-        "title": "Unity Platform - Connecting Through Kindness",
-        "category": "Social Innovation",
-        "desc": "Designed the concept, branding, user experience and technical architecture for a global digital platform focused on encouraging kindness, collaboration and meaningful community engagement.",
-        "technologies": [
-          "Next.js",
-          "React",
-          "UI/UX Design",
-          "Figma",
-          "Brand Design"
-        ],
-        "results": "Created a scalable product vision combining technology with positive social impact.",
-        "caseStudyLink": "/case-studies?project=unity",
-        "icon": "Sparkles"
+        "caseStudyLink": "/case-studies?project=dashboard",
+        "icon": "BarChart"
       }
     ]
   },
+  "activities": [],
   "page_content": {
     "home": {
       "page_key": "home",
-      "title": "ConnectForge Technologies Ltd | Networks, Web, Automation & Apps",
-      "meta_description": "ConnectForge Technologies Ltd delivers secure networks, modern websites, business automation, and custom application development.",
-      "keywords": "ConnectForge Technologies Ltd, Network Engineer, Web Developer, Automation Consultant, App Developer, Charles Agyemang, Ammayu Waktole",
-      "hero_title": "Technology that moves your business forward.",
-      "hero_subtitle": "Connected technology for growing businesses",
-      "body_text": "We design secure networks, build high-performing websites and applications, and automate the repetitive work that slows teams down—from strategy and architecture through delivery and ongoing support.",
-      "tagline": "NETWORKS • WEB • AUTOMATION • APPS"
+      "title": "ConnectForge IT Services | IT Support, Networks, Websites & CCTV",
+      "meta_description": "ConnectForge IT Services provides website development, applications, network engineering, structured cabling, CCTV installation, IT support and field engineering services across the UK.",
+      "keywords": "Website Solutions, Application Development, Network Engineering, Network Installations, CCTV Installation & Surveillance, IT Support, Field Engineering Services",
+      "hero_title": "Reliable IT Solutions for Stronger Businesses",
+      "hero_subtitle": "Websites • Applications • Networks • Installations • CCTV • IT Support • Field Engineering",
+      "body_text": "ConnectForge IT Services helps businesses build reliable digital and physical technology infrastructure. From websites and applications to business networks, CCTV, IT support and on-site engineering, we provide practical technology solutions from one trusted team."
     },
     "services": {
       "page_key": "services",
-      "title": "Consulting Services | Cloud & Infrastructure Audits",
-      "meta_description": "Explore professional consulting services spanning Linux administration, DevOps, AWS/Azure hybrid networks, and custom Power Platform applications.",
-      "keywords": "DevOps retainer, cloud cost audit, Linux web cluster, custom Power Apps developer",
-      "hero_title": "One partner for your digital foundation",
-      "hero_subtitle": "Technology Services",
-      "body_text": "We provide focused, practical services that solve real technology bottlenecks. Engage us for a defined project, an expert review, or ongoing technical support."
+      "title": "IT Services | Networks, Websites, CCTV & Support | ConnectForge",
+      "meta_description": "Explore websites, applications, network engineering, structured cabling, CCTV, IT support and field engineering for UK businesses.",
+      "keywords": "Website Solutions, Application Development, Network Engineering, Network Installations, CCTV Installation & Surveillance, IT Support, Field Engineering Services",
+      "hero_title": "Practical IT services. One trusted team.",
+      "hero_subtitle": "Our Services",
+      "body_text": "We help growing organisations connect their digital technology and physical IT infrastructure. Explore our seven core services and request a free, no-obligation quote tailored to your requirements."
     },
     "skills": {
       "page_key": "skills",
@@ -884,16 +825,16 @@
       "keywords": "Linux expertise rating, Terraform competency, PowerShell scripts, SQL queries database",
       "hero_title": "Technologies & Capabilities",
       "hero_subtitle": "Skill Matrix",
-      "body_text": "Explore the platforms, languages, and engineering tools our team uses to deliver reliable client solutions."
+      "body_text": "Explore our team’s tools and technical capabilities across software, networking and infrastructure."
     },
     "about": {
       "page_key": "about",
-      "title": "About ConnectForge Technologies Ltd | Our Founders & Mission",
-      "meta_description": "Meet Charles Agyemang and Ammayu Waktole, co-founders of ConnectForge Technologies Ltd.",
-      "keywords": "Charles Agyemang, Ammayu Waktole, ConnectForge Technologies Ltd, technology company",
+      "title": "About ConnectForge IT Services | UK Technology Team",
+      "meta_description": "Meet Charles Agyemang and Ammayu Waktole, co-founders of ConnectForge IT Services.",
+      "keywords": "Charles Agyemang, Ammayu Waktole, ConnectForge IT Services, technology company",
       "hero_title": "Many specialists. One technology partner.",
       "hero_subtitle": "We make powerful technology practical, dependable, and valuable.",
-      "body_text": "a UK-based technology company providing software development, network engineering, IT infrastructure, CCTV, field engineering and technical support services to businesses and organisations. We bring digital and physical technology services together under one roof, helping customers with website and application development, business systems, API integrations and automation, network design and configuration, Wi-Fi, LAN/WAN, routers, switches, VLANs and VPNs, structured Cat5e, Cat6 and Cat6a cabling, network cabinets and data points, CCTV and surveillance systems, remote and on-site IT support, and field engineering services. What makes ConnectForge different is our ability to bridge software, networking and physical IT infrastructure, giving customers one trusted technology partner throughout their technology journey. We take time to understand each customer's requirements and focus on delivering reliable, professional, secure and practical solutions that provide long-term value."
+      "body_text": "ConnectForge brings software, networks and physical IT infrastructure together for growing UK organisations. Founded by Charles Agyemang and Ammayu Waktole, our team focuses on clear advice, practical delivery and support as your business develops."
     }
   }
 }

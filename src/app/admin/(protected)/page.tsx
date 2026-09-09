@@ -7,27 +7,35 @@ import {
   MessageSquareMore,
   CalendarDays,
   ArrowRight,
+  ChartGantt,
+  TriangleAlert,
 } from "lucide-react";
 import {
   getConsultations,
   getContacts,
   getDbStatus,
   listPageContent,
+  getActivities,
 } from "@/lib/db";
+import { getActivityAlerts } from "@/lib/activities";
+import { todayInLondon } from "@/lib/booking";
 
 export default async function AdminDashboardPage() {
   await requireAdminSession();
-  const [dbStatus, consultations, contacts, pages] = await Promise.all([
+  const [dbStatus, consultations, contacts, pages, activities] = await Promise.all([
     getDbStatus(),
     getConsultations(),
     getContacts(),
     listPageContent(),
+    getActivities(),
   ]);
 
   const pendingConsultations = consultations.filter(
     (item) => item.status === "Pending",
   ).length;
   const newContacts = contacts.filter((item) => item.status === "New").length;
+  const activeActivities = activities.filter((item) => item.status !== "Completed").length;
+  const activityAlerts = getActivityAlerts(activities, todayInLondon()).length;
 
   const stats = [
     {
@@ -54,11 +62,23 @@ export default async function AdminDashboardPage() {
       icon: DatabaseZap,
       tone: "text-blue-300",
     },
+    {
+      label: "Active Activities",
+      value: activeActivities,
+      icon: ChartGantt,
+      tone: "text-cyan-300",
+    },
+    {
+      label: "Activity Alerts",
+      value: activityAlerts,
+      icon: TriangleAlert,
+      tone: activityAlerts ? "text-amber-300" : "text-emerald-300",
+    },
   ];
 
   return (
     <div className="space-y-8">
-      <section className="grid gap-4 lg:grid-cols-4">
+      <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-6">
         {stats.map(({ label, value, icon: Icon, tone }) => (
           <div
             key={label}
@@ -171,8 +191,11 @@ export default async function AdminDashboardPage() {
             <ol className="mt-5 space-y-4 text-sm text-slate-300">
               <li>1. Update page messaging in the content editor.</li>
               <li>2. Review newly captured bookings and enquiries.</li>
-              <li>3. Mark lead statuses as you qualify or close them out.</li>
+              <li>3. Plan and track delivery in the activity timeline.</li>
             </ol>
+            <Link href="/admin/activities" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 hover:text-cyan-200">
+              Open activity tracker <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>

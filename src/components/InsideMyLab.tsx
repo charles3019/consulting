@@ -44,7 +44,7 @@ const scenes: Scene[] = [
       "Virtualization environment setup (KVM, VMware)"
     ],
     techUsed: ["RHEL/Ubuntu", "Nginx/HAProxy", "Prometheus & Grafana", "VMware ESXi"],
-    metrics: "99.99% system uptime achieved for critical applications",
+    metrics: "Internal lab: illustrates a technical approach, not a customer result",
     projectTitle: "Enterprise Web Cluster Consolidation"
   },
   {
@@ -61,7 +61,7 @@ const scenes: Scene[] = [
       "Infrastructure testing and linting (tflint, tfsec)"
     ],
     techUsed: ["Terraform", "Ansible", "GitHub Actions", "Python/Bash"],
-    metrics: "Reduced deployment cycles from 5 days to 12 minutes",
+    metrics: "Internal lab: illustrates a technical approach, not a customer result",
     projectTitle: "Multi-Region Cloud Infrastructure Automation"
   },
   {
@@ -78,7 +78,7 @@ const scenes: Scene[] = [
       "Disaster recovery planning with multi-region backups"
     ],
     techUsed: ["AWS", "Azure", "Kubernetes", "IAM & VPC Routing"],
-    metrics: "Saved $120,000 annually through infrastructure optimization",
+    metrics: "Internal lab: illustrates a technical approach, not a customer result",
     projectTitle: "Legacy Datacenter to AWS Cloud Migration"
   },
   {
@@ -95,7 +95,7 @@ const scenes: Scene[] = [
       "Custom connector integration for external APIs"
     ],
     techUsed: ["Power Apps", "Power Automate", "SharePoint", "SQL Server"],
-    metrics: "Automated timesheet processes, saving 40+ admin hours/month",
+    metrics: "Internal lab: illustrates a technical approach, not a customer result",
     projectTitle: "Enterprise Timesheet & Scheduling Platform"
   },
   {
@@ -112,12 +112,12 @@ const scenes: Scene[] = [
       "Prometheus & Grafana dashboarding for systems health"
     ],
     techUsed: ["Power BI", "Excel VBA", "SQL", "Grafana"],
-    metrics: "Enabled instant monthly financial-reconciliation reporting",
+    metrics: "Internal lab: illustrates a technical approach, not a customer result",
     projectTitle: "Operational KPI & Cloud Spend Dashboard"
   },
   {
     id: 6,
-    title: "Helping Clients Succeed",
+    title: "Exploring Technical Solutions",
     icon: <Users className="w-6 h-6 text-emerald-400" />,
     subtitle: "Strategic IT Consulting & Training",
     shortDesc: "Advising stakeholders, resolving outages, and upskilling dev teams.",
@@ -129,7 +129,7 @@ const scenes: Scene[] = [
       "Technical vendor selection and architectural reviews"
     ],
     techUsed: ["ITIL", "Cost Audit Tools", "Diagramming", "Technical Writing"],
-    metrics: "Guided 6 enterprise clients through cloud modernization",
+    metrics: "Internal lab: illustrates a technical approach, not a customer result",
     projectTitle: "DevOps Transformation Roadmap"
   }
 ];

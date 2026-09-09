@@ -18,7 +18,7 @@ function actions(fail = false) {
   const records = [];
   const save = async value => { if (fail) throw new Error('Unavailable'); records.push(value); };
   return { records, api: load('../src/app/actions/public.ts', {
-    '@/lib/db': { addContact: save, addConsultation: save }, '@/lib/booking': booking,
+    '@/lib/db': { addContact: save, addConsultation: save }, '@/lib/booking': booking, '@/lib/services': load('../src/lib/services.ts'),
   }) };
 }
 const contact = { name: 'Test person', email: 'test@example.com', company: 'Test company', phone: '', details: 'A test enquiry' };
@@ -50,3 +50,18 @@ test('future weekday booking persists and storage errors are shown', async () =>
   assert.equal((await api.submitConsultationRequest({ ...request, type: 'unknown' })).success, false);
   assert.equal((await actions(true).api.submitConsultationRequest(request)).success, false);
 });
+
+ test('enquiries preserve new fields and reject spam and invalid choices before saving', async () => {
+  const { api, records } = actions();
+  for (const fields of [{ website: 'bot.example' }, { service: 'Unknown' }, { preferredContact: 'Fax' }, { location: 'x'.repeat(151) }, { preferredContact: 'Phone', phone: '' }]) {
+    assert.equal((await api.submitContactInquiry({ ...contact, ...fields })).success, false);
+  }
+  assert.equal(records.length, 0);
+  const fields = { service: 'CCTV Installation & Surveillance', location: 'Chesterfield', preferredContact: 'Email', website: '' };
+  assert.equal((await api.submitContactInquiry({ ...contact, ...fields })).success, true);
+  assert.equal(records[0].service, fields.service);
+  assert.equal(records[0].location, fields.location);
+  assert.equal(records[0].preferredContact, fields.preferredContact);
+  assert.equal((await api.submitConsultationRequest({ ...contact, website: 'bot.example' })).success, false);
+  assert.equal(records.length, 1);
+ });

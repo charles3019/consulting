@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LayoutDashboard, FilePenLine, Inbox } from "lucide-react";
+import { LayoutDashboard, FilePenLine, Inbox, ChartGantt } from "lucide-react";
 import AdminLogoutButton from "@/components/admin/AdminLogoutButton";
 import { requireAdminSession } from "@/lib/auth";
 
@@ -7,6 +7,7 @@ const navItems = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/content", label: "Content", icon: FilePenLine },
   { href: "/admin/leads", label: "Leads", icon: Inbox },
+  { href: "/admin/activities", label: "Activities", icon: ChartGantt },
 ];
 
 export default async function AdminProtectedLayout({

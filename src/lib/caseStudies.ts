@@ -13,16 +13,16 @@ export interface CaseStudyDetails {
 export const caseStudiesData: Record<string, CaseStudyDetails> = {
   "infra-auto": {
     title: "Enterprise Infrastructure Automation",
-    category: "Automation & Infrastructure",
-    challenge: "A mid-sized logistics firm faced major bottlenecks provisioning servers. Deploying a new environment took 2 weeks of manual steps across multiple portals. System drift occurred frequently as engineers ran ad-hoc configurations, leading to production outages and mismatched staging environments.",
-    solution: "We declared the entire system blueprint as code. Using Terraform, we structured reusable modules to spin up network subnets, VMs, and security groups. Ansible roles were written to install and harden Linux environments. Finally, we linked the setup to a GitHub Actions GitOps pipeline.",
+    category: "Internal Lab",
+    challenge: "An internal lab exploring how to provision and configure infrastructure consistently using version-controlled automation.",
+    solution: "The example combines Terraform modules, Ansible configuration and a GitHub Actions pipeline to illustrate repeatable infrastructure provisioning.",
     diagramTitle: "GitOps Infrastructure Pipeline Architecture",
     diagramNodes: [
       { id: "1", label: "Local Git Commit", sub: "Developer Push", status: "Trigger" },
       { id: "2", label: "GitHub Actions", sub: "tfsec & lint check", status: "Verify" },
       { id: "3", label: "Terraform Engine", sub: "State locking via S3", status: "Provision" },
       { id: "4", label: "Ansible Playbooks", sub: "OS configuration", status: "Hardening" },
-      { id: "5", label: "Target VMs", sub: "RHEL Cluster", status: "Production" }
+      { id: "5", label: "Target VMs", sub: "RHEL Cluster", status: "Lab" }
     ],
     diagramConnections: [
       { from: "1", to: "2", label: "Push Event" },
@@ -31,17 +31,13 @@ export const caseStudiesData: Record<string, CaseStudyDetails> = {
       { from: "4", to: "5", label: "Configure OS" }
     ],
     technologies: ["Terraform", "Ansible", "RedHat Linux", "GitHub Actions", "Prometheus"],
-    metrics: [
-      { label: "Deployment Speed", val: "80% Faster", desc: "Provisioning cut from 14 days to 15 minutes." },
-      { label: "Manual Work", val: "50% Less", desc: "Configuration managed entirely by code repository." },
-      { label: "Uptime SLA", val: "99.9% Uptime", desc: "System environments remain completely identical." }
-    ]
+    metrics: [{ label: "Technical outcome", val: "Internal Lab", desc: "Demonstrates automated infrastructure provisioning and repeatable configuration." }]
   },
   "timesheet": {
     title: "Power Apps Timesheet System",
-    category: "Power Platform Solutions",
-    challenge: "A consultancy tracking 200+ contractors relied on emailed Excel timesheets. Project managers spent days verifying records, tracking approvals, and copying data into accounting software. This caused payroll delays, billing errors, and lost audits.",
-    solution: "We constructed a canvas-based Microsoft Power App for mobile and desktop screens. Contractors input task logs, and the app runs validation formulas. Power Automate triggers approval card requests directly inside managers' Teams channels. Approved records are synced instantly with SQL Server database tables.",
+    category: "Demonstration Project",
+    challenge: "A demonstration of timesheet entry, validation and approval workflows using a business application.",
+    solution: "The demonstration links a Power Apps interface to approval workflows and database records. It illustrates application validation and approval handling.",
     diagramTitle: "Power Platform Process Flow",
     diagramNodes: [
       { id: "1", label: "Contractor Device", sub: "Power Apps Client", status: "User Input" },
@@ -54,18 +50,14 @@ export const caseStudiesData: Record<string, CaseStudyDetails> = {
       { from: "2", to: "3", label: "Send Card" },
       { from: "3", to: "4", label: "On Approve" }
     ],
-    technologies: ["Power Apps", "Power Automate", "SharePoint API", "SQL Server Server"],
-    metrics: [
-      { label: "Admin Savings", val: "40 Hours/Mo", desc: "Removed manual validation and copy-pasting." },
-      { label: "Error Rate", val: "0% Discrepancy", desc: "Strict formula parsing prevents incorrect totals." },
-      { label: "Approval Cycle", val: "Same Day", desc: "Decisions made via Microsoft Teams cards." }
-    ]
+    technologies: ["Power Apps", "Power Automate", "SharePoint API", "SQL Server"],
+    metrics: [{ label: "Technical outcome", val: "Demonstration Project", desc: "Demonstrates workflow automation and approval handling." }]
   },
   "dashboard": {
     title: "Operational Dashboard System",
-    category: "Reporting & Analytics",
-    challenge: "Management struggled to track team SLAs, hardware CPU metrics, and cloud spending across three separate platforms. Decisions on server sizing were based on guesswork, resulting in over-provisioning and wasted budget.",
-    solution: "We designed a data ETL ingestion pipeline to fetch cloud bills and telemetry logs. We structured a relational SQL database and created a comprehensive Power BI dashboard. DAX formulas analyze hosting spend per application, alerting teams to underutilized VMs.",
+    category: "Engineering Example",
+    challenge: "An engineering example exploring how operational information from several sources can be brought into one dashboard.",
+    solution: "The example combines data ingestion, relational storage and dashboard views to illustrate reporting across multiple sources.",
     diagramTitle: "Data Analytics Pipeline",
     diagramNodes: [
       { id: "1", label: "Cloud APIs", sub: "Billing telemetry", status: "Data Source" },
@@ -81,11 +73,7 @@ export const caseStudiesData: Record<string, CaseStudyDetails> = {
       { from: "4", to: "5", label: "Live Stats" }
     ],
     technologies: ["Power BI", "SQL Server", "Excel DAX", "Grafana API", "Python Scripts"],
-    metrics: [
-      { label: "Cost Savings", val: "$15k / Month", desc: "Decommissioned idle instances discovered in audit." },
-      { label: "Data Latency", val: "10 Minutes", desc: "Real-time feeds replace monthly reports." },
-      { label: "SLA Visibility", val: "100% Clear", desc: "Unified dashboards reveal host downtime instantly." }
-    ]
+    metrics: [{ label: "Technical outcome", val: "Engineering Example", desc: "Demonstrates dashboard integration across multiple data sources." }]
   }
 };
 

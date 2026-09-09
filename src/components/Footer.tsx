@@ -1,102 +1,72 @@
-"use client";
-
-import React from "react";
 import Link from "next/link";
-import { Mail, Calendar, Clock } from "lucide-react";
 import LogoMark from "@/components/LogoMark";
 import SocialLinks from "@/components/SocialLinks";
-
+import { services } from "@/lib/services";
+import { BRAND_NAME } from "@/lib/seo";
 export default function Footer() {
   return (
-    <footer className="w-full bg-slate-950/80 border-t border-white/5 backdrop-blur-sm mt-auto">
+    <footer className="w-full bg-slate-950/80 border-t border-white/5 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          
-          {/* Brand & Mission */}
-          <div className="space-y-4 col-span-1 md:col-span-1">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="space-y-4">
             <LogoMark compact />
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Secure networks, modern digital products, and practical automation built for growing organisations.
+            <p className="font-semibold text-white">{BRAND_NAME}</p>
+            <p className="text-sm leading-relaxed text-slate-400">
+              Digital technology and physical IT infrastructure for growing UK
+              organisations.
             </p>
             <SocialLinks compact />
           </div>
-
-          {/* Quick Links */}
-          <div className="space-y-3">
-            <h3 className="text-xs font-semibold text-white uppercase tracking-wider">Services</h3>
-            <ul className="space-y-2 text-xs text-slate-400">
-              <li>
-                <Link href="/services" className="hover:text-cyan-400 transition-colors">
-                  Network Engineering
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="hover:text-cyan-400 transition-colors">
-                  Web Development
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="hover:text-cyan-400 transition-colors">
-                  Automation Consulting
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="hover:text-cyan-400 transition-colors">
-                  App Development
-                </Link>
-              </li>
+          <div className="space-y-4">
+            <h2 className="font-semibold text-white">Services</h2>
+            <ul className="space-y-2 text-sm text-slate-400">
+              {services.map((service) => (
+                <li key={service.id}>
+                  <Link
+                    className="hover:text-cyan-300"
+                    href={`/services#${service.slug}`}
+                  >
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
-
-          {/* Consultation Availability */}
-          <div className="space-y-3">
-            <h3 className="text-xs font-semibold text-white uppercase tracking-wider">Office Details</h3>
-            <div className="space-y-2.5 text-xs text-slate-400">
-              <div className="flex items-center space-x-2">
-                <Clock className="w-4 h-4 text-cyan-400" />
-                <span>Mon–Fri, 09:00–18:00 UK Time</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Calendar className="w-4 h-4 text-cyan-400" />
-                <span>Bookings: 24/7 Availability</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="w-4 h-4 text-cyan-400" />
-                <span>Use our secure contact form</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Newsletter */}
-          <div className="space-y-3">
-            <h3 className="text-xs font-semibold text-white uppercase tracking-wider">Stay Updated</h3>
-            <p className="text-xs text-slate-400">
-              Get modern  guides and automation tips.
+          <div className="space-y-4">
+            <h2 className="font-semibold text-white">Contact Our Team</h2>
+            <p className="text-sm text-slate-400">
+              Mon-Fri, 09:00-18:00 UK time
             </p>
-            <form onSubmit={(e) => e.preventDefault()} className="flex space-x-2 pt-1">
-              <input
-                type="email"
-                placeholder="you@company.com"
-                className="w-full px-3 py-2 text-xs rounded bg-slate-900 border border-slate-800 text-white focus:outline-none focus:border-cyan-500 transition-colors"
-                required
-              />
-              <button
-                type="submit"
-                className="px-3 py-2 text-xs font-semibold rounded bg-cyan-500 text-black hover:bg-cyan-400 transition-colors"
-              >
-                Join
-              </button>
-            </form>
+            <p className="text-sm text-slate-400">
+              Submit an enquiry at any time. Our team normally responds within
+              one business day.
+            </p>
+            <Link href="/contact" className="text-sm text-cyan-300">
+              Tell Us What You Need
+            </Link>
           </div>
-
+          <div className="space-y-4">
+            <h2 className="font-semibold text-white">Get a Quote</h2>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              Planning a technology project or need technical support? Tell us
+              what you need and we&apos;ll provide a tailored quotation.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex bg-cyan-500 hover:bg-cyan-400 text-black rounded-lg px-5 py-3 font-bold text-sm"
+            >
+              Get a Free Quote
+            </Link>
+          </div>
         </div>
-        
-        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500">
-          <p>&copy; {new Date().getFullYear()} ConnectForge Technologies Ltd. All rights reserved.</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="/contact" className="hover:text-slate-300">Privacy Policy</Link>
-            <Link href="/contact" className="hover:text-slate-300">Terms of Service</Link>
-            <Link href="/contact" className="hover:text-slate-300">Contact Support</Link>
+        <div className="mt-12 pt-8 border-t border-white/5 flex flex-wrap justify-between gap-5 text-xs text-slate-400">
+          <p>
+            &copy; {new Date().getFullYear()} {BRAND_NAME}. All rights reserved.
+          </p>
+          <div className="flex flex-wrap gap-5">
+            <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/terms">Terms of Service</Link>
+            <Link href="/cookies">Cookies</Link>
           </div>
         </div>
       </div>

@@ -20,13 +20,13 @@ const sitemap = await get('/sitemap.xml');
 assert.equal(sitemap.status, 200);
 const xml = await sitemap.text();
 const urls = [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1].replaceAll('&amp;', '&'));
-assert.equal(urls.length, 11);
+assert.equal(urls.length, 13);
 assert.equal(new Set(urls).size, urls.length);
 const titles = new Set();
 for (const url of urls) {
   const parsed = new URL(url);
   assert.equal(parsed.origin, canonicalOrigin);
-  assert.ok(!['/admin', '/blog', '/resources'].some(path => parsed.pathname.startsWith(path)));
+  assert.ok(!['/admin', '/api', '/blog', '/resources', '/testimonials'].some(path => parsed.pathname.startsWith(path)));
   const response = await get(parsed.pathname + parsed.search);
   assert.equal(response.status, 200, url);
   const raw = await response.text();
@@ -51,7 +51,7 @@ for (const url of urls) {
   console.log(`PASS ${parsed.pathname}${parsed.search}`);
 }
 
-for (const path of ['/admin/login', '/blog', '/resources']) {
+for (const path of ['/admin/login', '/blog', '/resources', '/testimonials']) {
   const response = await get(path);
   assert.equal(response.status, 200);
   assert.ok(meta(markupOnly(await response.text()), 'robots')?.includes('noindex'), path);

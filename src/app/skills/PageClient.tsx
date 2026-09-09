@@ -110,7 +110,7 @@ export default function Skills({ page_content_json, pageContent }: { page_conten
               <div className="flex items-center space-x-2">
                 <Award className="w-4.5 h-4.5 text-cyan-400 animate-pulse" />
                 <span className="font-mono text-xs text-slate-400 uppercase tracking-widest">
-                  Diagnostic Report
+                  Technical Overview
                 </span>
               </div>
               <span className="font-mono text-[10px] text-cyan-400">

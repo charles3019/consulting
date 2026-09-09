@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useState } from "react";
 import { submitConsultationRequest } from "@/app/actions/public";
 import { bookingDateNumber, consultationTimes, formatBookingDate } from "@/lib/booking";
@@ -34,21 +35,21 @@ const consultTypes: ConsultType[] = [
   },
   {
     id: "devops",
-    title: "DevOps Assessment",
+    title: "Application & Workflow Planning",
     duration: "2 Hours",
     icon: <Workflow className="w-5 h-5 text-emerald-400" />,
     desc: "Deep-dive into configuration pipelines, container deployment templates, secrets control, and developer workflows."
   },
   {
     id: "cloud",
-    title: "Cloud Strategy Session",
+    title: "Network & Installation Planning",
     duration: "2 Hours",
     icon: <Cloud className="w-5 h-5 text-blue-400" />,
     desc: "Map your on-premises architecture to cloud, optimize multi-region server costs, and review VPC security groups."
   },
   {
     id: "power",
-    title: "Power Platform Consultation",
+    title: "Website & Business Systems Planning",
     duration: "1 Hour",
     icon: <Layers className="w-5 h-5 text-pink-400" />,
     desc: "Discuss automating office spreadsheets, building customized Canvas Apps, and triggering approval workflows."
@@ -66,7 +67,7 @@ export default function BookConsultation({ today }: { today: string }) {
     name: "",
     email: "",
     company: "",
-    details: ""
+    website: "", details: ""
   });
   const [isBooked, setIsBooked] = useState(false);
 
@@ -170,7 +171,7 @@ export default function BookConsultation({ today }: { today: string }) {
               setSelectedType("");
               setSelectedDate(null);
               setSelectedTime("");
-              setFormData({ name: "", email: "", company: "", details: "" });
+              setFormData({ name: "", email: "", company: "", website: "", details: "" });
             }}
             className="px-6 py-2.5 text-xs font-semibold rounded bg-cyan-500 text-black hover:bg-cyan-400 transition-colors shadow-[0_0_15px_rgba(6,182,212,0.15)]"
           >
@@ -213,7 +214,7 @@ export default function BookConsultation({ today }: { today: string }) {
                   3
                 </span>
                 <span className={`text-xs font-semibold ${step === 3 ? "text-cyan-400" : "text-slate-500"}`}>
-                  Run Diagnostics Details
+                  Project Consultation
                 </span>
               </div>
             </div>
@@ -415,7 +416,9 @@ export default function BookConsultation({ today }: { today: string }) {
                   </button>
                 </div>
 
+                <p className="mb-4 text-sm text-slate-400">We use your details to arrange your consultation. Read our <Link href="/privacy" className="text-cyan-300 underline">Privacy Policy</Link>.</p>
                 <form onSubmit={handleBookingSubmit} className="space-y-4">
+              <div className="hidden" aria-hidden="true"><label htmlFor="booking-website">Leave this field empty</label><input id="booking-website" name="website" tabIndex={-1} autoComplete="off" value={formData.website} onChange={e => setFormData({ ...formData, website: e.target.value })} /></div>
                   {error && <p role="alert" className="text-sm text-red-300">{error}</p>}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5 text-left">
@@ -465,7 +468,7 @@ export default function BookConsultation({ today }: { today: string }) {
 
                   <div className="space-y-1.5 text-left">
                     <label htmlFor="details" className="text-[10px] font-mono text-slate-400 uppercase tracking-widest block">
-                      System Diagnostics / Project Details
+                      Project Details
                     </label>
                     <textarea
                       id="details"

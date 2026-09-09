@@ -16,8 +16,8 @@ export async function generateMetadata({ searchParams }: Props) {
   const { key, study } = await getStudy(searchParams);
   return createPageMetadata(
     `/case-studies?project=${key}`,
-    `${study.title} Case Study`,
-    `Explore ConnectForge's ${study.title.toLowerCase()} project: the challenge, implementation, technologies and outcomes.`,
+    `${study.title} | ${study.category}`,
+    `Explore ConnectForge's ${study.title.toLowerCase()} engineering example: technical approach, architecture and illustrative outcomes.`,
   );
 }
 

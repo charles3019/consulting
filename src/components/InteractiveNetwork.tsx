@@ -17,6 +17,7 @@ export default function InteractiveNetwork() {
   const mouseRef = useRef({ x: -1000, y: -1000, radius: 180 });
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -189,6 +190,7 @@ export default function InteractiveNetwork() {
 
   return (
     <canvas
+      aria-hidden="true"
       ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-none z-0"
     />

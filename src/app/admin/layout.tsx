@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Administrator | ConnectForge Technologies Ltd",
+  title: "Administrator | ConnectForge IT Services",
   robots: { index: false, follow: false },
 };
 

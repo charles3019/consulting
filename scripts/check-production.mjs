@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { mkdtemp, readFile, writeFile, rm } from 'node:fs/promises';
+import { mkdtemp, readFile, writeFile, rm, mkdir } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
@@ -49,11 +49,17 @@ try {
   await page.locator('#name').fill('Production test');
   await page.locator('#email').fill('test@example.com');
   await page.locator('#details').fill('Isolated contact form test');
-  await page.getByRole('button', { name: 'Send Message', exact: true }).click();
+  await page.getByLabel('Service Required').selectOption('Network Engineering');
+  await page.getByLabel('Postcode / Location').fill('Test location');
+  await page.getByLabel('Preferred Contact Method').selectOption('Email');
+  await page.getByRole('button', { name: 'Request a Quote', exact: true }).click();
   await page.getByRole('heading', { name: 'Message Received' }).waitFor();
   let data = JSON.parse(await readFile(path.join(directory, 'db_fallback.json'), 'utf8'));
   assert.equal(data.contacts.length, 1);
   assert.equal(data.contacts[0].details, 'Isolated contact form test');
+  assert.equal(data.contacts[0].service, 'Network Engineering');
+  assert.equal(data.contacts[0].location, 'Test location');
+  assert.equal(data.contacts[0].preferredContact, 'Email');
 
   await page.goto(base + '/book-consultation');
   await page.getByRole('heading', { name: 'Infrastructure Review', exact: true }).click();
@@ -82,8 +88,72 @@ try {
   await page.getByRole('link', { name: 'Leads', exact: true }).click();
   await page.getByText('Isolated contact form test', { exact: true }).waitFor();
   await page.getByText('Isolated booking form test', { exact: true }).waitFor();
+  await page.getByText('Test location', { exact: true }).waitFor();
+
+  await page.getByRole('link', { name: 'Activities', exact: true }).click();
+  await page.getByRole('heading', { name: 'Plan, track and deliver work' }).waitFor();
+  const activityForm = page.locator('#register-activity form');
+  const activityStart = new Date();
+  activityStart.setUTCDate(activityStart.getUTCDate() + 1);
+  while ([0, 6].includes(activityStart.getUTCDay())) activityStart.setUTCDate(activityStart.getUTCDate() + 1);
+  const activityDate = activityStart.toISOString().slice(0, 10);
+  await activityForm.locator('[name="title"]').fill('Production readiness review');
+  await activityForm.locator('[name="project"]').fill('Website launch');
+  await activityForm.locator('[name="owner"]').fill('Operations');
+  await activityForm.locator('[name="start_date"]').fill(activityDate);
+  await activityForm.locator('[name="due_date"]').fill(activityDate);
+  await activityForm.locator('[name="status"]').selectOption('In Progress');
+  await activityForm.locator('[name="priority"]').selectOption('High');
+  await activityForm.locator('[name="progress"]').fill('40');
+  await activityForm.locator('[name="description"]').fill('Isolated activity tracking test');
+  await activityForm.getByRole('button', { name: 'Add activity' }).click();
+  await page.waitForURL(/created=1/);
+  await page.getByRole('heading', { name: 'Production readiness review' }).waitFor();
+  await page.getByText(/Due (today|in \d+ day)/).first().waitFor();
+  data = JSON.parse(await readFile(path.join(directory, 'db_fallback.json'), 'utf8'));
+  assert.equal(data.activities.length, 1);
+
+  const activityCard = page.locator('article', { hasText: 'Production readiness review' });
+  await activityCard.locator('[name="status"]').selectOption('Blocked');
+  await activityCard.locator('[name="progress"]').fill('55');
+  await activityCard.getByRole('button', { name: 'Save changes' }).click();
+  await page.waitForURL(/updated=1/);
+  await page.getByText('Activity is blocked', { exact: true }).waitFor();
+  data = JSON.parse(await readFile(path.join(directory, 'db_fallback.json'), 'utf8'));
+  assert.equal(data.activities[0].status, 'Blocked');
+  assert.equal(data.activities[0].progress, 55);
+
+  await mkdir('.next/qa', { recursive: true });
+  for (const width of [375, 430, 768, 1024, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const route of ['/', '/services', '/contact', '/portfolio', '/about', '/privacy', '/terms', '/cookies']) {
+      await page.goto(base + route);
+      assert.equal(await page.locator('h1').count(), 1, `${route} has one heading`);
+      const overflow = await page.evaluate(() => [...document.querySelectorAll('main a, main button, main input, main select, main textarea, main h1, main h2, main h3')].filter(element => {
+        const box = element.getBoundingClientRect();
+        return box.width > 0 && (box.left < -1 || box.right > innerWidth + 1);
+      }).map(element => element.textContent?.slice(0, 60)));
+      assert.deepEqual(overflow, [], `${route} at ${width}px: controls and headings fit`);
+      assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${route} at ${width}px: no horizontal overflow`);
+      if ([375, 1440].includes(width) && ['/', '/services', '/contact'].includes(route)) {
+        await page.evaluate(async () => {
+          for (let y = 0; y < document.body.scrollHeight; y += innerHeight * 0.8) { scrollTo({ top: y, behavior: 'instant' }); await new Promise(resolve => setTimeout(resolve, 50)); }
+          await new Promise(resolve => setTimeout(resolve, 400));
+          scrollTo({ top: 0, behavior: 'instant' });
+          await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+        });
+        await page.screenshot({ path: `.next/qa/${route === '/' ? 'home' : route.slice(1)}-${width}.png`, fullPage: true });
+      }
+    }
+    if (width < 1024) {
+      await page.getByRole('button', { name: 'Toggle menu' }).click();
+      await page.locator('#mobile-navigation').getByRole('link', { name: 'Services', exact: true }).click();
+      await page.waitForURL(base + '/services');
+      assert.equal(await page.getByRole('button', { name: 'Toggle menu' }).getAttribute('aria-expanded'), 'false');
+    }
+  }
   assert.equal(errors.length, 0, errors.join('\n'));
-  console.log('Production browser checks passed: icons, headers, contact, booking and admin lead visibility.');
+  console.log('Production browser checks passed: icons, headers, forms, admin leads, activities, Gantt data and alerts.');
 } finally {
   await browser?.close();
   if (server.exitCode === null) { server.kill(); await once(server, 'exit'); }

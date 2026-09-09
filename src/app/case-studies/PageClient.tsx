@@ -38,8 +38,9 @@ function CaseStudyContent({ study, projectKey }: { study: CaseStudyDetails; proj
         <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
           {study.title}
         </h1>
+        <p className="text-sm text-slate-400">{study.category}. This is a technical example, not a verified customer engagement.</p>
         <p className="text-xs text-slate-500 font-mono">
-          CONSULTING RECORD // PROJECT ID: {projectKey.toUpperCase()}
+          ENGINEERING EXAMPLE // PROJECT ID: {projectKey.toUpperCase()}
         </p>
       </div>
 

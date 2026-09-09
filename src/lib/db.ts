@@ -1,7 +1,8 @@
 import mysql from "mysql2/promise";
 import fs from "fs";
 import path from "path";
-import { getDefaultPageContent, staticDefaults, type PageContent } from "./contentDefaults";
+import { getDefaultPageContent, staticDefaults, resolvePageContent, type PageContent } from "./contentDefaults";
+import type { ActivityInput, ActivityRecord } from "./activities";
 
 // MySQL configuration from environment variables
 const mysqlConfig = {
@@ -10,6 +11,7 @@ const mysqlConfig = {
   password: process.env.MYSQL_PASSWORD,
   database: process.env.MYSQL_DATABASE,
   port: parseInt(process.env.MYSQL_PORT || "3306"),
+  dateStrings: true,
 };
 
 let pool: mysql.Pool | null = null;
@@ -38,6 +40,9 @@ export interface ContactRecord {
   email: string;
   company: string;
   phone: string;
+  service?: string | null;
+  location?: string | null;
+  preferredContact?: string | null;
   details: string;
   status: string;
   created_at: string;
@@ -50,6 +55,7 @@ interface FallbackDatabase {
   consultations: ConsultationRecord[];
   contacts: ContactRecord[];
   admin_users: AdminUser[];
+  activities: ActivityRecord[];
 }
 
 function assertWritableFallback() {
@@ -62,7 +68,7 @@ function assertWritableFallback() {
 function readFallbackJSON(): FallbackDatabase {
   try {
     if (!fs.existsSync(FALLBACK_FILE)) {
-      return { page_content: {}, consultations: [], contacts: [], admin_users: [] };
+      return { page_content: {}, consultations: [], contacts: [], admin_users: [], activities: [] };
     }
     const data = fs.readFileSync(FALLBACK_FILE, "utf8");
     const parsed = JSON.parse(data);
@@ -90,6 +96,7 @@ function readFallbackJSON(): FallbackDatabase {
       consultations: Array.isArray(fallback.consultations) ? fallback.consultations : [],
       contacts: Array.isArray(fallback.contacts) ? fallback.contacts : [],
       admin_users: Array.isArray(fallback.admin_users) ? fallback.admin_users : [],
+      activities: Array.isArray(fallback.activities) ? fallback.activities : [],
     };
   } catch (err) {
     console.error("Failed to read fallback JSON db:", err);
@@ -181,6 +188,19 @@ async function initializeMySQL() {
       ) ENGINE=InnoDB;
     `);
 
+    // Additive migration: existing contact rows and values are preserved.
+    const [contactColumns] = await conn.query<mysql.RowDataPacket[]>("SHOW COLUMNS FROM contacts");
+    for (const column of ["service", "location", "preferredContact"] as const) {
+      if (!contactColumns.some(existing => existing.Field === column)) {
+        try {
+          await conn.query(`ALTER TABLE contacts ADD COLUMN ${column} VARCHAR(150) NULL`);
+        } catch (error) {
+          // Another application worker may have added the same column concurrently.
+          if (!(error instanceof Error) || !("code" in error) || error.code !== "ER_DUP_FIELDNAME") throw error;
+        }
+      }
+    }
+
     await conn.query(`
       CREATE TABLE IF NOT EXISTS admin_users (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -188,6 +208,25 @@ async function initializeMySQL() {
         password_hash VARCHAR(255) NOT NULL,
         salt VARCHAR(100) NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      ) ENGINE=InnoDB;
+    `);
+
+    await conn.query(`
+      CREATE TABLE IF NOT EXISTS activities (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        title VARCHAR(200) NOT NULL,
+        project VARCHAR(150) NOT NULL,
+        owner VARCHAR(150) NOT NULL DEFAULT '',
+        start_date DATE NOT NULL,
+        due_date DATE NOT NULL,
+        status VARCHAR(30) NOT NULL DEFAULT 'Planned',
+        priority VARCHAR(20) NOT NULL DEFAULT 'Medium',
+        progress TINYINT UNSIGNED NOT NULL DEFAULT 0,
+        description TEXT NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        INDEX idx_activities_dates (start_date, due_date),
+        INDEX idx_activities_status (status)
       ) ENGINE=InnoDB;
     `);
 
@@ -247,13 +286,13 @@ export async function getPageContent(pageKey: string) {
   if (status === "MYSQL LIVE" && pool) {
     try {
       const [rows] = await pool.query<(mysql.RowDataPacket & PageContent)[]>("SELECT * FROM page_content WHERE page_key = ?", [pageKey]);
-      if (rows.length > 0) return rows[0];
+      if (rows.length > 0) return resolvePageContent(pageKey, rows[0]);
     } catch (err) {
       console.error(`MySQL getPageContent fail for ${pageKey}, returning fallback:`, err);
     }
   }
   const fallback = readFallbackJSON();
-  return fallback.page_content[pageKey] || null;
+  return fallback.page_content[pageKey] ? resolvePageContent(pageKey, fallback.page_content[pageKey]) : null;
 }
 
 export async function listPageContent() {
@@ -267,11 +306,7 @@ export async function listPageContent() {
 
       return Object.keys(staticDefaults).map((pageKey) => {
         const stored = rows.find((row) => row.page_key === pageKey) || {};
-        return {
-          ...getDefaultPageContent(pageKey),
-          ...stored,
-          page_key: pageKey,
-        };
+        return resolvePageContent(pageKey, stored);
       });
     } catch (err) {
       console.error("MySQL listPageContent fail, returning fallback:", err);
@@ -279,11 +314,7 @@ export async function listPageContent() {
   }
 
   const fallback = ensureFallbackPageContentShape();
-  return Object.keys(staticDefaults).map((pageKey) => ({
-    ...getDefaultPageContent(pageKey),
-    ...(fallback.page_content[pageKey] || {}),
-    page_key: pageKey,
-  }));
+  return Object.keys(staticDefaults).map((pageKey) => resolvePageContent(pageKey, fallback.page_content[pageKey] || {}));
 }
 
 export async function savePageContent(pageKey: string, data: {
@@ -454,14 +485,17 @@ export async function addContact(data: {
   email: string;
   company: string;
   phone: string;
+  service?: string | null;
+  location?: string | null;
+  preferredContact?: string | null;
   details: string;
 }) {
   const status = await getDbStatus();
   if (status === "MYSQL LIVE" && pool) {
     try {
       await pool.query(
-        "INSERT INTO contacts (name, email, company, phone, details, status) VALUES (?, ?, ?, ?, ?, 'New')",
-        [data.name, data.email, data.company, data.phone, data.details]
+        "INSERT INTO contacts (name, email, company, phone, details, service, location, preferredContact, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'New')",
+        [data.name, data.email, data.company, data.phone, data.details, data.service || null, data.location || null, data.preferredContact || null]
       );
       return true;
     } catch (err) {
@@ -496,6 +530,105 @@ export async function deleteContact(id: number) {
 
   const fallback = readFallbackJSON();
   fallback.contacts = fallback.contacts.filter((c) => c.id !== id);
+  writeFallbackJSON(fallback);
+  return true;
+}
+
+// Activity planning and tracking operations
+export async function getActivities(): Promise<ActivityRecord[]> {
+  const status = await getDbStatus();
+  if (status === "MYSQL LIVE" && pool) {
+    try {
+      const [rows] = await pool.query<(mysql.RowDataPacket & ActivityRecord)[]>(
+        "SELECT * FROM activities ORDER BY due_date ASC, priority DESC, id DESC",
+      );
+      return rows;
+    } catch (err) {
+      console.error("MySQL getActivities fail:", err);
+      if (process.env.NODE_ENV === "production") throw new Error("Unable to load activities.");
+    }
+  }
+  return [...readFallbackJSON().activities].sort(
+    (a, b) => a.due_date.localeCompare(b.due_date) || b.id - a.id,
+  );
+}
+
+export async function addActivity(data: ActivityInput) {
+  const status = await getDbStatus();
+  if (status === "MYSQL LIVE" && pool) {
+    try {
+      await pool.query(
+        `INSERT INTO activities
+          (title, project, owner, start_date, due_date, status, priority, progress, description)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [data.title, data.project, data.owner, data.start_date, data.due_date,
+          data.status, data.priority, data.progress, data.description],
+      );
+      return true;
+    } catch (err) {
+      console.error("MySQL addActivity fail:", err);
+      throw new Error("Unable to save activity. Please try again later.");
+    }
+  }
+
+  const fallback = readFallbackJSON();
+  const id = fallback.activities.length
+    ? Math.max(...fallback.activities.map((activity) => activity.id)) + 1
+    : 1;
+  const timestamp = new Date().toISOString();
+  fallback.activities.push({ id, ...data, created_at: timestamp, updated_at: timestamp });
+  writeFallbackJSON(fallback);
+  return true;
+}
+
+export async function updateActivity(id: number, data: ActivityInput) {
+  const status = await getDbStatus();
+  if (status === "MYSQL LIVE" && pool) {
+    try {
+      const [result] = await pool.query<mysql.ResultSetHeader>(
+        `UPDATE activities SET title = ?, project = ?, owner = ?, start_date = ?, due_date = ?,
+          status = ?, priority = ?, progress = ?, description = ? WHERE id = ?`,
+        [data.title, data.project, data.owner, data.start_date, data.due_date,
+          data.status, data.priority, data.progress, data.description, id],
+      );
+      return result.affectedRows > 0;
+    } catch (err) {
+      console.error("MySQL updateActivity fail:", err);
+      throw new Error("Unable to update activity. Please try again later.");
+    }
+  }
+
+  const fallback = readFallbackJSON();
+  const index = fallback.activities.findIndex((activity) => activity.id === id);
+  if (index < 0) return false;
+  fallback.activities[index] = {
+    ...fallback.activities[index],
+    ...data,
+    updated_at: new Date().toISOString(),
+  };
+  writeFallbackJSON(fallback);
+  return true;
+}
+
+export async function deleteActivity(id: number) {
+  const status = await getDbStatus();
+  if (status === "MYSQL LIVE" && pool) {
+    try {
+      const [result] = await pool.query<mysql.ResultSetHeader>(
+        "DELETE FROM activities WHERE id = ?",
+        [id],
+      );
+      return result.affectedRows > 0;
+    } catch (err) {
+      console.error("MySQL deleteActivity fail:", err);
+      throw new Error("Unable to delete activity. Please try again later.");
+    }
+  }
+
+  const fallback = readFallbackJSON();
+  const initialLength = fallback.activities.length;
+  fallback.activities = fallback.activities.filter((activity) => activity.id !== id);
+  if (fallback.activities.length === initialLength) return false;
   writeFallbackJSON(fallback);
   return true;
 }

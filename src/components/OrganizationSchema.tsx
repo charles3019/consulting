@@ -10,7 +10,7 @@ export default function OrganizationSchema() {
         name: SITE_NAME,
         url: SITE_URL,
         logo: `${SITE_URL}/connectforge-logo.png`,
-        description: "Network engineering, web development, business automation and custom application development.",
+        description: "Websites, applications, network engineering, network installations, CCTV, IT support and field engineering services for UK businesses.",
         founder: [
           { "@type": "Person", name: "Charles Agyemang" },
           { "@type": "Person", name: "Ammayu Waktole" },

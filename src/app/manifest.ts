@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "ConnectForge Technologies Ltd",
+    name: "ConnectForge IT Services",
     short_name: "ConnectForge",
     description: "Networks, web development, automation and custom applications.",
     start_url: "/",

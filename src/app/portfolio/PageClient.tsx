@@ -33,10 +33,10 @@ export default function Portfolio({ page_content_json }: { page_content_json: Pi
           PORTFOLIO ARCHIVE
         </span>
         <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-          Delivered Engagements
+          Engineering Projects & Solutions
         </h1>
         <p className="text-sm text-slate-400 leading-relaxed">
-          A showcase of real-world infrastructure builds, custom line-of-business applications, and metrics-driven dashboard platforms that helped client operations scale.
+          Internal labs, demonstration projects and engineering examples showing our approach. These examples are not presented as completed customer engagements.
         </p>
       </div>
 
@@ -68,14 +68,14 @@ export default function Portfolio({ page_content_json }: { page_content_json: Pi
             <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-cyan-500/5 to-transparent rounded-bl-full pointer-events-none group-hover:scale-125 transition-transform" />
             
             <div className="space-y-4 text-left">
-              <div className="flex items-center justify-between pb-3 border-b border-white/5">
+              <div className="flex flex-wrap gap-3 items-center justify-between pb-3 border-b border-white/5">
                 <div className="flex items-center space-x-2">
                   <div className="p-2 bg-slate-900 rounded border border-white/10 group-hover:border-cyan-500/30 transition-colors">
                     {project.icon}
                   </div>
-                  <span className="font-bold text-sm text-white group-hover:text-cyan-400 transition-colors">
+                  <h2 className="font-bold text-sm text-white group-hover:text-cyan-400 transition-colors">
                     {project.title}
-                  </span>
+                  </h2>
                 </div>
                 <span className="font-mono text-[9px] text-cyan-400 uppercase bg-cyan-950/30 border border-cyan-500/20 px-2 py-0.5 rounded">
                   {project.category}
@@ -90,9 +90,9 @@ export default function Portfolio({ page_content_json }: { page_content_json: Pi
               <div className="p-4 rounded-lg bg-emerald-950/10 border border-emerald-500/25 flex items-start space-x-2 text-left">
                 <TrendingUp className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider">
-                    Operational Impact:
-                  </h4>
+                  <h3 className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider">
+                    Technical Outcome:
+                  </h3>
                   <p className="text-xs text-emerald-300 leading-relaxed font-medium">
                     {project.results}
                   </p>
@@ -101,9 +101,9 @@ export default function Portfolio({ page_content_json }: { page_content_json: Pi
 
               {/* Technologies Badges */}
               <div className="pt-2">
-                <h4 className="text-[10px] font-mono font-semibold text-slate-500 uppercase tracking-wider mb-2">
+                <h3 className="text-[10px] font-mono font-semibold text-slate-500 uppercase tracking-wider mb-2">
                   Technologies Deployed
-                </h4>
+                </h3>
                 <div className="flex flex-wrap gap-1.5">
                   {project.technologies.map((tech) => (
                     <span
@@ -120,13 +120,13 @@ export default function Portfolio({ page_content_json }: { page_content_json: Pi
 
             <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-between">
               <span className="text-[9px] font-mono text-slate-500">
-                DIAGNOSTIC: SUCCESSFUL_BUILD
+                ENGINEERING EXAMPLE
               </span>
               <Link
                 href={project.caseStudyLink}
                 className="text-xs font-semibold text-cyan-400 hover:text-cyan-300 flex items-center space-x-1"
               >
-                <span>View Case Study</span>
+                <span>Explore Example</span>
                 <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>

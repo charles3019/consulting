@@ -169,6 +169,11 @@ export default async function AdminLeadsPage({
                     {item.company || "Independent"} • {item.email}
                     {item.phone ? ` • ${item.phone}` : ""}
                   </p>
+                  <dl className="mt-3 space-y-1 text-sm text-slate-300">
+                    <div><dt className="inline font-semibold">Service: </dt><dd className="inline">{item.service || "Not specified"}</dd></div>
+                    <div><dt className="inline font-semibold">Location: </dt><dd className="inline">{item.location || "Not specified"}</dd></div>
+                    <div><dt className="inline font-semibold">Preferred contact: </dt><dd className="inline">{item.preferredContact || "No preference"}</dd></div>
+                  </dl>
                   <p className="mt-3 text-sm text-slate-300">{item.details}</p>
                 </div>
 

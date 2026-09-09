@@ -23,8 +23,9 @@ function loadDatabase(data, { failWrite = false, env = {}, mysql = {} } = {}) {
     return exports;
   }
   const defaults = load('../src/lib/contentDefaults.ts', {});
+  const activities = {};
   const db = load('../src/lib/db.ts', {
-    'mysql2/promise': mysql, path, './contentDefaults': defaults,
+    'mysql2/promise': mysql, path, './contentDefaults': defaults, './activities': activities,
     fs: {
       existsSync: () => true,
       mkdirSync: () => {},
@@ -115,4 +116,61 @@ test('canonical content overrides legacy content and saves survive subsequent re
   assert.equal((await db.getPageContent('home')).hero_title, 'Current');
   await db.savePageContent('home', { hero_title: 'Updated' });
   assert.equal((await db.listPageContent()).find(page => page.page_key === 'home').hero_title, 'Updated');
+});
+
+test('activity records can be created, updated and deleted in fallback storage', async () => {
+  const { db } = loadDatabase({});
+  const input = {
+    title: 'Prepare launch', project: 'Website', owner: 'Alex',
+    start_date: '2026-09-10', due_date: '2026-09-14', status: 'Planned',
+    priority: 'High', progress: 10, description: 'Release checklist',
+  };
+  await db.addActivity(input);
+  let records = await db.getActivities();
+  assert.equal(records.length, 1);
+  assert.equal(records[0].title, input.title);
+  assert.equal(await db.updateActivity(records[0].id, { ...input, status: 'In Progress', progress: 60 }), true);
+  records = await db.getActivities();
+  assert.equal(records[0].progress, 60);
+  assert.equal(records[0].status, 'In Progress');
+  assert.equal(await db.deleteActivity(records[0].id), true);
+  assert.equal((await db.getActivities()).length, 0);
+  assert.equal(await db.deleteActivity(999), false);
+});
+
+test('legacy seed copy upgrades without overwriting CMS edits or stored records', async () => {
+  const original = { page_content: { home: { hero_title: 'Technology that moves your business forward.', body_text: 'Our custom business introduction.' } }, contacts: [{ id: 1, details: 'Existing record' }] };
+  const { db, readStored } = loadDatabase(original);
+  const page = await db.getPageContent('home');
+  assert.equal(page.hero_title, 'Reliable IT Solutions for Stronger Businesses');
+  assert.equal(page.body_text, 'Our custom business introduction.');
+  assert.deepEqual(readStored(), original);
+});
+
+test('optional contact fields persist alongside older fallback records', async () => {
+  const old = { id: 1, name: 'Existing', details: 'Existing enquiry' };
+  const { db } = loadDatabase({ contacts: [old] });
+  await db.addContact({ name: 'Test', email: 'test@example.com', company: '', phone: '', details: 'New enquiry', service: 'IT Support', location: 'Test location', preferredContact: 'Email' });
+  const records = await db.getContacts();
+  assert.equal(records.length, 2);
+  assert.equal(records[0].service, 'IT Support');
+  assert.equal(records[0].location, 'Test location');
+  assert.equal(records[0].preferredContact, 'Email');
+  assert.equal(records[1].details, old.details);
+});
+
+test('MySQL migration adds only missing nullable lead columns and keeps existing data', async () => {
+  const queries = [];
+  const connection = { release() {}, async query(sql) {
+    queries.push(sql);
+    if (sql === 'SHOW COLUMNS FROM contacts') return [[{ Field: 'service' }]];
+    return [[]];
+  } };
+  const mysql = { createPool: () => ({ getConnection: async () => connection, end: async () => {} }) };
+  const { db } = loadDatabase({}, { env: { MYSQL_HOST: 'test', MYSQL_USER: 'test', MYSQL_DATABASE: 'test', NODE_ENV: 'production' }, mysql });
+  assert.equal(await db.getDbStatus(), 'MYSQL LIVE');
+  const alterations = queries.filter(sql => sql.startsWith('ALTER TABLE'));
+  assert.equal(alterations.length, 2);
+  assert.ok(alterations.every(sql => /ADD COLUMN (location|preferredContact) VARCHAR\(150\) NULL/.test(sql)));
+  assert.ok(!queries.some(sql => /DROP |TRUNCATE |DELETE FROM/.test(sql)));
 });

@@ -24,7 +24,7 @@ const resourcesData: Resource[] = [
     title: "Ammayu Waktole Resume / CV",
     type: "PDF",
     size: "180 KB",
-    desc: "Comprehensive curriculum vitae detailing professional systems engineering, cloud architecture certifications, and client case study list.",
+    desc: "Comprehensive curriculum vitae detailing professional systems engineering, cloud architecture certifications, and engineering examples.",
     icon: <FileText className="w-6 h-6 text-cyan-400" />
   },
   {
@@ -139,7 +139,7 @@ export default function Resources() {
             <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
               <span className="text-[9px] font-mono text-slate-500 flex items-center space-x-1">
                 <CheckCircle className="w-3 h-3 text-emerald-400" />
-                <span>SHA-256 Verified</span>
+                <span>RESOURCE PREVIEW</span>
               </span>
               <button
                 disabled

@@ -9,7 +9,7 @@ export default function LogoMark({ compact = false }: LogoMarkProps) {
   return (
     <Image
       src="/connectforge-logo.png"
-      alt="ConnectForge Technologies Ltd"
+      alt="ConnectForge IT Services"
       width={208}
       height={160}
       sizes={compact ? "128px" : "(min-width: 640px) 208px, 160px"}

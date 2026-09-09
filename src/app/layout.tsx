@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import MotionProvider from "@/components/MotionProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { SITE_URL } from "@/lib/seo";
@@ -20,14 +21,14 @@ export const viewport: Viewport = { themeColor: "#062452" };
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   verification: { google: process.env.GOOGLE_SITE_VERIFICATION || undefined },
-  title: "ConnectForge Technologies Ltd | Networks, Web, Automation & Apps",
+  title: "ConnectForge IT Services | IT Support, Networks, Websites & CCTV",
   description:
-    "ConnectForge Technologies Ltd helps organisations build secure networks, modern websites, business automations, and custom applications.",
+    "ConnectForge IT Services helps organisations build secure networks, modern websites, applications, structured cabling, CCTV, IT support and field engineering.",
   keywords: [
-    "ConnectForge Technologies Ltd",
+    "ConnectForge IT Services",
     "Network Engineering",
     "Web Development",
-    "Automation Consultant",
+    "Network Installations", "CCTV Installation & Surveillance", "IT Support", "Field Engineering Services",
     "App Development",
     "Charles Agyemang",
     "Ammayu Waktole",
@@ -36,14 +37,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_GB",
-    siteName: "ConnectForge Technologies Ltd",
-    title: "ConnectForge Technologies Ltd | Technology built for growth",
+    siteName: "ConnectForge IT Services",
+    title: "ConnectForge IT Services | Technology built for growth",
     description:
       "Secure networks, modern websites, intelligent automation, and custom apps for ambitious organisations.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ConnectForge Technologies Ltd",
+    title: "ConnectForge IT Services",
     description:
       "Networks, web, automation, and apps—connected into one dependable technology partner.",
   },
@@ -60,11 +61,13 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-brand-bg text-foreground overflow-x-hidden selection:bg-cyan-500/30 selection:text-cyan-200">
+        <MotionProvider>
         <Navbar />
-        <main className="flex-grow flex flex-col relative z-10 w-full">
+        <main className="flex-grow flex flex-col relative z-10 w-full overflow-x-clip">
           {children}
         </main>
         <Footer />
+        </MotionProvider>
       </body>
     </html>
   );
