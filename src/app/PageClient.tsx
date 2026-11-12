@@ -5,12 +5,14 @@ import type { PageContent } from "@/lib/contentDefaults";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { ArrowRight, Calendar, Sparkles } from "lucide-react";
+import { ArrowRight, Calendar, Phone, Sparkles } from "lucide-react";
 import InteractiveNetwork from "@/components/InteractiveNetwork";
 import ServiceCards from "@/components/ServiceCards";
 import { services, PRICING_DISCLAIMER } from "@/lib/services";
 import LogoMark from "@/components/LogoMark";
 import SocialLinks from "@/components/SocialLinks";
+import FaqSection from "@/components/FaqSection";
+import { BUSINESS } from "@/lib/business";
 
 export default function Home({
   page_content_json,
@@ -61,7 +63,7 @@ export default function Home({
                 <span className="px-3 py-1 text-xs font-mono font-semibold tracking-wider text-cyan-400 bg-cyan-950/40 border border-cyan-500/20 rounded-full">
                   {page_content_json.page_content_home.home.tagline}
                 </span>
-                <h1 className="text-4xl sm:text-6xl font-extrabold tracking-[-0.04em] text-white leading-[1.03] text-balance">
+                <h1 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.04em] text-white leading-[1.03] text-balance">
                   {pageContent.hero_title}
                 </h1>
                 <p className="text-sm sm:text-base text-slate-400 font-mono font-semibold">
@@ -90,6 +92,13 @@ export default function Home({
                 <Calendar className="w-4 h-4 text-cyan-400" />
                 <span>Explore Our Services</span>
               </Link>
+              <a
+                href={BUSINESS.phoneHref}
+                className="px-6 py-3 rounded-lg border border-slate-700 bg-slate-900/60 hover:border-cyan-500/50 hover:bg-cyan-950/20 text-white font-semibold text-sm text-center tracking-wider transition-all flex items-center justify-center space-x-2"
+              >
+                <Phone aria-hidden="true" className="w-4 h-4 text-cyan-400" />
+                <span>Call {BUSINESS.phoneDisplay}</span>
+              </a>
             </div>
           </div>
 
@@ -137,7 +146,7 @@ export default function Home({
               </div>
 
               <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-slate-500">
-                <span>UK-BASED • UK-WIDE SUPPORT</span>
+                <span>CHESTERFIELD • SHEFFIELD • UK-WIDE</span>
                 <span>LET&apos;S CONNECT</span>
               </div>
             </div>
@@ -153,7 +162,8 @@ export default function Home({
           </h2>
           <p className="text-slate-300">
             Seven connected services for small businesses and growing
-            organisations across the UK.
+            organisations in Chesterfield, Sheffield, Yorkshire and the East
+            Midlands, with remote support across the UK.
           </p>
         </div>
         <ServiceCards />
@@ -246,7 +256,8 @@ export default function Home({
           ))}
         </div>
       </section>
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+      <FaqSection />
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="glass-panel rounded-2xl p-8 sm:p-12 border border-cyan-500/30 space-y-6">
           <h2 className="text-3xl font-bold text-white">
             Tell us what you need.
@@ -255,12 +266,21 @@ export default function Home({
             Planning a technology project or need technical support? We will
             help you find the right solution, with a free, no-obligation quote.
           </p>
-          <Link
-            href="/contact"
-            className="inline-flex rounded-lg bg-cyan-500 px-6 py-3 font-bold text-black hover:bg-cyan-400"
-          >
-            Get a Free Quote
-          </Link>
+          <div className="flex flex-wrap items-center gap-4">
+            <Link
+              href="/contact"
+              className="inline-flex rounded-lg bg-cyan-500 px-6 py-3 font-bold text-black hover:bg-cyan-400"
+            >
+              Get a Free Quote
+            </Link>
+            <a
+              href={BUSINESS.phoneHref}
+              className="inline-flex items-center gap-2 rounded-lg border border-cyan-500/50 px-6 py-3 font-semibold text-cyan-300 hover:bg-cyan-950/30"
+            >
+              <Phone aria-hidden="true" className="w-4 h-4" />
+              Call {BUSINESS.phoneDisplay}
+            </a>
+          </div>
         </div>
       </section>
       {/* SOCIAL AWARENESS & COMMUNITY */}

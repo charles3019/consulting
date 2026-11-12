@@ -1,8 +1,10 @@
 import Link from "next/link";
 import LogoMark from "@/components/LogoMark";
+import { landingPages } from "@/lib/landingPages";
 import SocialLinks from "@/components/SocialLinks";
 import { services } from "@/lib/services";
 import { BRAND_NAME } from "@/lib/seo";
+import { BUSINESS } from "@/lib/business";
 export default function Footer() {
   return (
     <footer className="w-full bg-slate-950/80 border-t border-white/5 mt-auto">
@@ -30,12 +32,26 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              {Object.values(landingPages).map((page) => (
+                <li key={page.path}>
+                  <Link className="hover:text-cyan-300" href={page.path}>
+                    {page.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="space-y-4">
             <h2 className="font-semibold text-white">Contact Our Team</h2>
+            <a
+              href={BUSINESS.phoneHref}
+              className="block text-sm font-semibold text-cyan-300 hover:text-cyan-200"
+            >
+              Call {BUSINESS.phoneDisplay}
+            </a>
+            <p className="text-sm text-slate-400">{BUSINESS.hours}</p>
             <p className="text-sm text-slate-400">
-              Mon-Fri, 09:00-18:00 UK time
+              On-site in {BUSINESS.areas}. {BUSINESS.remoteNote}
             </p>
             <p className="text-sm text-slate-400">
               Submit an enquiry at any time. Our team normally responds within

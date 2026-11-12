@@ -5,7 +5,8 @@ import SocialLinks from "@/components/SocialLinks";
 import { services } from "@/lib/services";
 import React, { useState } from "react";
 import { submitContactInquiry } from "@/app/actions/public";
-import { Mail, Clock, Send, CheckCircle, Terminal } from "lucide-react";
+import { BUSINESS } from "@/lib/business";
+import { Mail, Clock, Send, CheckCircle, Terminal, Phone } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -340,10 +341,19 @@ export default function Contact() {
               Contact Information
             </h2>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Use our enquiry form or the existing contact profiles below.
+              Use our enquiry form, call us, or message us on WhatsApp.
             </p>
 
             <div className="space-y-3 pt-2">
+              <a
+                href={BUSINESS.phoneHref}
+                className="flex items-center space-x-3 text-xs text-slate-300 hover:text-cyan-400 transition-colors"
+              >
+                <div className="p-2 rounded bg-slate-900 border border-white/5">
+                  <Phone className="w-4 h-4 text-cyan-400" />
+                </div>
+                <span>Call {BUSINESS.phoneDisplay}</span>
+              </a>
               <a
                 href="#contact-form"
                 className="flex items-center space-x-3 text-xs text-slate-300 hover:text-cyan-400 transition-colors"
@@ -366,8 +376,11 @@ export default function Contact() {
 
             <div className="space-y-2 text-xs text-slate-300 leading-relaxed">
               <p>
-                Contact us for websites, applications, networks, installations,
-                CCTV, IT support and on-site engineering.
+                Contact us for CCTV, network cabling, IT support, websites,
+                applications and on-site engineering.
+              </p>
+              <p>
+                On-site in {BUSINESS.areas}. {BUSINESS.remoteNote}
               </p>
               <div className="flex items-center space-x-2 pt-2 text-slate-400 font-mono text-[10px]">
                 <Clock className="w-4 h-4 text-cyan-400" />

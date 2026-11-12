@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import LogoMark from "@/components/LogoMark";
+import { BUSINESS } from "@/lib/business";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -57,7 +58,14 @@ export default function Navbar() {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden lg:flex items-center">
+          <div className="hidden lg:flex items-center gap-4">
+            <a
+              href={BUSINESS.phoneHref}
+              className="hidden xl:flex items-center gap-2 text-sm font-semibold text-slate-200 hover:text-cyan-300 transition-colors"
+            >
+              <Phone aria-hidden="true" className="h-4 w-4 text-cyan-400" />
+              {BUSINESS.phoneDisplay}
+            </a>
             <Link
               href="/contact"
               className="relative px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-lg border border-cyan-500/50 text-cyan-400 bg-cyan-950/20 hover:bg-cyan-500 hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(6,182,212,0.15)] hover:shadow-[0_0_20px_rgba(6,182,212,0.4)]"
@@ -121,10 +129,17 @@ export default function Navbar() {
                   </Link>
                 );
               })}
+              <a
+                href={BUSINESS.phoneHref}
+                onClick={() => setIsOpen(false)}
+                className="block text-center mt-4 mx-3 px-4 py-2.5 text-sm font-semibold rounded-lg border border-cyan-500/50 text-cyan-300 hover:bg-cyan-950/30 transition-colors"
+              >
+                Call {BUSINESS.phoneDisplay}
+              </a>
               <Link
                 href="/contact"
                 onClick={() => setIsOpen(false)}
-                className="block text-center mt-4 mx-3 px-4 py-2.5 text-sm font-semibold uppercase tracking-wider rounded-lg bg-cyan-500 text-black hover:bg-cyan-400 transition-colors shadow-[0_0_15px_rgba(6,182,212,0.2)]"
+                className="block text-center mt-2 mx-3 px-4 py-2.5 text-sm font-semibold uppercase tracking-wider rounded-lg bg-cyan-500 text-black hover:bg-cyan-400 transition-colors shadow-[0_0_15px_rgba(6,182,212,0.2)]"
               >
                 Get a Free Quote
               </Link>
