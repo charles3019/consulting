@@ -2,22 +2,22 @@
   "page_content_home": {
     "home": {
       "page_key": "home",
-      "title": "ConnectForge IT Services | IT Support, Networks, Websites & CCTV",
-      "meta_description": "ConnectForge IT Services provides website development, applications, network engineering, structured cabling, CCTV installation, IT support and field engineering services across the UK.",
+      "title": "IT Support, Networks & CCTV in Chesterfield | ConnectForge",
+      "meta_description": "Business IT support, network cabling and CCTV installation across Chesterfield, Sheffield and the East Midlands. Clear starting prices. Call 07950 410482.",
       "keywords": "Website Solutions, Application Development, Network Engineering, Network Installations, CCTV Installation & Surveillance, IT Support, Field Engineering Services",
-      "hero_title": "Reliable IT Solutions for Stronger Businesses",
-      "hero_subtitle": "Websites • Applications • Networks • Installations • CCTV • IT Support • Field Engineering",
-      "body_text": "ConnectForge IT Services helps businesses build reliable digital and physical technology infrastructure. From websites and applications to business networks, CCTV, IT support and on-site engineering, we provide practical technology solutions from one trusted team.",
+      "hero_title": "IT support, networks and CCTV for businesses in Chesterfield, Sheffield and across Yorkshire and the East Midlands",
+      "hero_subtitle": "CCTV • Network Cabling • IT Support • Websites • Applications • Field Engineering",
+      "body_text": "Installations and IT support plans from £49 a month. Tell us what you need and get a clear quote within one working day. We install and support business networks, cabling and CCTV, provide remote and on-site IT support, and build websites and business applications.",
       "tagline": "Connect. Build. Secure. Grow."
     },
     "services": {
       "page_key": "services",
-      "title": "IT Services | Networks, Websites, CCTV & Support | ConnectForge",
-      "meta_description": "Explore websites, applications, network engineering, structured cabling, CCTV, IT support and field engineering for UK businesses.",
+      "title": "CCTV, Network Cabling & IT Support Services | ConnectForge",
+      "meta_description": "CCTV installation, network cabling, IT support, websites and apps for businesses in Chesterfield, Sheffield and the East Midlands. See starting prices.",
       "keywords": "Website Solutions, Application Development, Network Engineering, Network Installations, CCTV Installation & Surveillance, IT Support, Field Engineering Services",
       "hero_title": "Practical IT services. One trusted team.",
       "hero_subtitle": "Our Services",
-      "body_text": "We help growing organisations connect their digital technology and physical IT infrastructure. Explore our seven core services and request a free, no-obligation quote tailored to your requirements."
+      "body_text": "We help small businesses and growing organisations with CCTV, network cabling, IT support, websites and applications. Explore our seven core services and request a free, no-obligation quote tailored to your requirements."
     },
     "skills": {
       "page_key": "skills",
@@ -43,6 +43,22 @@
     ],
     "rotatingSkills": [
       {
+        "text": "CCTV Installation & Surveillance",
+        "desc": "CCTV site surveys, IP and analogue camera installation, NVR/DVR configuration, remote viewing and surveillance system maintenance."
+      },
+      {
+        "text": "Network Installations",
+        "desc": "Structured Cat5e, Cat6 and Cat6a cabling, network cabinets, patch panels, data points, switches and office network infrastructure."
+      },
+      {
+        "text": "IT Support",
+        "desc": "Remote and onsite IT support, Windows support, Microsoft 365 assistance, hardware/software troubleshooting, device configuration and technical support."
+      },
+      {
+        "text": "Network Engineering",
+        "desc": "Business network design, LAN/WAN, Wi-Fi, VLANs, VPNs, routers, switches, firewalls, troubleshooting and optimisation."
+      },
+      {
         "text": "Website Solutions",
         "desc": "Modern responsive business websites, e-commerce sites, CMS solutions, website maintenance, SEO and performance optimisation."
       },
@@ -51,28 +67,44 @@
         "desc": "Custom web applications, mobile applications, business systems, APIs, databases and workflow automation."
       },
       {
-        "text": "Network Engineering",
-        "desc": "Business network design, LAN/WAN, Wi-Fi, VLANs, VPNs, routers, switches, firewalls, troubleshooting and optimisation."
-      },
-      {
-        "text": "Network Installations",
-        "desc": "Structured Cat5e, Cat6 and Cat6a cabling, network cabinets, patch panels, data points, switches and office network infrastructure."
-      },
-      {
-        "text": "CCTV Installation & Surveillance",
-        "desc": "CCTV site surveys, IP and analogue camera installation, NVR/DVR configuration, remote viewing and surveillance system maintenance."
-      },
-      {
-        "text": "IT Support",
-        "desc": "Remote and onsite IT support, Windows support, Microsoft 365 assistance, hardware/software troubleshooting, device configuration and technical support."
-      },
-      {
         "text": "Field Engineering Services",
         "desc": "On-site installations, hardware configuration, network equipment deployment, system integration, break/fix, troubleshooting and technical field support."
       }
     ]
   },
   "services_catalog": [
+    {
+      "id": 5,
+      "slug": "cctv",
+      "title": "CCTV Installation & Surveillance",
+      "desc": "CCTV site surveys, IP and analogue camera installation, NVR/DVR configuration, remote viewing and surveillance system maintenance.",
+      "price": "From £199 + equipment",
+      "icon": "Camera"
+    },
+    {
+      "id": 4,
+      "slug": "network-installations",
+      "title": "Network Installations",
+      "desc": "Structured Cat5e, Cat6 and Cat6a cabling, network cabinets, patch panels, data points, switches and office network infrastructure.",
+      "price": "From £199",
+      "icon": "Cable"
+    },
+    {
+      "id": 6,
+      "slug": "it-support",
+      "title": "IT Support",
+      "desc": "Remote and onsite IT support, Windows support, Microsoft 365 assistance, hardware/software troubleshooting, device configuration and technical support.",
+      "price": "From £49/month or £35/hour",
+      "icon": "Headphones"
+    },
+    {
+      "id": 3,
+      "slug": "network-engineering",
+      "title": "Network Engineering",
+      "desc": "Business network design, LAN/WAN, Wi-Fi, VLANs, VPNs, routers, switches, firewalls, troubleshooting and optimisation.",
+      "price": "From £149",
+      "icon": "Network"
+    },
     {
       "id": 1,
       "slug": "websites",
@@ -90,38 +122,6 @@
       "icon": "Cpu"
     },
     {
-      "id": 3,
-      "slug": "network-engineering",
-      "title": "Network Engineering",
-      "desc": "Business network design, LAN/WAN, Wi-Fi, VLANs, VPNs, routers, switches, firewalls, troubleshooting and optimisation.",
-      "price": "From £149",
-      "icon": "Network"
-    },
-    {
-      "id": 4,
-      "slug": "network-installations",
-      "title": "Network Installations",
-      "desc": "Structured Cat5e, Cat6 and Cat6a cabling, network cabinets, patch panels, data points, switches and office network infrastructure.",
-      "price": "From £199",
-      "icon": "Cable"
-    },
-    {
-      "id": 5,
-      "slug": "cctv",
-      "title": "CCTV Installation & Surveillance",
-      "desc": "CCTV site surveys, IP and analogue camera installation, NVR/DVR configuration, remote viewing and surveillance system maintenance.",
-      "price": "From £199 + equipment",
-      "icon": "Camera"
-    },
-    {
-      "id": 6,
-      "slug": "it-support",
-      "title": "IT Support",
-      "desc": "Remote and onsite IT support, Windows support, Microsoft 365 assistance, hardware/software troubleshooting, device configuration and technical support.",
-      "price": "From £49/month or £35/hour",
-      "icon": "Headphones"
-    },
-    {
       "id": 7,
       "slug": "field-engineering",
       "title": "Field Engineering Services",
@@ -132,23 +132,23 @@
   ],
   "valueProps": [
     {
-      "title": "One Technology Partner",
-      "desc": "Software, networks, infrastructure and support under one roof.",
+      "title": "Clear starting prices",
+      "desc": "Starting prices are published on this site, and you receive a tailored quotation before any work begins.",
       "icon": "Zap"
     },
     {
-      "title": "Practical Solutions",
-      "desc": "Technology designed around real business requirements rather than unnecessary complexity.",
+      "title": "Local and responsive",
+      "desc": "On-site in Chesterfield, Sheffield, Derbyshire, Yorkshire, Nottingham and the East Midlands, with remote support across the UK. We normally reply within one business day.",
       "icon": "Shield"
     },
     {
-      "title": "Flexible Support",
-      "desc": "Project work, on-site engineering and ongoing technical support.",
+      "title": "Network engineering background",
+      "desc": "Enterprise network delivery experience, including Cisco and Meraki equipment, applied to small business networks.",
       "icon": "DollarSign"
     },
     {
-      "title": "Built for Growth",
-      "desc": "Solutions designed to remain maintainable, secure and scalable as organisations grow.",
+      "title": "One technology partner",
+      "desc": "CCTV, networks, IT support, websites and applications from one team.",
       "icon": "TrendingUp"
     }
   ],
@@ -802,21 +802,21 @@
   "page_content": {
     "home": {
       "page_key": "home",
-      "title": "ConnectForge IT Services | IT Support, Networks, Websites & CCTV",
-      "meta_description": "ConnectForge IT Services provides website development, applications, network engineering, structured cabling, CCTV installation, IT support and field engineering services across the UK.",
+      "title": "IT Support, Networks & CCTV in Chesterfield | ConnectForge",
+      "meta_description": "Business IT support, network cabling and CCTV installation across Chesterfield, Sheffield and the East Midlands. Clear starting prices. Call 07950 410482.",
       "keywords": "Website Solutions, Application Development, Network Engineering, Network Installations, CCTV Installation & Surveillance, IT Support, Field Engineering Services",
-      "hero_title": "Reliable IT Solutions for Stronger Businesses",
-      "hero_subtitle": "Websites • Applications • Networks • Installations • CCTV • IT Support • Field Engineering",
-      "body_text": "ConnectForge IT Services helps businesses build reliable digital and physical technology infrastructure. From websites and applications to business networks, CCTV, IT support and on-site engineering, we provide practical technology solutions from one trusted team."
+      "hero_title": "IT support, networks and CCTV for businesses in Chesterfield, Sheffield and across Yorkshire and the East Midlands",
+      "hero_subtitle": "CCTV • Network Cabling • IT Support • Websites • Applications • Field Engineering",
+      "body_text": "Installations and IT support plans from £49 a month. Tell us what you need and get a clear quote within one working day. We install and support business networks, cabling and CCTV, provide remote and on-site IT support, and build websites and business applications."
     },
     "services": {
       "page_key": "services",
-      "title": "IT Services | Networks, Websites, CCTV & Support | ConnectForge",
-      "meta_description": "Explore websites, applications, network engineering, structured cabling, CCTV, IT support and field engineering for UK businesses.",
+      "title": "CCTV, Network Cabling & IT Support Services | ConnectForge",
+      "meta_description": "CCTV installation, network cabling, IT support, websites and apps for businesses in Chesterfield, Sheffield and the East Midlands. See starting prices.",
       "keywords": "Website Solutions, Application Development, Network Engineering, Network Installations, CCTV Installation & Surveillance, IT Support, Field Engineering Services",
       "hero_title": "Practical IT services. One trusted team.",
       "hero_subtitle": "Our Services",
-      "body_text": "We help growing organisations connect their digital technology and physical IT infrastructure. Explore our seven core services and request a free, no-obligation quote tailored to your requirements."
+      "body_text": "We help small businesses and growing organisations with CCTV, network cabling, IT support, websites and applications. Explore our seven core services and request a free, no-obligation quote tailored to your requirements."
     },
     "skills": {
       "page_key": "skills",

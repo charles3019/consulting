@@ -142,7 +142,7 @@ test('legacy seed copy upgrades without overwriting CMS edits or stored records'
   const original = { page_content: { home: { hero_title: 'Technology that moves your business forward.', body_text: 'Our custom business introduction.' } }, contacts: [{ id: 1, details: 'Existing record' }] };
   const { db, readStored } = loadDatabase(original);
   const page = await db.getPageContent('home');
-  assert.equal(page.hero_title, 'Reliable IT Solutions for Stronger Businesses');
+  assert.equal(page.hero_title, 'IT support, networks and CCTV for businesses in Chesterfield, Sheffield and across Yorkshire and the East Midlands');
   assert.equal(page.body_text, 'Our custom business introduction.');
   assert.deepEqual(readStored(), original);
 });
