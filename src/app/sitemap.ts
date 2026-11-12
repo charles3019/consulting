@@ -1,12 +1,14 @@
 import type { MetadataRoute } from "next";
 import { publicPages, SITE_URL } from "@/lib/seo";
 import { caseStudiesData } from "@/lib/caseStudies";
+import { landingPages } from "@/lib/landingPages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     ...Object.values(publicPages)
       .filter((page) => !("index" in page) || page.index)
       .map((page) => page.path),
+    ...Object.values(landingPages).map((page) => page.path),
     ...Object.keys(caseStudiesData).map((key) => `/case-studies?project=${key}`),
   ];
   // Only publish last-modified dates when tracked by the CMS.
