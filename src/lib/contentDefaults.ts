@@ -11,28 +11,29 @@ export interface PageContent {
 export const staticDefaults: Record<string, PageContent> = {
   home: {
     page_key: "home",
-    title: "ConnectForge IT Services | IT Support, Networks, Websites & CCTV",
+    title: "IT Support, Networks & CCTV in Chesterfield | ConnectForge",
     meta_description:
-      "ConnectForge IT Services provides website development, applications, network engineering, structured cabling, CCTV installation, IT support and field engineering services across the UK.",
+      "Business IT support, network cabling and CCTV installation across Chesterfield, Sheffield and the East Midlands. Clear starting prices. Call 07950 410482.",
     keywords:
       "Website Solutions, Application Development, Network Engineering, Network Installations, CCTV Installation & Surveillance, IT Support, Field Engineering Services",
-    hero_title: "Reliable IT Solutions for Stronger Businesses",
+    hero_title:
+      "IT support, networks and CCTV for businesses in Chesterfield, Sheffield and across Yorkshire and the East Midlands",
     hero_subtitle:
-      "Websites • Applications • Networks • Installations • CCTV • IT Support • Field Engineering",
+      "CCTV • Network Cabling • IT Support • Websites • Applications • Field Engineering",
     body_text:
-      "ConnectForge IT Services helps businesses build reliable digital and physical technology infrastructure. From websites and applications to business networks, CCTV, IT support and on-site engineering, we provide practical technology solutions from one trusted team.",
+      "Installations and IT support plans from £49 a month. Tell us what you need and get a clear quote within one working day. We install and support business networks, cabling and CCTV, provide remote and on-site IT support, and build websites and business applications.",
   },
   services: {
     page_key: "services",
-    title: "IT Services | Networks, Websites, CCTV & Support | ConnectForge",
+    title: "CCTV, Network Cabling & IT Support Services | ConnectForge",
     meta_description:
-      "Explore websites, applications, network engineering, structured cabling, CCTV, IT support and field engineering for UK businesses.",
+      "CCTV installation, network cabling, IT support, websites and apps for businesses in Chesterfield, Sheffield and the East Midlands. See starting prices.",
     keywords:
       "Website Solutions, Application Development, Network Engineering, Network Installations, CCTV Installation & Surveillance, IT Support, Field Engineering Services",
     hero_title: "Practical IT services. One trusted team.",
     hero_subtitle: "Our Services",
     body_text:
-      "We help growing organisations connect their digital technology and physical IT infrastructure. Explore our seven core services and request a free, no-obligation quote tailored to your requirements.",
+      "We help small businesses and growing organisations with CCTV, network cabling, IT support, websites and applications. Explore our seven core services and request a free, no-obligation quote tailored to your requirements.",
   },
   skills: {
     page_key: "skills",
@@ -82,23 +83,38 @@ const legacyDefaultValues: Record<
   Partial<Record<keyof PageContent, string[]>>
 > = {
   home: {
-    title: ["ConnectForge Technologies Ltd | Networks, Web, Automation & Apps"],
+    title: [
+      "ConnectForge Technologies Ltd | Networks, Web, Automation & Apps",
+      "ConnectForge IT Services | IT Support, Networks, Websites & CCTV",
+    ],
     meta_description: [
       "ConnectForge Technologies Ltd delivers secure networks, modern websites, business automation, and custom application development.",
+      "ConnectForge IT Services provides website development, applications, network engineering, structured cabling, CCTV installation, IT support and field engineering services across the UK.",
     ],
     keywords: [
       "ConnectForge Technologies Ltd, Network Engineer, Web Developer, Automation Consultant, App Developer, Charles Agyemang, Ammayu Waktole",
     ],
-    hero_title: ["Technology that moves your business forward."],
-    hero_subtitle: ["Connected technology for growing businesses"],
+    hero_title: [
+      "Technology that moves your business forward.",
+      "Reliable IT Solutions for Stronger Businesses",
+    ],
+    hero_subtitle: [
+      "Connected technology for growing businesses",
+      "Websites • Applications • Networks • Installations • CCTV • IT Support • Field Engineering",
+    ],
     body_text: [
       "We design secure networks, build high-performing websites and applications, and automate the repetitive work that slows teams down\u2014from strategy and architecture through delivery and ongoing support.",
+      "ConnectForge IT Services helps businesses build reliable digital and physical technology infrastructure. From websites and applications to business networks, CCTV, IT support and on-site engineering, we provide practical technology solutions from one trusted team.",
     ],
   },
   services: {
-    title: ["Consulting Services | Cloud & Infrastructure Audits"],
+    title: [
+      "Consulting Services | Cloud & Infrastructure Audits",
+      "IT Services | Networks, Websites, CCTV & Support | ConnectForge",
+    ],
     meta_description: [
       "Explore professional consulting services spanning Linux administration, DevOps, AWS/Azure hybrid networks, and custom Power Platform applications.",
+      "Explore websites, applications, network engineering, structured cabling, CCTV, IT support and field engineering for UK businesses.",
     ],
     keywords: [
       "DevOps retainer, cloud cost audit, Linux web cluster, custom Power Apps developer",
@@ -107,6 +123,7 @@ const legacyDefaultValues: Record<
     hero_subtitle: ["Technology Services"],
     body_text: [
       "We provide focused, practical services that solve real technology bottlenecks. Engage us for a defined project, an expert review, or ongoing technical support.",
+      "We help growing organisations connect their digital technology and physical IT infrastructure. Explore our seven core services and request a free, no-obligation quote tailored to your requirements.",
     ],
   },
   about: {

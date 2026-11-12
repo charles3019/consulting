@@ -21,9 +21,9 @@ export const viewport: Viewport = { themeColor: "#062452" };
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   verification: { google: process.env.GOOGLE_SITE_VERIFICATION || undefined },
-  title: "ConnectForge IT Services | IT Support, Networks, Websites & CCTV",
+  title: "IT Support, Networks & CCTV in Chesterfield | ConnectForge",
   description:
-    "ConnectForge IT Services helps organisations build secure networks, modern websites, applications, structured cabling, CCTV, IT support and field engineering.",
+    "Business IT support, network cabling and CCTV installation across Chesterfield, Sheffield and the East Midlands, with remote support across the UK.",
   keywords: [
     "ConnectForge IT Services",
     "Network Engineering",

@@ -7,9 +7,9 @@ export const SITE_NAME = BRAND_NAME;
 export const publicPages = {
   home: {
     path: "/",
-    title: "ConnectForge IT Services | IT Support, Networks, Websites & CCTV",
+    title: "IT Support, Networks & CCTV in Chesterfield | ConnectForge",
     description:
-      "ConnectForge IT Services provides website development, applications, network engineering, structured cabling, CCTV installation, IT support and field engineering services across the UK.",
+      "Business IT support, network cabling and CCTV installation across Chesterfield, Sheffield and the East Midlands. Clear starting prices. Call 07950 410482.",
   },
   about: {
     path: "/about",
@@ -19,9 +19,9 @@ export const publicPages = {
   },
   services: {
     path: "/services",
-    title: "IT Services | Networks, Websites, CCTV & Support | ConnectForge",
+    title: "CCTV, Network Cabling & IT Support Services | ConnectForge",
     description:
-      "Explore websites, applications, network engineering, structured cabling, CCTV, IT support and field engineering for UK businesses.",
+      "CCTV installation, network cabling, IT support, websites and apps for businesses in Chesterfield, Sheffield and the East Midlands. See starting prices.",
   },
   skills: {
     path: "/skills",
@@ -46,7 +46,7 @@ export const publicPages = {
     path: "/contact",
     title: "Get a Free IT Quote | ConnectForge IT Services",
     description:
-      "Tell our UK technology team about your website, application, network, installation, CCTV, IT support or field engineering requirements.",
+      "Tell us what you need and get a clear quote within one working day. Mon–Fri, 09:00–18:00. Call 07950 410482 or send an enquiry.",
   },
   "book-consultation": {
     path: "/book-consultation",
